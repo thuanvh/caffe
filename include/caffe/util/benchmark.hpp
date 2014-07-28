@@ -9,7 +9,7 @@
 
 namespace caffe {
 
-class Timer {
+class CAFFE_DLL_EXPORT Timer {
  public:
   Timer();
   virtual ~Timer();

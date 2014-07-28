@@ -33,7 +33,6 @@ private:\
   extern template class CAFFE_DLL_EXPORT classname<float>; \
   extern template class CAFFE_DLL_EXPORT classname<double>
 
-//EXTERN_INSTANCE_CLASS(NeuronLayer);
 
 // Instantiate a class with float and double specifications.
 #define INSTANTIATE_CLASS(classname) \
@@ -96,6 +95,10 @@ using std::pair;
 using std::set;
 using std::string;
 using std::vector;
+
+// A global initialization function that you should call in your main function.
+// Currently it initializes google flags and google logging.
+void CAFFE_DLL_EXPORT GlobalInit(int* pargc, char*** pargv);
 
 // A singleton class to hold common caffe stuff, such as the handler that
 // caffe is going to use for cublas, curand, etc.

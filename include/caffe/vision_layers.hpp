@@ -55,7 +55,7 @@ class ConvolutionLayer : public Layer<Dtype> {
   int num_output_;
   int group_;
   Blob<Dtype> col_buffer_;
-  shared_ptr<Blob<Dtype> > bias_multiplier_;
+  Blob<Dtype> bias_multiplier_;
   bool bias_term_;
   int M_;
   int K_;
@@ -163,7 +163,7 @@ class InnerProductLayer : public Layer<Dtype> {
   int K_;
   int N_;
   bool bias_term_;
-  shared_ptr<Blob<Dtype> > bias_multiplier_;
+  Blob<Dtype> bias_multiplier_;
 
   DISABLE_COPY_AND_ASSIGN(InnerProductLayer);
 };
@@ -283,10 +283,11 @@ class PoolingLayer : public Layer<Dtype> {
   int pooled_height_;
   int pooled_width_;
   Blob<Dtype> rand_idx_;
-  shared_ptr<Blob<int> > max_idx_;
+  Blob<int> max_idx_;
 
   DISABLE_COPY_AND_ASSIGN(PoolingLayer);
 };
+
 }  // namespace caffe
 
 #endif  // CAFFE_VISION_LAYERS_HPP_

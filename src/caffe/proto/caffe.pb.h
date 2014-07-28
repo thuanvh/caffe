@@ -62,6 +62,8 @@ class LRNParameter;
 class MemoryDataParameter;
 class PoolingParameter;
 class PowerParameter;
+class ReLUParameter;
+class SliceParameter;
 class WindowDataParameter;
 class V0LayerParameter;
 
@@ -102,7 +104,7 @@ enum LayerParameter_LayerType {
   LayerParameter_LayerType_HINGE_LOSS = 28,
   LayerParameter_LayerType_IM2COL = 11,
   LayerParameter_LayerType_IMAGE_DATA = 12,
-  LayerParameter_LayerType_IMAGE_FEATURE_DATA = 33,
+  LayerParameter_LayerType_IMAGE_FEATURE_DATA = 34,
   LayerParameter_LayerType_INFOGAIN_LOSS = 13,
   LayerParameter_LayerType_INNER_PRODUCT = 14,
   LayerParameter_LayerType_LRN = 15,
@@ -116,6 +118,7 @@ enum LayerParameter_LayerType {
   LayerParameter_LayerType_SOFTMAX = 20,
   LayerParameter_LayerType_SOFTMAX_LOSS = 21,
   LayerParameter_LayerType_SPLIT = 22,
+  LayerParameter_LayerType_SLICE = 33,
   LayerParameter_LayerType_TANH = 23,
   LayerParameter_LayerType_WINDOW_DATA = 24,
   LayerParameter_LayerType_THRESHOLD = 31
@@ -1193,6 +1196,13 @@ class CAFFE_DLL_EXPORT SolverParameter : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 random_seed() const;
   inline void set_random_seed(::google::protobuf::int64 value);
 
+  // optional bool debug_info = 23 [default = false];
+  inline bool has_debug_info() const;
+  inline void clear_debug_info();
+  static const int kDebugInfoFieldNumber = 23;
+  inline bool debug_info() const;
+  inline void set_debug_info(bool value);
+
   // @@protoc_insertion_point(class_scope:caffe.SolverParameter)
  private:
   inline void set_has_train_net();
@@ -1233,6 +1243,8 @@ class CAFFE_DLL_EXPORT SolverParameter : public ::google::protobuf::Message {
   inline void clear_has_device_id();
   inline void set_has_random_seed();
   inline void clear_has_random_seed();
+  inline void set_has_debug_info();
+  inline void clear_has_debug_info();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1248,11 +1260,12 @@ class CAFFE_DLL_EXPORT SolverParameter : public ::google::protobuf::Message {
   ::std::string* lr_policy_;
   float gamma_;
   float power_;
-  bool test_compute_loss_;
-  bool snapshot_diff_;
   float momentum_;
   float weight_decay_;
   ::google::protobuf::int32 stepsize_;
+  bool test_compute_loss_;
+  bool snapshot_diff_;
+  bool debug_info_;
   ::std::string* snapshot_prefix_;
   ::google::protobuf::int32 snapshot_;
   int solver_mode_;
@@ -1260,7 +1273,7 @@ class CAFFE_DLL_EXPORT SolverParameter : public ::google::protobuf::Message {
   ::google::protobuf::int32 device_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(22 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(23 + 31) / 32];
 
   friend void CAFFE_DLL_EXPORT protobuf_AddDesc_caffe_2eproto();
   friend void protobuf_AssignDesc_caffe_2eproto();
@@ -1465,6 +1478,7 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   static const LayerType SOFTMAX = LayerParameter_LayerType_SOFTMAX;
   static const LayerType SOFTMAX_LOSS = LayerParameter_LayerType_SOFTMAX_LOSS;
   static const LayerType SPLIT = LayerParameter_LayerType_SPLIT;
+  static const LayerType SLICE = LayerParameter_LayerType_SLICE;
   static const LayerType TANH = LayerParameter_LayerType_TANH;
   static const LayerType WINDOW_DATA = LayerParameter_LayerType_WINDOW_DATA;
   static const LayerType THRESHOLD = LayerParameter_LayerType_THRESHOLD;
@@ -1727,10 +1741,10 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   inline ::caffe::ImageDataParameter* release_image_data_param();
   inline void set_allocated_image_data_param(::caffe::ImageDataParameter* image_data_param);
 
-  // optional .caffe.ImageFeatureDataParameter image_feature_data_param = 30;
+  // optional .caffe.ImageFeatureDataParameter image_feature_data_param = 32;
   inline bool has_image_feature_data_param() const;
   inline void clear_image_feature_data_param();
-  static const int kImageFeatureDataParamFieldNumber = 30;
+  static const int kImageFeatureDataParamFieldNumber = 32;
   inline const ::caffe::ImageFeatureDataParameter& image_feature_data_param() const;
   inline ::caffe::ImageFeatureDataParameter* mutable_image_feature_data_param();
   inline ::caffe::ImageFeatureDataParameter* release_image_feature_data_param();
@@ -1790,6 +1804,15 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   inline ::caffe::PowerParameter* release_power_param();
   inline void set_allocated_power_param(::caffe::PowerParameter* power_param);
 
+  // optional .caffe.ReLUParameter relu_param = 30;
+  inline bool has_relu_param() const;
+  inline void clear_relu_param();
+  static const int kReluParamFieldNumber = 30;
+  inline const ::caffe::ReLUParameter& relu_param() const;
+  inline ::caffe::ReLUParameter* mutable_relu_param();
+  inline ::caffe::ReLUParameter* release_relu_param();
+  inline void set_allocated_relu_param(::caffe::ReLUParameter* relu_param);
+
   // optional .caffe.WindowDataParameter window_data_param = 20;
   inline bool has_window_data_param() const;
   inline void clear_window_data_param();
@@ -1816,6 +1839,15 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   inline ::caffe::HingeLossParameter* mutable_hinge_loss_param();
   inline ::caffe::HingeLossParameter* release_hinge_loss_param();
   inline void set_allocated_hinge_loss_param(::caffe::HingeLossParameter* hinge_loss_param);
+
+  // optional .caffe.SliceParameter slice_param = 31;
+  inline bool has_slice_param() const;
+  inline void clear_slice_param();
+  static const int kSliceParamFieldNumber = 31;
+  inline const ::caffe::SliceParameter& slice_param() const;
+  inline ::caffe::SliceParameter* mutable_slice_param();
+  inline ::caffe::SliceParameter* release_slice_param();
+  inline void set_allocated_slice_param(::caffe::SliceParameter* slice_param);
 
   // optional .caffe.V0LayerParameter layer = 1;
   inline bool has_layer() const;
@@ -1868,12 +1900,16 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   inline void clear_has_pooling_param();
   inline void set_has_power_param();
   inline void clear_has_power_param();
+  inline void set_has_relu_param();
+  inline void clear_has_relu_param();
   inline void set_has_window_data_param();
   inline void clear_has_window_data_param();
   inline void set_has_threshold_param();
   inline void clear_has_threshold_param();
   inline void set_has_hinge_loss_param();
   inline void clear_has_hinge_loss_param();
+  inline void set_has_slice_param();
+  inline void clear_has_slice_param();
   inline void set_has_layer();
   inline void clear_has_layer();
 
@@ -1905,14 +1941,16 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   ::caffe::MemoryDataParameter* memory_data_param_;
   ::caffe::PoolingParameter* pooling_param_;
   ::caffe::PowerParameter* power_param_;
+  ::caffe::ReLUParameter* relu_param_;
   ::caffe::WindowDataParameter* window_data_param_;
   ::caffe::ThresholdParameter* threshold_param_;
   ::caffe::HingeLossParameter* hinge_loss_param_;
+  ::caffe::SliceParameter* slice_param_;
   ::caffe::V0LayerParameter* layer_;
   int type_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(31 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(33 + 31) / 32];
 
   friend void CAFFE_DLL_EXPORT protobuf_AddDesc_caffe_2eproto();
   friend void protobuf_AssignDesc_caffe_2eproto();
@@ -2066,17 +2104,27 @@ class CAFFE_DLL_EXPORT ArgMaxParameter : public ::google::protobuf::Message {
   inline bool out_max_val() const;
   inline void set_out_max_val(bool value);
 
+  // optional uint32 top_k = 2 [default = 1];
+  inline bool has_top_k() const;
+  inline void clear_top_k();
+  static const int kTopKFieldNumber = 2;
+  inline ::google::protobuf::uint32 top_k() const;
+  inline void set_top_k(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:caffe.ArgMaxParameter)
  private:
   inline void set_has_out_max_val();
   inline void clear_has_out_max_val();
+  inline void set_has_top_k();
+  inline void clear_has_top_k();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   bool out_max_val_;
+  ::google::protobuf::uint32 top_k_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void CAFFE_DLL_EXPORT protobuf_AddDesc_caffe_2eproto();
   friend void protobuf_AssignDesc_caffe_2eproto();
@@ -4265,6 +4313,183 @@ class CAFFE_DLL_EXPORT PowerParameter : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class CAFFE_DLL_EXPORT ReLUParameter : public ::google::protobuf::Message {
+ public:
+  ReLUParameter();
+  virtual ~ReLUParameter();
+
+  ReLUParameter(const ReLUParameter& from);
+
+  inline ReLUParameter& operator=(const ReLUParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ReLUParameter& default_instance();
+
+  void Swap(ReLUParameter* other);
+
+  // implements Message ----------------------------------------------
+
+  ReLUParameter* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ReLUParameter& from);
+  void MergeFrom(const ReLUParameter& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional float negative_slope = 1 [default = 0];
+  inline bool has_negative_slope() const;
+  inline void clear_negative_slope();
+  static const int kNegativeSlopeFieldNumber = 1;
+  inline float negative_slope() const;
+  inline void set_negative_slope(float value);
+
+  // @@protoc_insertion_point(class_scope:caffe.ReLUParameter)
+ private:
+  inline void set_has_negative_slope();
+  inline void clear_has_negative_slope();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  float negative_slope_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void CAFFE_DLL_EXPORT protobuf_AddDesc_caffe_2eproto();
+  friend void protobuf_AssignDesc_caffe_2eproto();
+  friend void protobuf_ShutdownFile_caffe_2eproto();
+
+  void InitAsDefaultInstance();
+  static ReLUParameter* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CAFFE_DLL_EXPORT SliceParameter : public ::google::protobuf::Message {
+ public:
+  SliceParameter();
+  virtual ~SliceParameter();
+
+  SliceParameter(const SliceParameter& from);
+
+  inline SliceParameter& operator=(const SliceParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SliceParameter& default_instance();
+
+  void Swap(SliceParameter* other);
+
+  // implements Message ----------------------------------------------
+
+  SliceParameter* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SliceParameter& from);
+  void MergeFrom(const SliceParameter& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 slice_dim = 1 [default = 1];
+  inline bool has_slice_dim() const;
+  inline void clear_slice_dim();
+  static const int kSliceDimFieldNumber = 1;
+  inline ::google::protobuf::uint32 slice_dim() const;
+  inline void set_slice_dim(::google::protobuf::uint32 value);
+
+  // repeated uint32 slice_point = 2;
+  inline int slice_point_size() const;
+  inline void clear_slice_point();
+  static const int kSlicePointFieldNumber = 2;
+  inline ::google::protobuf::uint32 slice_point(int index) const;
+  inline void set_slice_point(int index, ::google::protobuf::uint32 value);
+  inline void add_slice_point(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      slice_point() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_slice_point();
+
+  // @@protoc_insertion_point(class_scope:caffe.SliceParameter)
+ private:
+  inline void set_has_slice_dim();
+  inline void clear_has_slice_dim();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > slice_point_;
+  ::google::protobuf::uint32 slice_dim_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void CAFFE_DLL_EXPORT protobuf_AddDesc_caffe_2eproto();
+  friend void protobuf_AssignDesc_caffe_2eproto();
+  friend void protobuf_ShutdownFile_caffe_2eproto();
+
+  void InitAsDefaultInstance();
+  static SliceParameter* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class CAFFE_DLL_EXPORT WindowDataParameter : public ::google::protobuf::Message {
  public:
   WindowDataParameter();
@@ -6403,6 +6628,28 @@ inline void SolverParameter::set_random_seed(::google::protobuf::int64 value) {
   random_seed_ = value;
 }
 
+// optional bool debug_info = 23 [default = false];
+inline bool SolverParameter::has_debug_info() const {
+  return (_has_bits_[0] & 0x00400000u) != 0;
+}
+inline void SolverParameter::set_has_debug_info() {
+  _has_bits_[0] |= 0x00400000u;
+}
+inline void SolverParameter::clear_has_debug_info() {
+  _has_bits_[0] &= ~0x00400000u;
+}
+inline void SolverParameter::clear_debug_info() {
+  debug_info_ = false;
+  clear_has_debug_info();
+}
+inline bool SolverParameter::debug_info() const {
+  return debug_info_;
+}
+inline void SolverParameter::set_debug_info(bool value) {
+  set_has_debug_info();
+  debug_info_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // SolverState
@@ -7273,7 +7520,7 @@ inline void LayerParameter::set_allocated_image_data_param(::caffe::ImageDataPar
   }
 }
 
-// optional .caffe.ImageFeatureDataParameter image_feature_data_param = 30;
+// optional .caffe.ImageFeatureDataParameter image_feature_data_param = 32;
 inline bool LayerParameter::has_image_feature_data_param() const {
   return (_has_bits_[0] & 0x00100000u) != 0;
 }
@@ -7539,15 +7786,53 @@ inline void LayerParameter::set_allocated_power_param(::caffe::PowerParameter* p
   }
 }
 
-// optional .caffe.WindowDataParameter window_data_param = 20;
-inline bool LayerParameter::has_window_data_param() const {
+// optional .caffe.ReLUParameter relu_param = 30;
+inline bool LayerParameter::has_relu_param() const {
   return (_has_bits_[0] & 0x08000000u) != 0;
 }
-inline void LayerParameter::set_has_window_data_param() {
+inline void LayerParameter::set_has_relu_param() {
   _has_bits_[0] |= 0x08000000u;
 }
-inline void LayerParameter::clear_has_window_data_param() {
+inline void LayerParameter::clear_has_relu_param() {
   _has_bits_[0] &= ~0x08000000u;
+}
+inline void LayerParameter::clear_relu_param() {
+  if (relu_param_ != NULL) relu_param_->::caffe::ReLUParameter::Clear();
+  clear_has_relu_param();
+}
+inline const ::caffe::ReLUParameter& LayerParameter::relu_param() const {
+  return relu_param_ != NULL ? *relu_param_ : *default_instance_->relu_param_;
+}
+inline ::caffe::ReLUParameter* LayerParameter::mutable_relu_param() {
+  set_has_relu_param();
+  if (relu_param_ == NULL) relu_param_ = new ::caffe::ReLUParameter;
+  return relu_param_;
+}
+inline ::caffe::ReLUParameter* LayerParameter::release_relu_param() {
+  clear_has_relu_param();
+  ::caffe::ReLUParameter* temp = relu_param_;
+  relu_param_ = NULL;
+  return temp;
+}
+inline void LayerParameter::set_allocated_relu_param(::caffe::ReLUParameter* relu_param) {
+  delete relu_param_;
+  relu_param_ = relu_param;
+  if (relu_param) {
+    set_has_relu_param();
+  } else {
+    clear_has_relu_param();
+  }
+}
+
+// optional .caffe.WindowDataParameter window_data_param = 20;
+inline bool LayerParameter::has_window_data_param() const {
+  return (_has_bits_[0] & 0x10000000u) != 0;
+}
+inline void LayerParameter::set_has_window_data_param() {
+  _has_bits_[0] |= 0x10000000u;
+}
+inline void LayerParameter::clear_has_window_data_param() {
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline void LayerParameter::clear_window_data_param() {
   if (window_data_param_ != NULL) window_data_param_->::caffe::WindowDataParameter::Clear();
@@ -7579,13 +7864,13 @@ inline void LayerParameter::set_allocated_window_data_param(::caffe::WindowDataP
 
 // optional .caffe.ThresholdParameter threshold_param = 25;
 inline bool LayerParameter::has_threshold_param() const {
-  return (_has_bits_[0] & 0x10000000u) != 0;
+  return (_has_bits_[0] & 0x20000000u) != 0;
 }
 inline void LayerParameter::set_has_threshold_param() {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x20000000u;
 }
 inline void LayerParameter::clear_has_threshold_param() {
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline void LayerParameter::clear_threshold_param() {
   if (threshold_param_ != NULL) threshold_param_->::caffe::ThresholdParameter::Clear();
@@ -7617,13 +7902,13 @@ inline void LayerParameter::set_allocated_threshold_param(::caffe::ThresholdPara
 
 // optional .caffe.HingeLossParameter hinge_loss_param = 29;
 inline bool LayerParameter::has_hinge_loss_param() const {
-  return (_has_bits_[0] & 0x20000000u) != 0;
+  return (_has_bits_[0] & 0x40000000u) != 0;
 }
 inline void LayerParameter::set_has_hinge_loss_param() {
-  _has_bits_[0] |= 0x20000000u;
+  _has_bits_[0] |= 0x40000000u;
 }
 inline void LayerParameter::clear_has_hinge_loss_param() {
-  _has_bits_[0] &= ~0x20000000u;
+  _has_bits_[0] &= ~0x40000000u;
 }
 inline void LayerParameter::clear_hinge_loss_param() {
   if (hinge_loss_param_ != NULL) hinge_loss_param_->::caffe::HingeLossParameter::Clear();
@@ -7653,15 +7938,53 @@ inline void LayerParameter::set_allocated_hinge_loss_param(::caffe::HingeLossPar
   }
 }
 
+// optional .caffe.SliceParameter slice_param = 31;
+inline bool LayerParameter::has_slice_param() const {
+  return (_has_bits_[0] & 0x80000000u) != 0;
+}
+inline void LayerParameter::set_has_slice_param() {
+  _has_bits_[0] |= 0x80000000u;
+}
+inline void LayerParameter::clear_has_slice_param() {
+  _has_bits_[0] &= ~0x80000000u;
+}
+inline void LayerParameter::clear_slice_param() {
+  if (slice_param_ != NULL) slice_param_->::caffe::SliceParameter::Clear();
+  clear_has_slice_param();
+}
+inline const ::caffe::SliceParameter& LayerParameter::slice_param() const {
+  return slice_param_ != NULL ? *slice_param_ : *default_instance_->slice_param_;
+}
+inline ::caffe::SliceParameter* LayerParameter::mutable_slice_param() {
+  set_has_slice_param();
+  if (slice_param_ == NULL) slice_param_ = new ::caffe::SliceParameter;
+  return slice_param_;
+}
+inline ::caffe::SliceParameter* LayerParameter::release_slice_param() {
+  clear_has_slice_param();
+  ::caffe::SliceParameter* temp = slice_param_;
+  slice_param_ = NULL;
+  return temp;
+}
+inline void LayerParameter::set_allocated_slice_param(::caffe::SliceParameter* slice_param) {
+  delete slice_param_;
+  slice_param_ = slice_param;
+  if (slice_param) {
+    set_has_slice_param();
+  } else {
+    clear_has_slice_param();
+  }
+}
+
 // optional .caffe.V0LayerParameter layer = 1;
 inline bool LayerParameter::has_layer() const {
-  return (_has_bits_[0] & 0x40000000u) != 0;
+  return (_has_bits_[1] & 0x00000001u) != 0;
 }
 inline void LayerParameter::set_has_layer() {
-  _has_bits_[0] |= 0x40000000u;
+  _has_bits_[1] |= 0x00000001u;
 }
 inline void LayerParameter::clear_has_layer() {
-  _has_bits_[0] &= ~0x40000000u;
+  _has_bits_[1] &= ~0x00000001u;
 }
 inline void LayerParameter::clear_layer() {
   if (layer_ != NULL) layer_->::caffe::V0LayerParameter::Clear();
@@ -7741,6 +8064,28 @@ inline bool ArgMaxParameter::out_max_val() const {
 inline void ArgMaxParameter::set_out_max_val(bool value) {
   set_has_out_max_val();
   out_max_val_ = value;
+}
+
+// optional uint32 top_k = 2 [default = 1];
+inline bool ArgMaxParameter::has_top_k() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ArgMaxParameter::set_has_top_k() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ArgMaxParameter::clear_has_top_k() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ArgMaxParameter::clear_top_k() {
+  top_k_ = 1u;
+  clear_has_top_k();
+}
+inline ::google::protobuf::uint32 ArgMaxParameter::top_k() const {
+  return top_k_;
+}
+inline void ArgMaxParameter::set_top_k(::google::protobuf::uint32 value) {
+  set_has_top_k();
+  top_k_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -9776,6 +10121,83 @@ inline float PowerParameter::shift() const {
 inline void PowerParameter::set_shift(float value) {
   set_has_shift();
   shift_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ReLUParameter
+
+// optional float negative_slope = 1 [default = 0];
+inline bool ReLUParameter::has_negative_slope() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ReLUParameter::set_has_negative_slope() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ReLUParameter::clear_has_negative_slope() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ReLUParameter::clear_negative_slope() {
+  negative_slope_ = 0;
+  clear_has_negative_slope();
+}
+inline float ReLUParameter::negative_slope() const {
+  return negative_slope_;
+}
+inline void ReLUParameter::set_negative_slope(float value) {
+  set_has_negative_slope();
+  negative_slope_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SliceParameter
+
+// optional uint32 slice_dim = 1 [default = 1];
+inline bool SliceParameter::has_slice_dim() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SliceParameter::set_has_slice_dim() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SliceParameter::clear_has_slice_dim() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SliceParameter::clear_slice_dim() {
+  slice_dim_ = 1u;
+  clear_has_slice_dim();
+}
+inline ::google::protobuf::uint32 SliceParameter::slice_dim() const {
+  return slice_dim_;
+}
+inline void SliceParameter::set_slice_dim(::google::protobuf::uint32 value) {
+  set_has_slice_dim();
+  slice_dim_ = value;
+}
+
+// repeated uint32 slice_point = 2;
+inline int SliceParameter::slice_point_size() const {
+  return slice_point_.size();
+}
+inline void SliceParameter::clear_slice_point() {
+  slice_point_.Clear();
+}
+inline ::google::protobuf::uint32 SliceParameter::slice_point(int index) const {
+  return slice_point_.Get(index);
+}
+inline void SliceParameter::set_slice_point(int index, ::google::protobuf::uint32 value) {
+  slice_point_.Set(index, value);
+}
+inline void SliceParameter::add_slice_point(::google::protobuf::uint32 value) {
+  slice_point_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+SliceParameter::slice_point() const {
+  return slice_point_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+SliceParameter::mutable_slice_point() {
+  return &slice_point_;
 }
 
 // -------------------------------------------------------------------
