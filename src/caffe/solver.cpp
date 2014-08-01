@@ -235,7 +235,7 @@ Dtype SGDSolver<Dtype>::GetLearningRate() {
   } else if (lr_policy == "inv") {
     rate = this->param_.base_lr() *
         pow(Dtype(1) + this->param_.gamma() * this->iter_,
-            - this->param_.power());
+            Dtype(- this->param_.power()));
   } else {
     LOG(FATAL) << "Unknown learning rate policy: " << lr_policy;
   }

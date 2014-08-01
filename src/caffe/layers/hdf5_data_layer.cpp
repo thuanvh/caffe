@@ -27,7 +27,7 @@ HDF5DataLayer<Dtype>::~HDF5DataLayer<Dtype>() { }
 // Load data and label from HDF5 filename into the class property blobs.
 template <typename Dtype>
 void HDF5DataLayer<Dtype>::LoadHDF5FileData(const char* filename) {
-  LOG(INFO) << "Loading HDF5 file" << filename;
+  DLOG(INFO) << "Loading HDF5 file" << filename;
   hid_t file_id = H5Fopen(filename, H5F_ACC_RDONLY, H5P_DEFAULT);
   if (file_id < 0) {
     LOG(ERROR) << "Failed opening HDF5 file" << filename;
@@ -47,7 +47,7 @@ void HDF5DataLayer<Dtype>::LoadHDF5FileData(const char* filename) {
   herr_t status = H5Fclose(file_id);
   CHECK_GE(status, 0) << "Failed to close HDF5 file " << filename;
   CHECK_EQ(data_blob_.num(), label_blob_.num());
-  LOG(INFO) << "Successully loaded " << data_blob_.num() << " rows";
+  DLOG(INFO) << "Successully loaded " << data_blob_.num() << " rows";
 }
 
 template <typename Dtype>

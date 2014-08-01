@@ -12,11 +12,11 @@ namespace caffe {
 
 // Return true iff any layer contains parameters specified using
 // deprecated V0LayerParameter.
-bool NetNeedsUpgrade(const NetParameter& net_param);
+bool CAFFE_DLL_EXPORT NetNeedsUpgrade(const NetParameter& net_param);
 
 // Perform all necessary transformations to upgrade a V0NetParameter into a
 // NetParameter (including upgrading padding layers and LayerParameters).
-bool UpgradeV0Net(const NetParameter& v0_net_param, NetParameter* net_param);
+bool CAFFE_DLL_EXPORT UpgradeV0Net(const NetParameter& v0_net_param, NetParameter* net_param);
 
 // Upgrade NetParameter with padding layers to pad-aware conv layers.
 // For any padding layer, remove it and put its pad parameter in any layers
