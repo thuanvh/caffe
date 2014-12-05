@@ -1,5 +1,3 @@
-// Copyright 2014 BVLC and contributors.
-
 #include "caffe/blob.hpp"
 #include "caffe/common.hpp"
 #include "caffe/syncedmem.hpp"
@@ -19,12 +17,10 @@ void Blob<Dtype>::Reshape(const int num, const int channels, const int height,
   height_ = height;
   width_ = width;
   count_ = num_ * channels_ * height_ * width_;
-  if (count_) {
-    data_.reset(new SyncedMemory(count_ * sizeof(Dtype)));
-    diff_.reset(new SyncedMemory(count_ * sizeof(Dtype)));
-  } else {
-    data_.reset(reinterpret_cast<SyncedMemory*>(NULL));
-    diff_.reset(reinterpret_cast<SyncedMemory*>(NULL));
+  if (count_ > capacity_) {
+    capacity_ = count_;
+    data_.reset(new SyncedMemory(capacity_ * sizeof(Dtype)));
+    diff_.reset(new SyncedMemory(capacity_ * sizeof(Dtype)));
   }
 }
 
@@ -35,7 +31,9 @@ void Blob<Dtype>::ReshapeLike(const Blob<Dtype>& other) {
 
 template <typename Dtype>
 Blob<Dtype>::Blob(const int num, const int channels, const int height,
-    const int width) {
+    const int width)
+  // capacity_ must be initialized before calling Reshape
+  : capacity_(0) {
   Reshape(num, channels, height, width);
 }
 
@@ -135,6 +133,76 @@ void Blob<Dtype>::Update() {
   default:
     LOG(FATAL) << "Syncedmem not initialized.";
   }
+}
+
+template <> unsigned int Blob<unsigned int>::asum_data() const {
+  NOT_IMPLEMENTED;
+  return 0;
+}
+
+template <> int Blob<int>::asum_data() const {
+  NOT_IMPLEMENTED;
+  return 0;
+}
+
+template <typename Dtype>
+Dtype Blob<Dtype>::asum_data() const {
+  if (!data_) { return 0; }
+  switch (data_->head()) {
+  case SyncedMemory::HEAD_AT_CPU:
+    return caffe_cpu_asum(count_, cpu_data());
+  case SyncedMemory::HEAD_AT_GPU:
+  case SyncedMemory::SYNCED:
+#ifndef CPU_ONLY
+  {
+    Dtype asum;
+    caffe_gpu_asum(count_, gpu_data(), &asum);
+    return asum;
+  }
+#else
+    NO_GPU;
+#endif
+  case SyncedMemory::UNINITIALIZED:
+    return 0;
+  default:
+    LOG(FATAL) << "Unknown SyncedMemory head state: " << data_->head();
+  }
+  return 0;
+}
+
+template <> unsigned int Blob<unsigned int>::asum_diff() const {
+  NOT_IMPLEMENTED;
+  return 0;
+}
+
+template <> int Blob<int>::asum_diff() const {
+  NOT_IMPLEMENTED;
+  return 0;
+}
+
+template <typename Dtype>
+Dtype Blob<Dtype>::asum_diff() const {
+  if (!diff_) { return 0; }
+  switch (diff_->head()) {
+  case SyncedMemory::HEAD_AT_CPU:
+    return caffe_cpu_asum(count_, cpu_diff());
+  case SyncedMemory::HEAD_AT_GPU:
+  case SyncedMemory::SYNCED:
+#ifndef CPU_ONLY
+  {
+    Dtype asum;
+    caffe_gpu_asum(count_, gpu_diff(), &asum);
+    return asum;
+  }
+#else
+    NO_GPU;
+#endif
+  case SyncedMemory::UNINITIALIZED:
+    return 0;
+  default:
+    LOG(FATAL) << "Unknown SyncedMemory head state: " << diff_->head();
+  }
+  return 0;
 }
 
 template <typename Dtype>

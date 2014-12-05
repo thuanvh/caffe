@@ -179,7 +179,7 @@
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248d.lib;opencv_highgui248d.lib;opencv_imgproc248d.lib;opencv_legacy248d.lib;opencv_objdetect248d.lib;pthreadVC2.lib;liblmdb.lib;libprotobufD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248d.lib;opencv_highgui248d.lib;opencv_imgproc248d.lib;opencv_legacy248d.lib;opencv_objdetect248d.lib;pthreadVC2.lib;liblmdb.lib;libprotobufD.lib;libboost_thread-vc110-mt-1_55.lib;gflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\win32</AdditionalLibraryDirectories>
       <DelayLoadDLLs>leveldb.dll;libopenblas.dll;libglog.dll;hdf5.dll;hdf5_hl.dll;pthreadVC2.dll;liblmdb.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
@@ -317,8 +317,8 @@
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalDependencies>leveldb.lib;libopenblas.lib;libglog.lib;hdf5.lib;hdf5_hl.lib;opencv_core248.lib;opencv_highgui248.lib;opencv_imgproc248.lib;opencv_legacy248.lib;opencv_objdetect248.lib;pthreadVC2.lib;liblmdb.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\Win32</AdditionalLibraryDirectories>
+      <AdditionalDependencies>leveldb.lib;libopenblas.lib;libglog.lib;hdf5.lib;hdf5_hl.lib;opencv_core248.lib;opencv_highgui248.lib;opencv_imgproc248.lib;opencv_legacy248.lib;opencv_objdetect248.lib;pthreadVC2.lib;liblmdb.lib;libprotobuf.lib;libboost_thread-vc110-mt-1_55.lib;gflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\..\3rdparty\lib\win32\hdf5\;$(SolutionDir)\..\..\3rdparty\lib\win32\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\Win32;$(SolutionDir)\..\..\..\3rdparty\lib\win32\</AdditionalLibraryDirectories>
       <DelayLoadDLLs>leveldb.dll;libopenblas.dll;libglog.dll;hdf5.dll;hdf5_hl.dll;pthreadVC2.dll;liblmdb.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
     <PostBuildEvent>
@@ -448,16 +448,23 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\caffe\blob.cpp" />
     <ClCompile Include="..\..\src\caffe\common.cpp" />
+    <ClCompile Include="..\..\src\caffe\dataset_factory.cpp" />
+    <ClCompile Include="..\..\src\caffe\data_transformer.cpp" />
+    <ClCompile Include="..\..\src\caffe\internal_thread.cpp" />
+    <ClCompile Include="..\..\src\caffe\layers\absval_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\accuracy_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\argmax_layer.cpp" />
+    <ClCompile Include="..\..\src\caffe\layers\base_data_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\bnll_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\concat_layer.cpp" />
+    <ClCompile Include="..\..\src\caffe\layers\contrastive_loss_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\conv_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\data_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\dropout_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\dummy_data_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\eltwise_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\euclidean_loss_layer.cpp" />
+    <ClCompile Include="..\..\src\caffe\layers\exp_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\flatten_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\hdf5_data_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\hdf5_output_layer.cpp" />
@@ -471,12 +478,15 @@
     <ClCompile Include="..\..\src\caffe\layers\lrn_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\memory_data_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\multinomial_logistic_loss_layer.cpp" />
+    <ClCompile Include="..\..\src\caffe\layers\mvn_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\neuron_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\pooling_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\power_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\relu_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\sigmoid_cross_entropy_loss_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\sigmoid_layer.cpp" />
+    <ClCompile Include="..\..\src\caffe\layers\silence_layer.cpp" />
+    <ClCompile Include="..\..\src\caffe\layers\slice_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\softmax_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\softmax_loss_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\split_layer.cpp" />
@@ -484,6 +494,8 @@
     <ClCompile Include="..\..\src\caffe\layers\threshold_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layers\window_data_layer.cpp" />
     <ClCompile Include="..\..\src\caffe\layer_factory.cpp" />
+    <ClCompile Include="..\..\src\caffe\leveldb_dataset.cpp" />
+    <ClCompile Include="..\..\src\caffe\lmdb_dataset.cpp" />
     <ClCompile Include="..\..\src\caffe\net.cpp" />
     <ClCompile Include="..\..\src\caffe\proto\caffe.pb.cc" />
     <ClCompile Include="..\..\src\caffe\proto\caffe_pretty_print.pb.cc" />
@@ -495,28 +507,36 @@
     <ClCompile Include="..\..\src\caffe\util\io.cpp" />
     <ClCompile Include="..\..\src\caffe\util\math_functions.cpp" />
     <ClCompile Include="..\..\src\caffe\util\upgrade_proto.cpp" />
-    <ClCompile Include="..\..\src\gtest\gtest-all.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\caffe\blob.hpp" />
     <ClInclude Include="..\..\include\caffe\caffe.hpp" />
     <ClInclude Include="..\..\include\caffe\common.hpp" />
+    <ClInclude Include="..\..\include\caffe\dataset.hpp" />
+    <ClInclude Include="..\..\include\caffe\dataset_factory.hpp" />
     <ClInclude Include="..\..\include\caffe\data_layers.hpp" />
+    <ClInclude Include="..\..\include\caffe\data_transformer.hpp" />
     <ClInclude Include="..\..\include\caffe\filler.hpp" />
     <ClInclude Include="..\..\include\caffe\ImageFeatureDataLayer.h" />
+    <ClInclude Include="..\..\include\caffe\internal_thread.hpp" />
     <ClInclude Include="..\..\include\caffe\layer.hpp" />
+    <ClInclude Include="..\..\include\caffe\layer_factory.hpp" />
+    <ClInclude Include="..\..\include\caffe\leveldb_dataset.hpp" />
+    <ClInclude Include="..\..\include\caffe\lmdb_dataset.hpp" />
     <ClInclude Include="..\..\include\caffe\loss_layers.hpp" />
     <ClInclude Include="..\..\include\caffe\net.hpp" />
     <ClInclude Include="..\..\include\caffe\neuron_layers.hpp" />
     <ClInclude Include="..\..\include\caffe\solver.hpp" />
     <ClInclude Include="..\..\include\caffe\syncedmem.hpp" />
     <ClInclude Include="..\..\include\caffe\util\benchmark.hpp" />
+    <ClInclude Include="..\..\include\caffe\util\cudnn.hpp" />
     <ClInclude Include="..\..\include\caffe\util\im2col.hpp" />
     <ClInclude Include="..\..\include\caffe\util\insert_splits.hpp" />
     <ClInclude Include="..\..\include\caffe\util\io.hpp" />
     <ClInclude Include="..\..\include\caffe\util\math_functions.hpp" />
     <ClInclude Include="..\..\include\caffe\util\mkl_alternate.hpp" />
     <ClInclude Include="..\..\include\caffe\util\rng.hpp" />
+    <ClInclude Include="..\..\include\caffe\util\thread.hpp" />
     <ClInclude Include="..\..\include\caffe\util\upgrade_proto.hpp" />
     <ClInclude Include="..\..\include\caffe\vision_layers.hpp" />
     <ClInclude Include="..\..\src\caffe\proto\caffe.pb.h" />
