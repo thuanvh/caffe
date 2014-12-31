@@ -8,8 +8,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LocalDebuggerCommandArguments>D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour\lenet_solver.prototxt</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerEnvironment>
-    </LocalDebuggerEnvironment>
+    <LocalDebuggerEnvironment>GLOG_logtostderr=1</LocalDebuggerEnvironment>
     <LocalDebuggerWorkingDirectory>D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour</LocalDebuggerWorkingDirectory>
   </PropertyGroup>
 </Project>
