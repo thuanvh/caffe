@@ -1,18 +1,15 @@
-// Copyright 2014 BVLC and contributors.
-
 #include <string>
 #include <vector>
 
 #include "gtest/gtest.h"
+
 #include "caffe/blob.hpp"
 #include "caffe/common.hpp"
+#include "caffe/proto/caffe.pb.h"
 #include "caffe/util/io.hpp"
 #include "caffe/vision_layers.hpp"
-#include "caffe/proto/caffe.pb.h"
-#include "caffe/test/test_caffe_main.hpp"
 
-using std::string;
-using std::vector;
+#include "caffe/test/test_caffe_main.hpp"
 
 namespace caffe {
 
@@ -22,14 +19,15 @@ class HDF5OutputLayerTest : public MultiDeviceTest<TypeParam> {
 
  protected:
   HDF5OutputLayerTest()
-      : output_file_name_(tmpnam(NULL)),
-        input_file_name_("src/caffe/test/test_data/sample_data.h5"),
+      : input_file_name_(
+        CMAKE_SOURCE_DIR "caffe/test/test_data/sample_data.h5"),
         blob_data_(new Blob<Dtype>()),
         blob_label_(new Blob<Dtype>()),
         num_(5),
         channels_(8),
         height_(5),
         width_(5) {
+    MakeTempFilename(&output_file_name_);
   }
 
   virtual ~HDF5OutputLayerTest() {
@@ -62,7 +60,7 @@ void HDF5OutputLayerTest<TypeParam>::CheckBlobEqual(const Blob<Dtype>& b1,
     for (int c = 0; c < b1.channels(); ++c) {
       for (int h = 0; h < b1.height(); ++h) {
         for (int w = 0; w < b1.width(); ++w) {
-          EXPECT_EQ(b1.data_at(n, c, h, w), b1.data_at(n, c, h, w));
+          EXPECT_EQ(b1.data_at(n, c, h, w), b2.data_at(n, c, h, w));
         }
       }
     }
@@ -95,8 +93,8 @@ TYPED_TEST(HDF5OutputLayerTest, TestForward) {
   {
     HDF5OutputLayer<Dtype> layer(param);
     EXPECT_EQ(layer.file_name(), this->output_file_name_);
-    layer.SetUp(this->blob_bottom_vec_, &this->blob_top_vec_);
-    layer.Forward(this->blob_bottom_vec_, &this->blob_top_vec_);
+    layer.SetUp(this->blob_bottom_vec_, this->blob_top_vec_);
+    layer.Forward(this->blob_bottom_vec_, this->blob_top_vec_);
   }
   file_id = H5Fopen(this->output_file_name_.c_str(), H5F_ACC_RDONLY,
                           H5P_DEFAULT);

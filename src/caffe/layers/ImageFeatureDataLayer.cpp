@@ -75,32 +75,32 @@ void ImageFeatureDataLayer<Dtype>::AddImageFeatureData(const std::list<cv::Mat>&
 }
 
 template <typename Dtype>
-void ImageFeatureDataLayer<Dtype>::SetUp(const vector<Blob<Dtype>*>& bottom,
-      vector<Blob<Dtype>*>* top) {
+void ImageFeatureDataLayer<Dtype>::DataLayerSetUp(const vector<Blob<Dtype>*>& bottom,
+      const vector<Blob<Dtype>*>& top) {
   int c = this->layer_param_.image_feature_data_param().channel();
   int w = this->layer_param_.image_feature_data_param().width();
   int h = this->layer_param_.image_feature_data_param().height();
   int feature_size = this->layer_param_.image_feature_data_param().feature_size();
   // Reshape blobs.
   const int batch_size = 1;
-  (*top)[0]->Reshape(batch_size, c, h, w);
-  (*top)[1]->Reshape(batch_size, feature_size, 1, 1);
+  top[0]->Reshape(batch_size, c, h, w);
+  top[1]->Reshape(batch_size, feature_size, 1, 1);
   LOG(INFO) << "output data size: " << batch_size << "," << c << "," << h << "," << w;
 }
 
 template <typename Dtype>
-Dtype ImageFeatureDataLayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& bottom,
-      vector<Blob<Dtype>*>* top) {
+void ImageFeatureDataLayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& bottom,
+      const vector<Blob<Dtype>*>& top) {
   const int batch_size = 1;//this->layer_param_.hdf5_data_param().batch_size();
-  const int data_count = (*top)[0]->count() / (*top)[0]->num();
-  const int label_data_count = (*top)[1]->count() / (*top)[1]->num();  
+  const int data_count = top[0]->count() / top[0]->num();
+  const int label_data_count = top[1]->count() / top[1]->num();  
   current_row_ = 0;
   //LOG(INFO) << "Loop iter: "<< current_row_ <<"," << data_count << "," << label_data_count;
   for (int i = 0; i < batch_size; ++i, ++current_row_) {    
-    memcpy(&(*top)[0]->mutable_cpu_data()[i * data_count],
+    memcpy(&top[0]->mutable_cpu_data()[i * data_count],
            &data_blob_.cpu_data()[current_row_ * data_count],
            sizeof(Dtype) * data_count);
-    memcpy(&(*top)[1]->mutable_cpu_data()[i * label_data_count],
+    memcpy(&top[1]->mutable_cpu_data()[i * label_data_count],
             &label_blob_.cpu_data()[current_row_ * label_data_count],
             sizeof(Dtype) * label_data_count);
   }
@@ -132,9 +132,9 @@ Dtype ImageFeatureDataLayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& bott
   IplImage i1 = imorg;
   cvSaveImage(fname, &i1);
 #endif
-  return Dtype(0.);
+  
 }
 
 INSTANTIATE_CLASS(ImageFeatureDataLayer);
-
+REGISTER_LAYER_CLASS(IMAGE_FEATURE_DATA, ImageFeatureDataLayer);
 }  // namespace caffe

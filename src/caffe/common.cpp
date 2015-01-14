@@ -1,13 +1,9 @@
-// Copyright 2014 BVLC and contributors.
-
-#include <gflags/gflags.h>
 #include <glog/logging.h>
 #include <cstdio>
 #include <ctime>
 
 #include "caffe/common.hpp"
 #include "caffe/util/rng.hpp"
-
 
 namespace caffe {
 
@@ -16,6 +12,17 @@ shared_ptr<Caffe> Caffe::singleton_;
 // random seeding
 int64_t cluster_seedgen(void) {
   int64_t s, seed, pid;
+  FILE* f = fopen("/dev/urandom", "rb");
+  if (f && fread(&seed, 1, sizeof(seed), f) == sizeof(seed)) {
+    fclose(f);
+    return seed;
+  }
+
+  LOG(INFO) << "System entropy source not available, "
+              "using fallback algorithm to generate seed instead.";
+  if (f)
+    fclose(f);
+
   pid = getpid();
   s = time(NULL);
   seed = abs(((s * 181) * ((pid - 83) * 359)) % 104729);
@@ -28,6 +35,8 @@ void GlobalInit(int* pargc, char*** pargv) {
   ::gflags::ParseCommandLineFlags(pargc, pargv, true);
   // Google logging.
   ::google::InitGoogleLogging(*(pargv)[0]);
+  // Provide a backtrace on segfault.
+  //::google::InstallFailureSignalHandler();
 }
 
 #ifdef CPU_ONLY  // CPU-only Caffe.
@@ -65,7 +74,7 @@ Caffe::RNG::RNG() : generator_(new Generator()) { }
 Caffe::RNG::RNG(unsigned int seed) : generator_(new Generator(seed)) { }
 
 Caffe::RNG& Caffe::RNG::operator=(const RNG& other) {
-  generator_.reset(other.generator_.get());
+  generator_ = other.generator_;
   return *this;
 }
 
@@ -101,15 +110,11 @@ Caffe::~Caffe() {
 
 void Caffe::set_random_seed(const unsigned int seed) {
   // Curand seed
-  // Yangqing's note: simply setting the generator seed does not seem to
-  // work on the tesla K20s, so I wrote the ugly reset thing below.
   static bool g_curand_availability_logged = false;
   if (Get().curand_generator_) {
-    CURAND_CHECK(curandDestroyGenerator(curand_generator()));
-    CURAND_CHECK(curandCreateGenerator(&Get().curand_generator_,
-        CURAND_RNG_PSEUDO_DEFAULT));
     CURAND_CHECK(curandSetPseudoRandomGeneratorSeed(curand_generator(),
         seed));
+    CURAND_CHECK(curandSetGeneratorOffset(curand_generator(), 0));
   } else {
     if (!g_curand_availability_logged) {
         LOG(ERROR) <<
@@ -220,6 +225,10 @@ const char* cublasGetErrorString(cublasStatus_t error) {
 #if CUDA_VERSION >= 6000
   case CUBLAS_STATUS_NOT_SUPPORTED:
     return "CUBLAS_STATUS_NOT_SUPPORTED";
+#endif
+#if CUDA_VERSION >= 6050
+  case CUBLAS_STATUS_LICENSE_ERROR:
+    return "CUBLAS_STATUS_LICENSE_ERROR";
 #endif
   }
   return "Unknown cublas status";

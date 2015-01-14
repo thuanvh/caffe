@@ -1,13 +1,11 @@
-// Copyright 2014 BVLC and contributors.
-
 #include <vector>
 
 #include "gtest/gtest.h"
+
 #include "caffe/blob.hpp"
 #include "caffe/common.hpp"
 #include "caffe/filler.hpp"
 #include "caffe/vision_layers.hpp"
-#include "caffe/test/test_gradient_check_util.hpp"
 
 #include "caffe/test/test_caffe_main.hpp"
 
@@ -42,7 +40,7 @@ TYPED_TEST(ThresholdLayerTest, TestSetup) {
   typedef typename TypeParam::Dtype Dtype;
   LayerParameter layer_param;
   ThresholdLayer<Dtype> layer(layer_param);
-  layer.SetUp(this->blob_bottom_vec_, &(this->blob_top_vec_));
+  layer.SetUp(this->blob_bottom_vec_, this->blob_top_vec_);
   EXPECT_EQ(this->blob_top_->num(), this->blob_bottom_->num());
   EXPECT_EQ(this->blob_top_->channels(), this->blob_bottom_->channels());
   EXPECT_EQ(this->blob_top_->height(), this->blob_bottom_->height());
@@ -53,8 +51,8 @@ TYPED_TEST(ThresholdLayerTest, Test) {
   typedef typename TypeParam::Dtype Dtype;
   LayerParameter layer_param;
   ThresholdLayer<Dtype> layer(layer_param);
-  layer.SetUp(this->blob_bottom_vec_, &(this->blob_top_vec_));
-  layer.Forward(this->blob_bottom_vec_, &(this->blob_top_vec_));
+  layer.SetUp(this->blob_bottom_vec_, this->blob_top_vec_);
+  layer.Forward(this->blob_bottom_vec_, this->blob_top_vec_);
   // Now, check values
   const Dtype* bottom_data = this->blob_bottom_->cpu_data();
   const Dtype* top_data = this->blob_top_->cpu_data();
@@ -78,8 +76,8 @@ TYPED_TEST(ThresholdLayerTest, Test2) {
     layer_param.mutable_threshold_param();
   threshold_param->set_threshold(0.5);
   ThresholdLayer<Dtype> layer(layer_param);
-  layer.SetUp(this->blob_bottom_vec_, &(this->blob_top_vec_));
-  layer.Forward(this->blob_bottom_vec_, &(this->blob_top_vec_));
+  layer.SetUp(this->blob_bottom_vec_, this->blob_top_vec_);
+  layer.Forward(this->blob_bottom_vec_, this->blob_top_vec_);
   // Now, check values
   const Dtype* bottom_data = this->blob_bottom_->cpu_data();
   const Dtype* top_data = this->blob_top_->cpu_data();

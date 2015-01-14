@@ -7,5 +7,6 @@ typedef unsigned int uint;
 #include <process.h>
 #define getpid _getpid
 //#define signbit(x) ((x)<0?true:false)
-
+#include <direct.h>
+#define mkdir(x,a) _mkdir((x))
 #endif //_HEADER_WIN_COMPAT_20140627_INCLUDED_
