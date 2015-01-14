@@ -5,13 +5,13 @@
 #include <list>
 namespace caffe {
   template <typename Dtype>
-  class ImageFeatureDataLayer : public Layer<Dtype> {
+  class ImageFeatureDataLayer : public BaseDataLayer<Dtype> {
   public:
     explicit ImageFeatureDataLayer(const LayerParameter& param)
-      : Layer<Dtype>(param) {}
+      : BaseDataLayer<Dtype>(param) {}
     virtual ~ImageFeatureDataLayer();
-    virtual void SetUp(const vector<Blob<Dtype>*>& bottom,
-      vector<Blob<Dtype>*>* top);
+    virtual void DataLayerSetUp(const vector<Blob<Dtype>*>& bottom,
+      const vector<Blob<Dtype>*>& top);
     virtual void AddImageFeatureData(const std::list<cv::Mat>& src, const std::list<std::vector<float> >& features);
     virtual void AddImageFeatureData(const std::list<cv::Mat>& src);
 
@@ -22,10 +22,10 @@ namespace caffe {
     virtual inline int ExactNumTopBlobs() const { return 2; }
 
   protected:
-    virtual Dtype Forward_cpu(const vector<Blob<Dtype>*>& bottom,
-      vector<Blob<Dtype>*>* top);
-    virtual Dtype Forward_gpu(const vector<Blob<Dtype>*>& bottom,
-      vector<Blob<Dtype>*>* top)
+    virtual void Forward_cpu(const vector<Blob<Dtype>*>& bottom,
+      const vector<Blob<Dtype>*>& top);
+    virtual void Forward_gpu(const vector<Blob<Dtype>*>& bottom,
+      const vector<Blob<Dtype>*>& top)
     {
       return Forward_cpu(bottom, top);
     }
