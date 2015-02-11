@@ -17,6 +17,7 @@ ImageFeatureDataLayer<Dtype>::~ImageFeatureDataLayer<Dtype>() { }
 template <typename Dtype>
 void ImageFeatureDataLayer<Dtype>::AddImageFeatureData(const std::list<cv::Mat>& src, const std::list<std::vector<float> >& features)
 {
+  mutex.lock();
   int row = src.size();
   int cols = src.begin()->channels();
   int height = src.begin()->rows;
@@ -35,6 +36,7 @@ void ImageFeatureDataLayer<Dtype>::AddImageFeatureData(const std::list<cv::Mat>&
 template <typename Dtype>
 void ImageFeatureDataLayer<Dtype>::AddImageFeatureData(const std::list<cv::Mat>& src)
 {
+  mutex.lock();
   int row = src.size();
   int cols = src.begin()->channels();
   int height = src.begin()->rows;
@@ -133,6 +135,7 @@ void ImageFeatureDataLayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& botto
   cvSaveImage(fname, &i1);
 #endif
   
+  mutex.unlock();
 }
 
 INSTANTIATE_CLASS(ImageFeatureDataLayer);
