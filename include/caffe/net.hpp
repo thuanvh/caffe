@@ -24,7 +24,7 @@ template <typename Dtype>
 class Net {
  public:
   explicit Net(const NetParameter& param);
-  explicit Net(const string& param_file);
+  explicit Net(const string& param_file, Phase phase);
   virtual ~Net() {}
 
   /// @brief Initialize a network with a NetParameter.
@@ -98,8 +98,6 @@ class Net {
    */
   void CopyTrainedLayersFrom(const NetParameter& param);
   void CopyTrainedLayersFrom(const string trained_filename);
-  void CopyTrainedLayersFromTextFile(const string trained_filename);
-  // Writes the net to a proto.
   /// @brief Writes the net to a proto.
   void ToProto(NetParameter* param, bool write_diff = false) const;
 
@@ -117,6 +115,8 @@ class Net {
   inline const vector<shared_ptr<Layer<Dtype> > >& layers() const {
     return layers_;
   }
+  /// @brief returns the phase: TRAIN or TEST
+  inline Phase phase() const { return phase_; }
   /**
    * @brief returns the bottom vecs for each layer -- usually you won't
    *        need this unless you do per-layer checks such as gradients.
@@ -149,6 +149,7 @@ class Net {
   const map<string, int>& param_names_index() const {
     return param_names_index_;
   }
+  inline const vector<int>& param_owners() const { return param_owners_; }
   /// @brief Input and output blob numbers
   inline int num_inputs() const { return net_input_blobs_.size(); }
   inline int num_outputs() const { return net_output_blobs_.size(); }
@@ -196,6 +197,8 @@ class Net {
   void AppendParam(const NetParameter& param, const int layer_id,
                    const int param_id);
 
+  /// @brief Helper for displaying debug info in Forward about input Blobs.
+  void InputDebugInfo(const int layer_id);
   /// @brief Helper for displaying debug info in Forward.
   void ForwardDebugInfo(const int layer_id);
   /// @brief Helper for displaying debug info in Backward.
@@ -206,6 +209,10 @@ class Net {
   /// @brief Get misc parameters, e.g. the LR multiplier and weight decay.
   void GetLearningRateAndWeightDecay();
 
+  /// @brief The network name
+  string name_;
+  /// @brief The phase: TRAIN or TEST
+  Phase phase_;
   /// @brief Individual layers in the net
   vector<shared_ptr<Layer<Dtype> > > layers_;
   vector<string> layer_names_;
@@ -228,6 +235,7 @@ class Net {
   /// Vector of weight in the loss (or objective) function of each net blob,
   /// indexed by blob_id.
   vector<Dtype> blob_loss_weights_;
+  vector<vector<int> > param_id_vecs_;
   vector<int> param_owners_;
   vector<string> param_display_names_;
   vector<pair<int, int> > param_layer_indices_;
@@ -237,7 +245,6 @@ class Net {
   vector<int> net_output_blob_indices_;
   vector<Blob<Dtype>*> net_input_blobs_;
   vector<Blob<Dtype>*> net_output_blobs_;
-  string name_;
   /// The parameters in the network.
   vector<shared_ptr<Blob<Dtype> > > params_;
   /// the learning rate multipliers

@@ -9,6 +9,7 @@
 #include <set>
 #include <string>
 
+#include <climits>
 #include <cmath>
 #include <fstream>  // NOLINT(readability/streams)
 #include <iostream>  // NOLINT(readability/streams)
@@ -86,7 +87,7 @@ private:\
 #define NOT_IMPLEMENTED LOG(FATAL) << "Not Implemented Yet"
 
 // See PR #1236
-namespace cv {class Mat;}
+namespace cv { class Mat; }
 
 namespace caffe {
 
@@ -135,8 +136,6 @@ class CAFFE_DLL_EXPORT Caffe {
     return *singleton_;
   }
   enum Brew { CPU, GPU };
-  enum Phase { TRAIN, TEST };
-
 
   // This random number generator facade hides boost and CUDA rng
   // implementation from one another (for cross-platform compatibility).
@@ -168,16 +167,12 @@ class CAFFE_DLL_EXPORT Caffe {
 
   // Returns the mode: running on CPU or GPU.
   inline static Brew mode() { return Get().mode_; }
-  // Returns the phase: TRAIN or TEST.
-  inline static Phase phase() { return Get().phase_; }
   // The setters for the variables
   // Sets the mode. It is recommended that you don't change the mode halfway
   // into the program since that may cause allocation of pinned memory being
   // freed in a non-pinned way, which may cause problems - I haven't verified
   // it personally but better to note it here in the header file.
   inline static void set_mode(Brew mode) { Get().mode_ = mode; }
-  // Sets the phase.
-  inline static void set_phase(Phase phase) { Get().phase_ = phase; }
   // Sets the random seed of both boost and curand
   static void set_random_seed(const unsigned int seed);
   // Sets the device. Since we have cublas and curand stuff, set device also
@@ -194,7 +189,6 @@ class CAFFE_DLL_EXPORT Caffe {
   shared_ptr<RNG> random_generator_;
 
   Brew mode_;
-  Phase phase_;
   static shared_ptr<Caffe> singleton_;
 
  private:

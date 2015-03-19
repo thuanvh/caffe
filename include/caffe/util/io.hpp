@@ -1,7 +1,7 @@
 #ifndef CAFFE_UTIL_IO_H_
 #define CAFFE_UTIL_IO_H_
 
-//#include <unistd.h>
+#include <unistd.h>
 #include <string>
 
 #include "google/protobuf/message.h"
@@ -18,34 +18,33 @@ namespace caffe {
 
 using ::google::protobuf::Message;
 
-//inline void MakeTempFilename(string* temp_filename) {
-//  temp_filename->clear();
-//  *temp_filename = "/tmp/caffe_test.XXXXXX";
-//  char* temp_filename_cstr = new char[temp_filename->size() + 1];
-//  // NOLINT_NEXT_LINE(runtime/printf)
-//  strcpy(temp_filename_cstr, temp_filename->c_str());
-//  int fd = mkstemp(temp_filename_cstr);
-//  CHECK_GE(fd, 0) << "Failed to open a temporary file at: " << *temp_filename;
-//  close(fd);
-//  *temp_filename = temp_filename_cstr;
-//  delete[] temp_filename_cstr;
-//}
-//
-//inline void MakeTempDir(string* temp_dirname) {
-//  temp_dirname->clear();
-//  *temp_dirname = "/tmp/caffe_test.XXXXXX";
-//  char* temp_dirname_cstr = new char[temp_dirname->size() + 1];
-//  // NOLINT_NEXT_LINE(runtime/printf)
-//  strcpy(temp_dirname_cstr, temp_dirname->c_str());
-//  char* mkdtemp_result = mkdtemp(temp_dirname_cstr);
-//  CHECK(mkdtemp_result != NULL)
-//      << "Failed to create a temporary directory at: " << *temp_dirname;
-//  *temp_dirname = temp_dirname_cstr;
-//  delete[] temp_dirname_cstr;
-//}
+inline void MakeTempFilename(string* temp_filename) {
+  temp_filename->clear();
+  *temp_filename = "/tmp/caffe_test.XXXXXX";
+  char* temp_filename_cstr = new char[temp_filename->size() + 1];
+  // NOLINT_NEXT_LINE(runtime/printf)
+  strcpy(temp_filename_cstr, temp_filename->c_str());
+  int fd = mkstemp(temp_filename_cstr);
+  CHECK_GE(fd, 0) << "Failed to open a temporary file at: " << *temp_filename;
+  close(fd);
+  *temp_filename = temp_filename_cstr;
+  delete[] temp_filename_cstr;
+}
 
+inline void MakeTempDir(string* temp_dirname) {
+  temp_dirname->clear();
+  *temp_dirname = "/tmp/caffe_test.XXXXXX";
+  char* temp_dirname_cstr = new char[temp_dirname->size() + 1];
+  // NOLINT_NEXT_LINE(runtime/printf)
+  strcpy(temp_dirname_cstr, temp_dirname->c_str());
+  char* mkdtemp_result = mkdtemp(temp_dirname_cstr);
+  CHECK(mkdtemp_result != NULL)
+      << "Failed to create a temporary directory at: " << *temp_dirname;
+  *temp_dirname = temp_dirname_cstr;
+  delete[] temp_dirname_cstr;
+}
 
-bool CAFFE_DLL_EXPORT ReadProtoFromTextFile(const char* filename, Message* proto);
+bool ReadProtoFromTextFile(const char* filename, Message* proto);
 
 inline bool ReadProtoFromTextFile(const string& filename, Message* proto) {
   return ReadProtoFromTextFile(filename.c_str(), proto);
@@ -59,12 +58,12 @@ inline void ReadProtoFromTextFileOrDie(const string& filename, Message* proto) {
   ReadProtoFromTextFileOrDie(filename.c_str(), proto);
 }
 
-void CAFFE_DLL_EXPORT WriteProtoToTextFile(const Message& proto, const char* filename);
+void WriteProtoToTextFile(const Message& proto, const char* filename);
 inline void WriteProtoToTextFile(const Message& proto, const string& filename) {
   WriteProtoToTextFile(proto, filename.c_str());
 }
 
-bool CAFFE_DLL_EXPORT ReadProtoFromBinaryFile(const char* filename, Message* proto);
+bool ReadProtoFromBinaryFile(const char* filename, Message* proto);
 
 inline bool ReadProtoFromBinaryFile(const string& filename, Message* proto) {
   return ReadProtoFromBinaryFile(filename.c_str(), proto);
@@ -80,7 +79,7 @@ inline void ReadProtoFromBinaryFileOrDie(const string& filename,
 }
 
 
-void CAFFE_DLL_EXPORT WriteProtoToBinaryFile(const Message& proto, const char* filename);
+void WriteProtoToBinaryFile(const Message& proto, const char* filename);
 inline void WriteProtoToBinaryFile(
     const Message& proto, const string& filename) {
   WriteProtoToBinaryFile(proto, filename.c_str());
@@ -92,8 +91,15 @@ inline bool ReadFileToDatum(const string& filename, Datum* datum) {
   return ReadFileToDatum(filename, -1, datum);
 }
 
-bool CAFFE_DLL_EXPORT ReadImageToDatum(const string& filename, const int label,
-    const int height, const int width, const bool is_color, Datum* datum);
+bool ReadImageToDatum(const string& filename, const int label,
+    const int height, const int width, const bool is_color,
+    const std::string & encoding, Datum* datum);
+
+inline bool ReadImageToDatum(const string& filename, const int label,
+    const int height, const int width, const bool is_color, Datum* datum) {
+  return ReadImageToDatum(filename, label, height, width, is_color,
+                          "", datum);
+}
 
 inline bool ReadImageToDatum(const string& filename, const int label,
     const int height, const int width, Datum* datum) {
@@ -110,20 +116,13 @@ inline bool ReadImageToDatum(const string& filename, const int label,
   return ReadImageToDatum(filename, label, 0, 0, true, datum);
 }
 
-bool DecodeDatum(const int height, const int width, const bool is_color,
-  Datum* datum);
-
-inline bool DecodeDatum(const int height, const int width, Datum* datum) {
-  return DecodeDatum(height, width, true, datum);
+inline bool ReadImageToDatum(const string& filename, const int label,
+    const std::string & encoding, Datum* datum) {
+  return ReadImageToDatum(filename, label, 0, 0, true, encoding, datum);
 }
 
-inline bool DecodeDatum(const bool is_color, Datum* datum) {
-  return DecodeDatum(0, 0, is_color, datum);
-}
-
-inline bool DecodeDatum(Datum* datum) {
-  return DecodeDatum(0, 0, true, datum);
-}
+bool DecodeDatumNative(Datum* datum);
+bool DecodeDatum(Datum* datum, bool is_color);
 
 cv::Mat ReadImageToCVMat(const string& filename,
     const int height, const int width, const bool is_color);
@@ -136,26 +135,18 @@ cv::Mat ReadImageToCVMat(const string& filename,
 
 cv::Mat ReadImageToCVMat(const string& filename);
 
-cv::Mat DecodeDatumToCVMat(const Datum& datum,
-    const int height, const int width, const bool is_color);
-
-cv::Mat DecodeDatumToCVMat(const Datum& datum,
-    const int height, const int width);
-
-cv::Mat DecodeDatumToCVMat(const Datum& datum,
-    const bool is_color);
-
-cv::Mat DecodeDatumToCVMat(const Datum& datum);
+cv::Mat DecodeDatumToCVMatNative(const Datum& datum);
+cv::Mat DecodeDatumToCVMat(const Datum& datum, bool is_color);
 
 void CVMatToDatum(const cv::Mat& cv_img, Datum* datum);
 
 template <typename Dtype>
-void CAFFE_DLL_EXPORT hdf5_load_nd_dataset_helper(
+void hdf5_load_nd_dataset_helper(
     hid_t file_id, const char* dataset_name_, int min_dim, int max_dim,
     Blob<Dtype>* blob);
 
 template <typename Dtype>
-void CAFFE_DLL_EXPORT hdf5_load_nd_dataset(
+void hdf5_load_nd_dataset(
     hid_t file_id, const char* dataset_name_, int min_dim, int max_dim,
     Blob<Dtype>* blob);
 
