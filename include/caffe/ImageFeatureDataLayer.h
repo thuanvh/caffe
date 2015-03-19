@@ -22,9 +22,10 @@ namespace caffe {
     virtual void AddImageFeatureData(const std::list<cv::Mat>& src, const std::list<std::vector<float> >& features);
     virtual void AddImageFeatureData(const std::list<cv::Mat>& src);
 
-    virtual inline LayerParameter_LayerType type() const {
+    /*virtual inline LayerParameter_LayerType type() const {
       return LayerParameter_LayerType_IMAGE_FEATURE_DATA;
-    }
+    }*/
+    virtual inline const char* type() const { return "ImageFeatureData"; }
     virtual inline int ExactNumBottomBlobs() const { return 0; }
     virtual inline int ExactNumTopBlobs() const { return 2; }
 

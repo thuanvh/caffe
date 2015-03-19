@@ -139,5 +139,5 @@ void ImageFeatureDataLayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& botto
 }
 
 INSTANTIATE_CLASS(ImageFeatureDataLayer);
-REGISTER_LAYER_CLASS(IMAGE_FEATURE_DATA, ImageFeatureDataLayer);
+REGISTER_LAYER_CLASS(ImageFeatureData);
 }  // namespace caffe
