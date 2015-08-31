@@ -51,8 +51,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>upgrade_proto</ProjectName>
-    <ProjectGuid>{02CFB466-0DBE-46A7-BE33-5A54607E2BCE}</ProjectGuid>
+    <ProjectName>upgrade_proto_txt</ProjectName>
+    <ProjectGuid>{7EBCD087-B82A-4939-873E-D552C58E4804}</ProjectGuid>
     <RootNamespace>MainCaller</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
@@ -663,7 +663,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\tools\upgrade_net_proto_binary.cpp" />
+    <ClCompile Include="..\..\tools\upgrade_net_proto_text.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

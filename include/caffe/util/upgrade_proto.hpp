@@ -32,11 +32,11 @@ bool UpgradeV0LayerParameter(const V1LayerParameter& v0_layer_connection,
 V1LayerParameter_LayerType UpgradeV0LayerType(const string& type);
 
 // Return true iff any layer contains deprecated data transformation parameters.
-bool NetNeedsDataUpgrade(const NetParameter& net_param);
+bool CAFFE_DLL_EXPORT NetNeedsDataUpgrade(const NetParameter& net_param);
 
 // Perform all necessary transformations to upgrade old transformation fields
 // into a TransformationParameter.
-void UpgradeNetDataTransformation(NetParameter* net_param);
+void CAFFE_DLL_EXPORT UpgradeNetDataTransformation(NetParameter* net_param);
 
 // Return true iff the Net contains any layers specified as V1LayerParameters.
 bool NetNeedsV1ToV2Upgrade(const NetParameter& net_param);
