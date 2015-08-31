@@ -16,7 +16,8 @@ namespace caffe {
   public:
     explicit ImageFeatureDataLayer(const LayerParameter& param)
       : BaseDataLayer<Dtype>(param) {}
-    virtual ~ImageFeatureDataLayer();
+    
+    //virtual ~ImageFeatureDataLayer();
     virtual void DataLayerSetUp(const vector<Blob<Dtype>*>& bottom,
       const vector<Blob<Dtype>*>& top);
     virtual void AddImageFeatureData(const std::list<cv::Mat>& src, const std::list<std::vector<float> >& features);
@@ -44,13 +45,13 @@ namespace caffe {
 
 
     //std::vector<std::string> hdf_filenames_;
-    unsigned int num_files_;
-    unsigned int current_file_;
+    //unsigned int num_files_;
+    //unsigned int current_file_;
     hsize_t current_row_;
     Blob<Dtype> data_blob_;
     Blob<Dtype> label_blob_;
     std::auto_ptr<Dtype> data_;
-    DISABLE_COPY_AND_ASSIGN(ImageFeatureDataLayer);
+    //DISABLE_COPY_AND_ASSIGN(ImageFeatureDataLayer);
 #ifdef USE_PARALLEL
     critical_section mutex;
 #endif

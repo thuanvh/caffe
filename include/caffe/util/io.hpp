@@ -5,14 +5,10 @@
 #include <string>
 
 #include "google/protobuf/message.h"
-#include "hdf5.h"
-#include "hdf5_hl.h"
 
 #include "caffe/blob.hpp"
 #include "caffe/common.hpp"
 #include "caffe/proto/caffe.pb.h"
-
-#define HDF5_NUM_DIMS 4
 
 namespace caffe {
 
@@ -44,7 +40,7 @@ using ::google::protobuf::Message;
 //  delete[] temp_dirname_cstr;
 //}
 
-bool ReadProtoFromTextFile(const char* filename, Message* proto);
+bool CAFFE_DLL_EXPORT ReadProtoFromTextFile(const char* filename, Message* proto);
 
 inline bool ReadProtoFromTextFile(const string& filename, Message* proto) {
   return ReadProtoFromTextFile(filename.c_str(), proto);
@@ -63,7 +59,7 @@ inline void WriteProtoToTextFile(const Message& proto, const string& filename) {
   WriteProtoToTextFile(proto, filename.c_str());
 }
 
-bool ReadProtoFromBinaryFile(const char* filename, Message* proto);
+bool CAFFE_DLL_EXPORT ReadProtoFromBinaryFile(const char* filename, Message* proto);
 
 inline bool ReadProtoFromBinaryFile(const string& filename, Message* proto) {
   return ReadProtoFromBinaryFile(filename.c_str(), proto);
@@ -79,7 +75,7 @@ inline void ReadProtoFromBinaryFileOrDie(const string& filename,
 }
 
 
-void WriteProtoToBinaryFile(const Message& proto, const char* filename);
+void CAFFE_DLL_EXPORT WriteProtoToBinaryFile(const Message& proto, const char* filename);
 inline void WriteProtoToBinaryFile(
     const Message& proto, const string& filename) {
   WriteProtoToBinaryFile(proto, filename.c_str());
@@ -139,20 +135,6 @@ cv::Mat DecodeDatumToCVMatNative(const Datum& datum);
 cv::Mat DecodeDatumToCVMat(const Datum& datum, bool is_color);
 
 void CVMatToDatum(const cv::Mat& cv_img, Datum* datum);
-
-template <typename Dtype>
-void hdf5_load_nd_dataset_helper(
-    hid_t file_id, const char* dataset_name_, int min_dim, int max_dim,
-    Blob<Dtype>* blob);
-
-template <typename Dtype>
-void hdf5_load_nd_dataset(
-    hid_t file_id, const char* dataset_name_, int min_dim, int max_dim,
-    Blob<Dtype>* blob);
-
-template <typename Dtype>
-void hdf5_save_nd_dataset(
-    const hid_t file_id, const string& dataset_name, const Blob<Dtype>& blob);
 
 }  // namespace caffe
 

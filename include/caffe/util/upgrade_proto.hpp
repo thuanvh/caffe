@@ -2,13 +2,13 @@
 #define CAFFE_UTIL_UPGRADE_PROTO_H_
 
 #include <string>
-
+#include "caffe/common.hpp"
 #include "caffe/proto/caffe.pb.h"
 
 namespace caffe {
 
 // Return true iff the net is not the current version.
-bool NetNeedsUpgrade(const NetParameter& net_param);
+bool CAFFE_DLL_EXPORT NetNeedsUpgrade(const NetParameter& net_param);
 
 // Return true iff any layer contains parameters specified using
 // deprecated V0LayerParameter.
@@ -51,7 +51,7 @@ bool UpgradeV1LayerParameter(const V1LayerParameter& v1_layer_param,
 const char* UpgradeV1LayerType(const V1LayerParameter_LayerType type);
 
 // Check for deprecations and upgrade the NetParameter as needed.
-bool UpgradeNetAsNeeded(const string& param_file, NetParameter* param);
+bool CAFFE_DLL_EXPORT UpgradeNetAsNeeded(const string& param_file, NetParameter* param);
 
 // Read parameters from a file into a NetParameter proto message.
 void ReadNetParamsFromTextFileOrDie(const string& param_file,

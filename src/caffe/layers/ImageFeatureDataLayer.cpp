@@ -10,8 +10,8 @@
 #include "caffe/ImageFeatureDataLayer.h"
 namespace caffe {
 
-template <typename Dtype>
-ImageFeatureDataLayer<Dtype>::~ImageFeatureDataLayer<Dtype>() { }
+//template <typename Dtype>
+//ImageFeatureDataLayer<Dtype>::~ImageFeatureDataLayer<Dtype>() { }
 
 // Load data and label from HDF5 filename into the class property blobs.
 template <typename Dtype>
@@ -27,7 +27,7 @@ void ImageFeatureDataLayer<Dtype>::AddImageFeatureData(const std::list<cv::Mat>&
   label_blob_.Reshape(row, labelsize, 1, 1);
   
   //num_files = row;
-  current_file_ = 0;
+  //current_file_ = 0;
 
   CHECK_EQ(data_blob_.num(), label_blob_.num());
   //LOG(INFO) << "Successully loaded " << data_blob_.num() << " rows";
@@ -70,7 +70,7 @@ void ImageFeatureDataLayer<Dtype>::AddImageFeatureData(const std::list<cv::Mat>&
   label_blob_.Reshape(row, feature_size, 1, 1);
 
   //num_files = row;
-  current_file_ = 0;
+  //current_file_ = 0;
 
   CHECK_EQ(data_blob_.num(), label_blob_.num());
   //LOG(INFO) << "Successully loaded " << data_blob_.num() << " rows";
@@ -79,10 +79,18 @@ void ImageFeatureDataLayer<Dtype>::AddImageFeatureData(const std::list<cv::Mat>&
 template <typename Dtype>
 void ImageFeatureDataLayer<Dtype>::DataLayerSetUp(const vector<Blob<Dtype>*>& bottom,
       const vector<Blob<Dtype>*>& top) {
-  int c = this->layer_param_.image_feature_data_param().channel();
+  
+  int feature_size = this->layer_param_.memory_data_param().batch_size();
+  int c = this->layer_param_.memory_data_param().channels();
+  int h = this->layer_param_.memory_data_param().height();
+  int w = this->layer_param_.memory_data_param().width();
+  
+
+  /*int c = this->layer_param_.image_feature_data_param().channel();
   int w = this->layer_param_.image_feature_data_param().width();
   int h = this->layer_param_.image_feature_data_param().height();
-  int feature_size = this->layer_param_.image_feature_data_param().feature_size();
+  int feature_size = this->layer_param_.image_feature_data_param().feature_size();*/
+
   // Reshape blobs.
   const int batch_size = 1;
   top[0]->Reshape(batch_size, c, h, w);

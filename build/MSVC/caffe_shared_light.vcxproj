@@ -125,7 +125,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 6.0.props" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 6.5.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -236,7 +236,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CPU_ONLY;PROTOBUF_USE_DLLS;EXP_CAFFE;_VARIADIC_MAX=10;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -252,7 +252,7 @@
       <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248d.lib;opencv_highgui248d.lib;opencv_imgproc248d.lib;opencv_legacy248d.lib;opencv_objdetect248d.lib;pthreadVC2.lib;liblmdb.lib;libprotobufD.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\lib\win32</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -266,7 +266,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2013|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CPU_ONLY;PROTOBUF_USE_DLLS;EXP_CAFFE;_VARIADIC_MAX=10;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -284,7 +284,7 @@
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248d.lib;opencv_highgui248d.lib;opencv_imgproc248d.lib;opencv_legacy248d.lib;opencv_objdetect248d.lib;pthreadVC2.lib;liblmdb.lib;libprotobufD.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\lib\win32</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -298,7 +298,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2010|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CPU_ONLY;PROTOBUF_USE_DLLS;EXP_CAFFE;_VARIADIC_MAX=10;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -316,7 +316,7 @@
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248d.lib;opencv_highgui248d.lib;opencv_imgproc248d.lib;opencv_legacy248d.lib;opencv_objdetect248d.lib;pthreadVC2.lib;liblmdb.lib;libprotobufD.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\lib\win32</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -348,7 +348,7 @@
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention />
       <TargetMachine>MachineX64</TargetMachine>
-      <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>leveldbd.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libprotobufd.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248d.lib;opencv_highgui248d.lib;opencv_imgproc248d.lib;opencv_legacy248d.lib;opencv_objdetect248d.lib;pthreadVC2.lib;liblmdb.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -386,7 +386,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX64</TargetMachine>
-      <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>leveldbd.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libprotobufd.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248d.lib;opencv_highgui248d.lib;opencv_imgproc248d.lib;opencv_legacy248d.lib;opencv_objdetect248d.lib;pthreadVC2.lib;liblmdb.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -424,7 +424,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX64</TargetMachine>
-      <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>leveldbd.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libprotobufd.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248d.lib;opencv_highgui248d.lib;opencv_imgproc248d.lib;opencv_legacy248d.lib;opencv_objdetect248d.lib;pthreadVC2.lib;liblmdb.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -442,7 +442,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CPU_ONLY;PROTOBUF_USE_DLLS;EXP_CAFFE;_VARIADIC_MAX=10;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader />
@@ -458,7 +458,7 @@
       <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248.lib;opencv_highgui248.lib;opencv_imgproc248.lib;opencv_legacy248.lib;opencv_objdetect248.lib;pthreadVC2.lib;liblmdb.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\Win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\lib\Win32</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -472,7 +472,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CPU_ONLY;PROTOBUF_USE_DLLS;EXP_CAFFE;_VARIADIC_MAX=10;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader>
@@ -490,7 +490,7 @@
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248.lib;opencv_highgui248.lib;opencv_imgproc248.lib;opencv_legacy248.lib;opencv_objdetect248.lib;pthreadVC2.lib;liblmdb.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\Win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\lib\Win32</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -504,7 +504,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_2010|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CPU_ONLY;PROTOBUF_USE_DLLS;EXP_CAFFE;_VARIADIC_MAX=10;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader>
@@ -522,7 +522,7 @@
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opencv_core248.lib;opencv_highgui248.lib;opencv_imgproc248.lib;opencv_legacy248.lib;opencv_objdetect248.lib;pthreadVC2.lib;liblmdb.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\Win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\lib\Win32</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -554,7 +554,7 @@
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention />
       <TargetMachine>MachineX64</TargetMachine>
-      <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libprotobuf.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248.lib;opencv_highgui248.lib;opencv_imgproc248.lib;opencv_legacy248.lib;opencv_objdetect248.lib;pthreadVC2.lib;liblmdb.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -596,7 +596,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX64</TargetMachine>
-      <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libprotobuf.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248.lib;opencv_highgui248.lib;opencv_imgproc248.lib;opencv_legacy248.lib;opencv_objdetect248.lib;pthreadVC2.lib;liblmdb.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -638,7 +638,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX64</TargetMachine>
-      <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libprotobuf.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248.lib;opencv_highgui248.lib;opencv_imgproc248.lib;opencv_legacy248.lib;opencv_objdetect248.lib;pthreadVC2.lib;liblmdb.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -737,6 +737,6 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 6.0.targets" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 6.5.targets" />
   </ImportGroup>
 </Project>
