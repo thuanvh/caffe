@@ -8,6 +8,38 @@
 #include "caffe/vision_layers.hpp"
 #include "caffe/common.hpp"
 #include "caffe/ImageFeatureDataLayer.h"
+
+
+#include <opencv2/opencv.hpp>
+namespace {
+  int file_count = 0;
+
+  void Blob2Mat(const float* blob, int blob_size, cv::Mat & mat)
+  {
+    int size = sqrt(blob_size / 3);
+    int area = size * size;
+    std::vector<cv::Mat> mat_vec(3);
+    for (int i = 0; i < 3; ++i)
+    {
+      const float* ptr = blob + i * area;
+      mat_vec[i] = cv::Mat(size, size, CV_32FC1);
+      float* m_ptr = mat_vec[i].ptr<float>();
+      memcpy(m_ptr, ptr, size*size*sizeof(float));
+    }
+    cv::merge(mat_vec, mat);
+  }
+  void SaveBlob(const float* blob, int blob_size, const std::string& name_prefix)
+  {
+    cv::Mat blobMat;
+    Blob2Mat(blob, blob_size, blobMat);
+    blobMat.convertTo(blobMat, CV_8UC3, 255);
+    char fname[255];
+    sprintf(fname, "%s_%d.png", name_prefix.c_str(), file_count);
+    cv::imwrite(fname, blobMat);
+  }
+}
+
+
 namespace caffe {
 
 //template <typename Dtype>
@@ -113,6 +145,13 @@ void ImageFeatureDataLayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& botto
     memcpy(&top[1]->mutable_cpu_data()[i * label_data_count],
             &label_blob_.cpu_data()[current_row_ * label_data_count],
             sizeof(Dtype) * label_data_count);
+/*
+    if (sizeof(Dtype) == sizeof(float)) {
+      int data_dim = top[0]->count() / top[0]->shape(0);
+      SaveBlob((float*)top[0]->cpu_data(), data_dim, "ifd_0");      
+      ++file_count;
+    }
+*/
   }
 #if 0
   int w = (*top)[0]->width();
