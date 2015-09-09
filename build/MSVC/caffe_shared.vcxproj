@@ -751,6 +751,7 @@
     <ClCompile Include="..\..\src\caffe\util\math_functions.cpp" />
     <ClCompile Include="..\..\src\caffe\util\signal_handler.cpp" />
     <ClCompile Include="..\..\src\caffe\util\upgrade_proto.cpp" />
+    <ClCompile Include="GpuUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\caffe\blob.hpp" />
@@ -780,11 +781,12 @@
     <ClInclude Include="..\..\include\caffe\vision_layers.hpp" />
     <ClInclude Include="..\..\src\caffe\proto\caffe.pb.h" />
     <ClInclude Include="..\..\src\include\opencvlib.h" />
+    <ClInclude Include="GpuUtil.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">    
+  <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
