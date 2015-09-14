@@ -10,12 +10,22 @@
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerWorkingDirectory>D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour</LocalDebuggerWorkingDirectory>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2015|Win32'">
+    <LocalDebuggerCommandArguments>D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour\lenet_predict_2.prototxt D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour\lenet_iter_10000 1 CPU 0 D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour\9.jpg</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerWorkingDirectory>D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LocalDebuggerCommandArguments>D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour\lenet_predict_2.prototxt D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour\lenet_iter_10000 1 CPU 0 9.jpg</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerWorkingDirectory>D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour</LocalDebuggerWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2013|Win32'">
+    <LocalDebuggerCommandArguments>D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour\lenet_predict_2.prototxt D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour\lenet_iter_10000 1 CPU 0 9.jpg</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerWorkingDirectory>D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2015|Win32'">
     <LocalDebuggerCommandArguments>D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour\lenet_predict_2.prototxt D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour\lenet_iter_10000 1 CPU 0 9.jpg</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerWorkingDirectory>D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour</LocalDebuggerWorkingDirectory>

@@ -10,12 +10,22 @@
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerWorkingDirectory>D:\sandbox\utility\cnn\caffe-windows\dev\caffe\examples\facepts_3\</LocalDebuggerWorkingDirectory>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2015|Win32'">
+    <LocalDebuggerCommandArguments>D:\sandbox\utility\cnn\caffe-windows\dev\caffe\examples\facepts_3\lenet_test.prototxt D:\sandbox\utility\cnn\caffe-windows\dev\caffe\examples\facepts_3\lenet_iter_10000 100</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerWorkingDirectory>D:\sandbox\utility\cnn\caffe-windows\dev\caffe\examples\facepts_3\</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LocalDebuggerCommandArguments>D:\sandbox\utility\cnn\caffe-windows\dev\caffe\examples\facepts_3\lenet_predict.prototxt D:\sandbox\utility\cnn\caffe-windows\dev\caffe\examples\facepts_3\lenet_iter_10000 100</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerWorkingDirectory>D:\sandbox\utility\cnn\caffe-windows\dev\caffe\examples\facepts_3\</LocalDebuggerWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2013|Win32'">
+    <LocalDebuggerCommandArguments>D:\sandbox\utility\cnn\caffe-windows\dev\caffe\examples\facepts_3\lenet_predict.prototxt D:\sandbox\utility\cnn\caffe-windows\dev\caffe\examples\facepts_3\lenet_iter_10000 100</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerWorkingDirectory>D:\sandbox\utility\cnn\caffe-windows\dev\caffe\examples\facepts_3\</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2015|Win32'">
     <LocalDebuggerCommandArguments>D:\sandbox\utility\cnn\caffe-windows\dev\caffe\examples\facepts_3\lenet_predict.prototxt D:\sandbox\utility\cnn\caffe-windows\dev\caffe\examples\facepts_3\lenet_iter_10000 100</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerWorkingDirectory>D:\sandbox\utility\cnn\caffe-windows\dev\caffe\examples\facepts_3\</LocalDebuggerWorkingDirectory>
