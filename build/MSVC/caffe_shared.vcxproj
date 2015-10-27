@@ -168,66 +168,82 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_2015|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_2010|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2013|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2015|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2010|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_2015|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_2010|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2013|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2015|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2010|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="Opencv_Dir.props" />
+    <Import Project="Third_Party.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -235,90 +251,90 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)/bin\</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2013|Win32'">
     <OutDir>$(SolutionDir)/bin\</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2015|Win32'">
     <OutDir>$(SolutionDir)/bin/$(BasePlatformToolset)/</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2010|Win32'">
     <OutDir>$(SolutionDir)$(PlatformToolset)\Bin\</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)/bin\</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2013|x64'">
     <OutDir>$(SolutionDir)/bin\</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2015|x64'">
     <OutDir>$(SolutionDir)\Bin\$(Platform)\$(PlatformToolset)\</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2010|x64'">
     <OutDir>$(SolutionDir)/bin\</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)/bin\</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013|Win32'">
     <OutDir>$(SolutionDir)/bin\</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2015|Win32'">
     <OutDir>$(SolutionDir)/bin/$(BasePlatformToolset)/</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2010|Win32'">
     <OutDir>$(SolutionDir)$(PlatformToolset)\Bin\</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)/bin\</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013|x64'">
     <OutDir>$(SolutionDir)/bin\</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2015|x64'">
     <OutDir>$(SolutionDir)\Bin\$(Platform)\$(PlatformToolset)\</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2010|x64'">
     <OutDir>$(SolutionDir)/bin\</OutDir>
-    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -702,7 +718,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_2010|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../src;../../include;../../include/win;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CPU_ONLY;PROTOBUF_USE_DLLS;EXP_CAFFE;_VARIADIC_MAX=10;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader>
