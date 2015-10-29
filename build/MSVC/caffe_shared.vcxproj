@@ -262,7 +262,7 @@
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2015|Win32'">
-    <OutDir>$(SolutionDir)/bin/$(BasePlatformToolset)/</OutDir>
+    <OutDir>$(SolutionDir)\Bin\$(Platform)\$(PlatformToolset)\</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
@@ -308,7 +308,7 @@
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2015|Win32'">
-    <OutDir>$(SolutionDir)/bin/$(BasePlatformToolset)/</OutDir>
+    <OutDir>$(SolutionDir)\Bin\$(Platform)\$(PlatformToolset)\</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
