@@ -5,7 +5,7 @@
 
 #include "caffe/layer.hpp"
 #include "caffe/util/io.hpp"
-#include "caffe/vision_layers.hpp"
+//#include "caffe/vision_layers.hpp"
 #include "caffe/common.hpp"
 #include "caffe/ImageFeatureDataLayer.h"
 
@@ -138,7 +138,7 @@ void ImageFeatureDataLayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& botto
   const int batch_size = 1;//this->layer_param_.hdf5_data_param().batch_size();
   const int data_count = top[0]->count() / top[0]->num();
   const int label_data_count = top[1]->count() / top[1]->num();  
-  current_row_ = 0;
+  int current_row_ = 0;
   //LOG(INFO) << "Loop iter: "<< current_row_ <<"," << data_count << "," << label_data_count;
   for (int i = 0; i < batch_size; ++i, ++current_row_) {    
     /*memcpy(&top[0]->mutable_cpu_data()[i * data_count],

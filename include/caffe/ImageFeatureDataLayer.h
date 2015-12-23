@@ -1,5 +1,5 @@
 #pragma once
-#include <caffe/data_layers.hpp>
+#include <caffe/layers/base_data_layer.hpp>
 #include <opencv2/opencv.hpp>
 #include <vector>
 #include <list>
@@ -47,7 +47,7 @@ namespace caffe {
     //std::vector<std::string> hdf_filenames_;
     //unsigned int num_files_;
     //unsigned int current_file_;
-    hsize_t current_row_;
+    //hsize_t current_row_;
     Blob<Dtype> data_blob_;
     Blob<Dtype> label_blob_;
     std::auto_ptr<Dtype> data_;
