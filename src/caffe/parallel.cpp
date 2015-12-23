@@ -3,14 +3,12 @@
 #endif
 #include <glog/logging.h>
 #include <stdio.h>
-//#include <sys/ioctl.h>
-//#include <sys/mman.h>
+
 
 #if _MSC_VER < 1900
 #define log2(x) (log(x)/log(2))
 #endif
 
-#include <sys/stat.h>
 
 #include <sstream>
 #include <string>
