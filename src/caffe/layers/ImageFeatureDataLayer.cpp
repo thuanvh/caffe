@@ -16,7 +16,7 @@ namespace {
 
   void Blob2Mat(const float* blob, int blob_size, cv::Mat & mat)
   {
-    int size = sqrt(blob_size / 3);
+    int size = (int)sqrt(blob_size / 3.0f);
     int area = size * size;
     std::vector<cv::Mat> mat_vec(3);
     for (int i = 0; i < 3; ++i)
@@ -24,7 +24,8 @@ namespace {
       const float* ptr = blob + i * area;
       mat_vec[i] = cv::Mat(size, size, CV_32FC1);
       float* m_ptr = mat_vec[i].ptr<float>();
-      memcpy(m_ptr, ptr, size*size*sizeof(float));
+      //memcpy(m_ptr, ptr, size*size*sizeof(float));
+      caffe::caffe_copy(size*size, ptr, m_ptr);
     }
     cv::merge(mat_vec, mat);
   }
@@ -92,7 +93,8 @@ void ImageFeatureDataLayer<Dtype>::AddImageFeatureData(const std::list<cv::Mat>&
     for (int c = 0; c < cols; c++)
     {
       cv::Mat aplane = planes[c];
-      memcpy((void*)ptr, (void*)aplane.ptr<Dtype>(), blocksize  * sizeof(Dtype));
+      //memcpy((void*)ptr, (void*)aplane.ptr<Dtype>(), blocksize  * sizeof(Dtype));
+      caffe_copy(blocksize, aplane.ptr<Dtype>(), ptr);
       ptr += blocksize;
     }
   }
@@ -139,12 +141,16 @@ void ImageFeatureDataLayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& botto
   current_row_ = 0;
   //LOG(INFO) << "Loop iter: "<< current_row_ <<"," << data_count << "," << label_data_count;
   for (int i = 0; i < batch_size; ++i, ++current_row_) {    
-    memcpy(&top[0]->mutable_cpu_data()[i * data_count],
+    /*memcpy(&top[0]->mutable_cpu_data()[i * data_count],
            &data_blob_.cpu_data()[current_row_ * data_count],
            sizeof(Dtype) * data_count);
     memcpy(&top[1]->mutable_cpu_data()[i * label_data_count],
             &label_blob_.cpu_data()[current_row_ * label_data_count],
-            sizeof(Dtype) * label_data_count);
+            sizeof(Dtype) * label_data_count);*/
+    caffe_copy(data_count,
+      &data_blob_.cpu_data()[current_row_ * data_count], &top[0]->mutable_cpu_data()[i * data_count]);
+    caffe_copy(label_data_count,
+      &label_blob_.cpu_data()[current_row_ * label_data_count], &top[1]->mutable_cpu_data()[i * label_data_count]);
 /*
     if (sizeof(Dtype) == sizeof(float)) {
       int data_dim = top[0]->count() / top[0]->shape(0);
