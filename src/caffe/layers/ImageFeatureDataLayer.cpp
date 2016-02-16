@@ -100,7 +100,7 @@ void ImageFeatureDataLayer<Dtype>::AddImageFeatureData(const std::list<cv::Mat>&
   }
   data_blob_.set_cpu_data(data_.get());
 
-  int feature_size = this->layer_param_.image_feature_data_param().feature_size();
+  int feature_size = this->layer_param_.memory_data_param().batch_size();
   label_blob_.Reshape(row, feature_size, 1, 1);
 
   //num_files = row;
