@@ -65,6 +65,10 @@ class ConvolutionLayer : public BaseConvolutionLayer<Dtype> {
       : BaseConvolutionLayer<Dtype>(param) {}
 
   virtual inline const char* type() const { return "Convolution"; }
+  virtual inline DiagonalAffineMap<Dtype> coord_map() {
+    return FilterMap<Dtype>(this->kernel_shape_.height(), this->kernel_shape_.width(), this->stride_.height(),
+        this->stride_.width(), this->pad_.height(), this->pad_.width()).inv();
+  }
 
  protected:
   virtual void Forward_cpu(const vector<Blob<Dtype>*>& bottom,

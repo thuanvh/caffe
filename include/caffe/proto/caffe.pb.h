@@ -523,6 +523,7 @@ enum V1LayerParameter_LayerType {
   V1LayerParameter_LayerType_CONCAT = 3,
   V1LayerParameter_LayerType_CONTRASTIVE_LOSS = 37,
   V1LayerParameter_LayerType_CONVOLUTION = 4,
+  V1LayerParameter_LayerType_CROP = 40,
   V1LayerParameter_LayerType_DATA = 5,
   V1LayerParameter_LayerType_DECONVOLUTION = 39,
   V1LayerParameter_LayerType_DROPOUT = 6,
@@ -558,7 +559,7 @@ enum V1LayerParameter_LayerType {
 };
 CAFFE_DLL_EXPORT bool V1LayerParameter_LayerType_IsValid(int value);
 const V1LayerParameter_LayerType V1LayerParameter_LayerType_LayerType_MIN = V1LayerParameter_LayerType_NONE;
-const V1LayerParameter_LayerType V1LayerParameter_LayerType_LayerType_MAX = V1LayerParameter_LayerType_DECONVOLUTION;
+const V1LayerParameter_LayerType V1LayerParameter_LayerType_LayerType_MAX = V1LayerParameter_LayerType_CROP;
 const int V1LayerParameter_LayerType_LayerType_ARRAYSIZE = V1LayerParameter_LayerType_LayerType_MAX + 1;
 
 CAFFE_DLL_EXPORT const ::google::protobuf::EnumDescriptor* V1LayerParameter_LayerType_descriptor();
@@ -9086,6 +9087,7 @@ class CAFFE_DLL_EXPORT V1LayerParameter : public ::google::protobuf::Message {
   static const LayerType CONCAT = V1LayerParameter_LayerType_CONCAT;
   static const LayerType CONTRASTIVE_LOSS = V1LayerParameter_LayerType_CONTRASTIVE_LOSS;
   static const LayerType CONVOLUTION = V1LayerParameter_LayerType_CONVOLUTION;
+  static const LayerType CROP = V1LayerParameter_LayerType_CROP;
   static const LayerType DATA = V1LayerParameter_LayerType_DATA;
   static const LayerType DECONVOLUTION = V1LayerParameter_LayerType_DECONVOLUTION;
   static const LayerType DROPOUT = V1LayerParameter_LayerType_DROPOUT;
