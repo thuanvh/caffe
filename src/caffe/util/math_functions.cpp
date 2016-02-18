@@ -358,10 +358,10 @@ Dtype caffe_cpu_dot(const int n, const Dtype* x, const Dtype* y) {
 }
 
 template
-float caffe_cpu_dot<float>(const int n, const float* x, const float* y);
+CAFFE_DLL_EXPORT float caffe_cpu_dot<float>(const int n, const float* x, const float* y);
 
 template
-double caffe_cpu_dot<double>(const int n, const double* x, const double* y);
+CAFFE_DLL_EXPORT double caffe_cpu_dot<double>(const int n, const double* x, const double* y);
 
 template <>
 float caffe_cpu_asum<float>(const int n, const float* x) {
