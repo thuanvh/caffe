@@ -574,11 +574,12 @@ enum V1LayerParameter_LayerType {
   V1LayerParameter_LayerType_SLICE = 33,
   V1LayerParameter_LayerType_TANH = 23,
   V1LayerParameter_LayerType_WINDOW_DATA = 24,
-  V1LayerParameter_LayerType_THRESHOLD = 31
+  V1LayerParameter_LayerType_THRESHOLD = 31,
+  V1LayerParameter_LayerType_MULTI_STAGE_MEANFIELD = 41
 };
 CAFFE_DLL_EXPORT bool V1LayerParameter_LayerType_IsValid(int value);
 const V1LayerParameter_LayerType V1LayerParameter_LayerType_LayerType_MIN = V1LayerParameter_LayerType_NONE;
-const V1LayerParameter_LayerType V1LayerParameter_LayerType_LayerType_MAX = V1LayerParameter_LayerType_CROP;
+const V1LayerParameter_LayerType V1LayerParameter_LayerType_LayerType_MAX = V1LayerParameter_LayerType_MULTI_STAGE_MEANFIELD;
 const int V1LayerParameter_LayerType_LayerType_ARRAYSIZE = V1LayerParameter_LayerType_LayerType_MAX + 1;
 
 CAFFE_DLL_EXPORT const ::google::protobuf::EnumDescriptor* V1LayerParameter_LayerType_descriptor();
@@ -9356,6 +9357,7 @@ class CAFFE_DLL_EXPORT V1LayerParameter : public ::google::protobuf::Message {
   static const LayerType TANH = V1LayerParameter_LayerType_TANH;
   static const LayerType WINDOW_DATA = V1LayerParameter_LayerType_WINDOW_DATA;
   static const LayerType THRESHOLD = V1LayerParameter_LayerType_THRESHOLD;
+  static const LayerType MULTI_STAGE_MEANFIELD = V1LayerParameter_LayerType_MULTI_STAGE_MEANFIELD;
   static inline bool LayerType_IsValid(int value) {
     return V1LayerParameter_LayerType_IsValid(value);
   }
@@ -9831,6 +9833,15 @@ class CAFFE_DLL_EXPORT V1LayerParameter : public ::google::protobuf::Message {
   ::caffe::V0LayerParameter* release_layer();
   void set_allocated_layer(::caffe::V0LayerParameter* layer);
 
+  // optional .caffe.MultiStageMeanfieldParameter multi_stage_meanfield_param = 43;
+  bool has_multi_stage_meanfield_param() const;
+  void clear_multi_stage_meanfield_param();
+  static const int kMultiStageMeanfieldParamFieldNumber = 43;
+  const ::caffe::MultiStageMeanfieldParameter& multi_stage_meanfield_param() const;
+  ::caffe::MultiStageMeanfieldParameter* mutable_multi_stage_meanfield_param();
+  ::caffe::MultiStageMeanfieldParameter* release_multi_stage_meanfield_param();
+  void set_allocated_multi_stage_meanfield_param(::caffe::MultiStageMeanfieldParameter* multi_stage_meanfield_param);
+
   // @@protoc_insertion_point(class_scope:caffe.V1LayerParameter)
  private:
   inline void set_has_name();
@@ -9899,6 +9910,8 @@ class CAFFE_DLL_EXPORT V1LayerParameter : public ::google::protobuf::Message {
   inline void clear_has_loss_param();
   inline void set_has_layer();
   inline void clear_has_layer();
+  inline void set_has_multi_stage_meanfield_param();
+  inline void clear_has_multi_stage_meanfield_param();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[2];
@@ -9944,6 +9957,7 @@ class CAFFE_DLL_EXPORT V1LayerParameter : public ::google::protobuf::Message {
   ::caffe::TransformationParameter* transform_param_;
   ::caffe::LossParameter* loss_param_;
   ::caffe::V0LayerParameter* layer_;
+  ::caffe::MultiStageMeanfieldParameter* multi_stage_meanfield_param_;
   int type_;
   mutable int _cached_size_;
   friend void CAFFE_DLL_EXPORT protobuf_AddDesc_caffe_2eproto();
@@ -22869,6 +22883,49 @@ inline void V1LayerParameter::set_allocated_layer(::caffe::V0LayerParameter* lay
     clear_has_layer();
   }
   // @@protoc_insertion_point(field_set_allocated:caffe.V1LayerParameter.layer)
+}
+
+// optional .caffe.MultiStageMeanfieldParameter multi_stage_meanfield_param = 43;
+inline bool V1LayerParameter::has_multi_stage_meanfield_param() const {
+  return (_has_bits_[1] & 0x00000800u) != 0;
+}
+inline void V1LayerParameter::set_has_multi_stage_meanfield_param() {
+  _has_bits_[1] |= 0x00000800u;
+}
+inline void V1LayerParameter::clear_has_multi_stage_meanfield_param() {
+  _has_bits_[1] &= ~0x00000800u;
+}
+inline void V1LayerParameter::clear_multi_stage_meanfield_param() {
+  if (multi_stage_meanfield_param_ != NULL) multi_stage_meanfield_param_->::caffe::MultiStageMeanfieldParameter::Clear();
+  clear_has_multi_stage_meanfield_param();
+}
+inline const ::caffe::MultiStageMeanfieldParameter& V1LayerParameter::multi_stage_meanfield_param() const {
+  // @@protoc_insertion_point(field_get:caffe.V1LayerParameter.multi_stage_meanfield_param)
+  return multi_stage_meanfield_param_ != NULL ? *multi_stage_meanfield_param_ : *default_instance_->multi_stage_meanfield_param_;
+}
+inline ::caffe::MultiStageMeanfieldParameter* V1LayerParameter::mutable_multi_stage_meanfield_param() {
+  set_has_multi_stage_meanfield_param();
+  if (multi_stage_meanfield_param_ == NULL) {
+    multi_stage_meanfield_param_ = new ::caffe::MultiStageMeanfieldParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:caffe.V1LayerParameter.multi_stage_meanfield_param)
+  return multi_stage_meanfield_param_;
+}
+inline ::caffe::MultiStageMeanfieldParameter* V1LayerParameter::release_multi_stage_meanfield_param() {
+  clear_has_multi_stage_meanfield_param();
+  ::caffe::MultiStageMeanfieldParameter* temp = multi_stage_meanfield_param_;
+  multi_stage_meanfield_param_ = NULL;
+  return temp;
+}
+inline void V1LayerParameter::set_allocated_multi_stage_meanfield_param(::caffe::MultiStageMeanfieldParameter* multi_stage_meanfield_param) {
+  delete multi_stage_meanfield_param_;
+  multi_stage_meanfield_param_ = multi_stage_meanfield_param;
+  if (multi_stage_meanfield_param) {
+    set_has_multi_stage_meanfield_param();
+  } else {
+    clear_has_multi_stage_meanfield_param();
+  }
+  // @@protoc_insertion_point(field_set_allocated:caffe.V1LayerParameter.multi_stage_meanfield_param)
 }
 
 // -------------------------------------------------------------------

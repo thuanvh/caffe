@@ -33,8 +33,11 @@ class DeconvolutionLayer : public BaseConvolutionLayer<Dtype> {
 
   virtual inline const char* type() const { return "Deconvolution"; }
   virtual inline DiagonalAffineMap<Dtype> coord_map() {
-    return FilterMap<Dtype>(this->kernel_shape_.height(), this->kernel_shape_.width(), this->stride_.height(),
-        this->stride_.width(), this->pad_.height(), this->pad_.width());
+    int* kernel_data = kernel_shape_.mutable_cpu_data();
+    int* stride_data = stride_.mutable_cpu_data();
+    int* pad_data = pad_.mutable_cpu_data();
+    return FilterMap<Dtype>(kernel_data[0], kernel_data[1], stride_data[0],
+      stride_data[1], pad_data[0], pad_data[1]);
   }
 
   protected:

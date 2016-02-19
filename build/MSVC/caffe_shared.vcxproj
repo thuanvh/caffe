@@ -250,25 +250,25 @@
     <_ProjectFileVersion>11.0.61030.0</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)/bin\</OutDir>
+    <OutDir>$(SolutionDir)\Bin\$(Platform)\$(PlatformToolset)\</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2013|Win32'">
-    <OutDir>$(SolutionDir)/bin\</OutDir>
+    <OutDir>$(SolutionDir)\Bin\$(Platform)\$(PlatformToolset)\</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2015|Win32'">
-    <OutDir>$(SolutionDir)\Bin\$(PlatformToolset)\</OutDir>
+    <OutDir>$(SolutionDir)\Bin\$(Platform)\$(PlatformToolset)\</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2010|Win32'">
-    <OutDir>$(SolutionDir)$(PlatformToolset)\Bin\</OutDir>
+    <OutDir>$(SolutionDir)\Bin\$(Platform)\$(PlatformToolset)\</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
@@ -298,12 +298,12 @@
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)/bin\</OutDir>
+    <OutDir>$(SolutionDir)\Bin\$(Platform)\$(PlatformToolset)\</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013|Win32'">
-    <OutDir>$(SolutionDir)/bin\</OutDir>
+    <OutDir>$(SolutionDir)\Bin\$(Platform)\$(PlatformToolset)\</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
@@ -313,7 +313,7 @@
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2010|Win32'">
-    <OutDir>$(SolutionDir)$(PlatformToolset)\Bin\</OutDir>
+    <OutDir>$(SolutionDir)\Bin\$(Platform)\$(PlatformToolset)\</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)/$(PlatformTarget)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>

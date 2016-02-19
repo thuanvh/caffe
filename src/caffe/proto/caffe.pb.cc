@@ -1351,7 +1351,7 @@ void protobuf_AssignDesc_caffe_2eproto() {
   SPPParameter_PoolMethod_descriptor_ = SPPParameter_descriptor_->enum_type(0);
   SPPParameter_Engine_descriptor_ = SPPParameter_descriptor_->enum_type(1);
   V1LayerParameter_descriptor_ = file->message_type(55);
-  static const int V1LayerParameter_offsets_[43] = {
+  static const int V1LayerParameter_offsets_[44] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(V1LayerParameter, bottom_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(V1LayerParameter, top_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(V1LayerParameter, name_),
@@ -1395,6 +1395,7 @@ void protobuf_AssignDesc_caffe_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(V1LayerParameter, transform_param_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(V1LayerParameter, loss_param_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(V1LayerParameter, layer_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(V1LayerParameter, multi_stage_meanfield_param_),
   };
   V1LayerParameter_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -2032,7 +2033,7 @@ void protobuf_AddDesc_caffe_2eproto() {
     ".SPPParameter.Engine:\007DEFAULT\".\n\nPoolMet"
     "hod\022\007\n\003MAX\020\000\022\007\n\003AVE\020\001\022\016\n\nSTOCHASTIC\020\002\"+\n"
     "\006Engine\022\013\n\007DEFAULT\020\000\022\t\n\005CAFFE\020\001\022\t\n\005CUDNN"
-    "\020\002\"\352\023\n\020V1LayerParameter\022\016\n\006bottom\030\002 \003(\t\022"
+    "\020\002\"\317\024\n\020V1LayerParameter\022\016\n\006bottom\030\002 \003(\t\022"
     "\013\n\003top\030\003 \003(\t\022\014\n\004name\030\004 \001(\t\022$\n\007include\030  "
     "\003(\0132\023.caffe.NetStateRule\022$\n\007exclude\030! \003("
     "\0132\023.caffe.NetStateRule\022/\n\004type\030\005 \001(\0162!.c"
@@ -2079,52 +2080,54 @@ void protobuf_AddDesc_caffe_2eproto() {
     "_param\030$ \001(\0132\036.caffe.TransformationParam"
     "eter\022(\n\nloss_param\030* \001(\0132\024.caffe.LossPar"
     "ameter\022&\n\005layer\030\001 \001(\0132\027.caffe.V0LayerPar"
-    "ameter\"\342\004\n\tLayerType\022\010\n\004NONE\020\000\022\n\n\006ABSVAL"
-    "\020#\022\014\n\010ACCURACY\020\001\022\n\n\006ARGMAX\020\036\022\010\n\004BNLL\020\002\022\n"
-    "\n\006CONCAT\020\003\022\024\n\020CONTRASTIVE_LOSS\020%\022\017\n\013CONV"
-    "OLUTION\020\004\022\010\n\004CROP\020(\022\010\n\004DATA\020\005\022\021\n\rDECONVO"
-    "LUTION\020\'\022\013\n\007DROPOUT\020\006\022\016\n\nDUMMY_DATA\020 \022\022\n"
-    "\016EUCLIDEAN_LOSS\020\007\022\013\n\007ELTWISE\020\031\022\007\n\003EXP\020&\022"
-    "\013\n\007FLATTEN\020\010\022\r\n\tHDF5_DATA\020\t\022\017\n\013HDF5_OUTP"
-    "UT\020\n\022\016\n\nHINGE_LOSS\020\034\022\n\n\006IM2COL\020\013\022\016\n\nIMAG"
-    "E_DATA\020\014\022\021\n\rINFOGAIN_LOSS\020\r\022\021\n\rINNER_PRO"
-    "DUCT\020\016\022\007\n\003LRN\020\017\022\017\n\013MEMORY_DATA\020\035\022\035\n\031MULT"
-    "INOMIAL_LOGISTIC_LOSS\020\020\022\007\n\003MVN\020\"\022\013\n\007POOL"
-    "ING\020\021\022\t\n\005POWER\020\032\022\010\n\004RELU\020\022\022\013\n\007SIGMOID\020\023\022"
-    "\036\n\032SIGMOID_CROSS_ENTROPY_LOSS\020\033\022\013\n\007SILEN"
-    "CE\020$\022\013\n\007SOFTMAX\020\024\022\020\n\014SOFTMAX_LOSS\020\025\022\t\n\005S"
-    "PLIT\020\026\022\t\n\005SLICE\020!\022\010\n\004TANH\020\027\022\017\n\013WINDOW_DA"
-    "TA\020\030\022\r\n\tTHRESHOLD\020\037\"*\n\014DimCheckMode\022\n\n\006S"
-    "TRICT\020\000\022\016\n\nPERMISSIVE\020\001\"\375\007\n\020V0LayerParam"
-    "eter\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\022\022\n\nnum_"
-    "output\030\003 \001(\r\022\026\n\010biasterm\030\004 \001(\010:\004true\022-\n\r"
-    "weight_filler\030\005 \001(\0132\026.caffe.FillerParame"
-    "ter\022+\n\013bias_filler\030\006 \001(\0132\026.caffe.FillerP"
-    "arameter\022\016\n\003pad\030\007 \001(\r:\0010\022\022\n\nkernelsize\030\010"
-    " \001(\r\022\020\n\005group\030\t \001(\r:\0011\022\021\n\006stride\030\n \001(\r:\001"
-    "1\0225\n\004pool\030\013 \001(\0162\".caffe.V0LayerParameter"
-    ".PoolMethod:\003MAX\022\032\n\rdropout_ratio\030\014 \001(\002:"
-    "\0030.5\022\025\n\nlocal_size\030\r \001(\r:\0015\022\020\n\005alpha\030\016 \001"
-    "(\002:\0011\022\022\n\004beta\030\017 \001(\002:\0040.75\022\014\n\001k\030\026 \001(\002:\0011\022"
-    "\016\n\006source\030\020 \001(\t\022\020\n\005scale\030\021 \001(\002:\0011\022\020\n\010mea"
-    "nfile\030\022 \001(\t\022\021\n\tbatchsize\030\023 \001(\r\022\023\n\010cropsi"
-    "ze\030\024 \001(\r:\0010\022\025\n\006mirror\030\025 \001(\010:\005false\022\037\n\005bl"
-    "obs\0302 \003(\0132\020.caffe.BlobProto\022\020\n\010blobs_lr\030"
-    "3 \003(\002\022\024\n\014weight_decay\0304 \003(\002\022\024\n\trand_skip"
-    "\0305 \001(\r:\0010\022\035\n\020det_fg_threshold\0306 \001(\002:\0030.5"
-    "\022\035\n\020det_bg_threshold\0307 \001(\002:\0030.5\022\035\n\017det_f"
-    "g_fraction\0308 \001(\002:\0040.25\022\032\n\017det_context_pa"
-    "d\030: \001(\r:\0010\022\033\n\rdet_crop_mode\030; \001(\t:\004warp\022"
-    "\022\n\007new_num\030< \001(\005:\0010\022\027\n\014new_channels\030= \001("
-    "\005:\0010\022\025\n\nnew_height\030> \001(\005:\0010\022\024\n\tnew_width"
-    "\030\? \001(\005:\0010\022\035\n\016shuffle_images\030@ \001(\010:\005false"
-    "\022\025\n\nconcat_dim\030A \001(\r:\0011\0226\n\021hdf5_output_p"
-    "aram\030\351\007 \001(\0132\032.caffe.HDF5OutputParameter\""
-    ".\n\nPoolMethod\022\007\n\003MAX\020\000\022\007\n\003AVE\020\001\022\016\n\nSTOCH"
-    "ASTIC\020\002\"W\n\016PReLUParameter\022&\n\006filler\030\001 \001("
-    "\0132\026.caffe.FillerParameter\022\035\n\016channel_sha"
-    "red\030\002 \001(\010:\005false*\034\n\005Phase\022\t\n\005TRAIN\020\000\022\010\n\004"
-    "TEST\020\001", 15286);
+    "ameter\022H\n\033multi_stage_meanfield_param\030+ "
+    "\001(\0132#.caffe.MultiStageMeanfieldParameter"
+    "\"\375\004\n\tLayerType\022\010\n\004NONE\020\000\022\n\n\006ABSVAL\020#\022\014\n\010"
+    "ACCURACY\020\001\022\n\n\006ARGMAX\020\036\022\010\n\004BNLL\020\002\022\n\n\006CONC"
+    "AT\020\003\022\024\n\020CONTRASTIVE_LOSS\020%\022\017\n\013CONVOLUTIO"
+    "N\020\004\022\010\n\004CROP\020(\022\010\n\004DATA\020\005\022\021\n\rDECONVOLUTION"
+    "\020\'\022\013\n\007DROPOUT\020\006\022\016\n\nDUMMY_DATA\020 \022\022\n\016EUCLI"
+    "DEAN_LOSS\020\007\022\013\n\007ELTWISE\020\031\022\007\n\003EXP\020&\022\013\n\007FLA"
+    "TTEN\020\010\022\r\n\tHDF5_DATA\020\t\022\017\n\013HDF5_OUTPUT\020\n\022\016"
+    "\n\nHINGE_LOSS\020\034\022\n\n\006IM2COL\020\013\022\016\n\nIMAGE_DATA"
+    "\020\014\022\021\n\rINFOGAIN_LOSS\020\r\022\021\n\rINNER_PRODUCT\020\016"
+    "\022\007\n\003LRN\020\017\022\017\n\013MEMORY_DATA\020\035\022\035\n\031MULTINOMIA"
+    "L_LOGISTIC_LOSS\020\020\022\007\n\003MVN\020\"\022\013\n\007POOLING\020\021\022"
+    "\t\n\005POWER\020\032\022\010\n\004RELU\020\022\022\013\n\007SIGMOID\020\023\022\036\n\032SIG"
+    "MOID_CROSS_ENTROPY_LOSS\020\033\022\013\n\007SILENCE\020$\022\013"
+    "\n\007SOFTMAX\020\024\022\020\n\014SOFTMAX_LOSS\020\025\022\t\n\005SPLIT\020\026"
+    "\022\t\n\005SLICE\020!\022\010\n\004TANH\020\027\022\017\n\013WINDOW_DATA\020\030\022\r"
+    "\n\tTHRESHOLD\020\037\022\031\n\025MULTI_STAGE_MEANFIELD\020)"
+    "\"*\n\014DimCheckMode\022\n\n\006STRICT\020\000\022\016\n\nPERMISSI"
+    "VE\020\001\"\375\007\n\020V0LayerParameter\022\014\n\004name\030\001 \001(\t\022"
+    "\014\n\004type\030\002 \001(\t\022\022\n\nnum_output\030\003 \001(\r\022\026\n\010bia"
+    "sterm\030\004 \001(\010:\004true\022-\n\rweight_filler\030\005 \001(\013"
+    "2\026.caffe.FillerParameter\022+\n\013bias_filler\030"
+    "\006 \001(\0132\026.caffe.FillerParameter\022\016\n\003pad\030\007 \001"
+    "(\r:\0010\022\022\n\nkernelsize\030\010 \001(\r\022\020\n\005group\030\t \001(\r"
+    ":\0011\022\021\n\006stride\030\n \001(\r:\0011\0225\n\004pool\030\013 \001(\0162\".c"
+    "affe.V0LayerParameter.PoolMethod:\003MAX\022\032\n"
+    "\rdropout_ratio\030\014 \001(\002:\0030.5\022\025\n\nlocal_size\030"
+    "\r \001(\r:\0015\022\020\n\005alpha\030\016 \001(\002:\0011\022\022\n\004beta\030\017 \001(\002"
+    ":\0040.75\022\014\n\001k\030\026 \001(\002:\0011\022\016\n\006source\030\020 \001(\t\022\020\n\005"
+    "scale\030\021 \001(\002:\0011\022\020\n\010meanfile\030\022 \001(\t\022\021\n\tbatc"
+    "hsize\030\023 \001(\r\022\023\n\010cropsize\030\024 \001(\r:\0010\022\025\n\006mirr"
+    "or\030\025 \001(\010:\005false\022\037\n\005blobs\0302 \003(\0132\020.caffe.B"
+    "lobProto\022\020\n\010blobs_lr\0303 \003(\002\022\024\n\014weight_dec"
+    "ay\0304 \003(\002\022\024\n\trand_skip\0305 \001(\r:\0010\022\035\n\020det_fg"
+    "_threshold\0306 \001(\002:\0030.5\022\035\n\020det_bg_threshol"
+    "d\0307 \001(\002:\0030.5\022\035\n\017det_fg_fraction\0308 \001(\002:\0040"
+    ".25\022\032\n\017det_context_pad\030: \001(\r:\0010\022\033\n\rdet_c"
+    "rop_mode\030; \001(\t:\004warp\022\022\n\007new_num\030< \001(\005:\0010"
+    "\022\027\n\014new_channels\030= \001(\005:\0010\022\025\n\nnew_height\030"
+    "> \001(\005:\0010\022\024\n\tnew_width\030\? \001(\005:\0010\022\035\n\016shuffl"
+    "e_images\030@ \001(\010:\005false\022\025\n\nconcat_dim\030A \001("
+    "\r:\0011\0226\n\021hdf5_output_param\030\351\007 \001(\0132\032.caffe"
+    ".HDF5OutputParameter\".\n\nPoolMethod\022\007\n\003MA"
+    "X\020\000\022\007\n\003AVE\020\001\022\016\n\nSTOCHASTIC\020\002\"W\n\016PReLUPar"
+    "ameter\022&\n\006filler\030\001 \001(\0132\026.caffe.FillerPar"
+    "ameter\022\035\n\016channel_shared\030\002 \001(\010:\005false*\034\n"
+    "\005Phase\022\t\n\005TRAIN\020\000\022\010\n\004TEST\020\001", 15387);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "caffe.proto", &protobuf_RegisterTypes);
   BlobShape::default_instance_ = new BlobShape();
@@ -5799,6 +5802,7 @@ void NetParameter::CopyFrom(const NetParameter& from) {
 bool NetParameter::IsInitialized() const {
 
   if (!::google::protobuf::internal::AllAreInitialized(this->layer())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->layers())) return false;
   return true;
 }
 
@@ -38255,6 +38259,7 @@ bool V1LayerParameter_LayerType_IsValid(int value) {
     case 38:
     case 39:
     case 40:
+    case 41:
       return true;
     default:
       return false;
@@ -38303,6 +38308,7 @@ const V1LayerParameter_LayerType V1LayerParameter::SLICE;
 const V1LayerParameter_LayerType V1LayerParameter::TANH;
 const V1LayerParameter_LayerType V1LayerParameter::WINDOW_DATA;
 const V1LayerParameter_LayerType V1LayerParameter::THRESHOLD;
+const V1LayerParameter_LayerType V1LayerParameter::MULTI_STAGE_MEANFIELD;
 const V1LayerParameter_LayerType V1LayerParameter::LayerType_MIN;
 const V1LayerParameter_LayerType V1LayerParameter::LayerType_MAX;
 const int V1LayerParameter::LayerType_ARRAYSIZE;
@@ -38372,6 +38378,7 @@ const int V1LayerParameter::kWindowDataParamFieldNumber;
 const int V1LayerParameter::kTransformParamFieldNumber;
 const int V1LayerParameter::kLossParamFieldNumber;
 const int V1LayerParameter::kLayerFieldNumber;
+const int V1LayerParameter::kMultiStageMeanfieldParamFieldNumber;
 #endif  // !_MSC_VER
 
 V1LayerParameter::V1LayerParameter()
@@ -38412,6 +38419,7 @@ void V1LayerParameter::InitAsDefaultInstance() {
   transform_param_ = const_cast< ::caffe::TransformationParameter*>(&::caffe::TransformationParameter::default_instance());
   loss_param_ = const_cast< ::caffe::LossParameter*>(&::caffe::LossParameter::default_instance());
   layer_ = const_cast< ::caffe::V0LayerParameter*>(&::caffe::V0LayerParameter::default_instance());
+  multi_stage_meanfield_param_ = const_cast< ::caffe::MultiStageMeanfieldParameter*>(&::caffe::MultiStageMeanfieldParameter::default_instance());
 }
 
 V1LayerParameter::V1LayerParameter(const V1LayerParameter& from)
@@ -38458,6 +38466,7 @@ void V1LayerParameter::SharedCtor() {
   transform_param_ = NULL;
   loss_param_ = NULL;
   layer_ = NULL;
+  multi_stage_meanfield_param_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -38500,6 +38509,7 @@ void V1LayerParameter::SharedDtor() {
     delete transform_param_;
     delete loss_param_;
     delete layer_;
+    delete multi_stage_meanfield_param_;
   }
 }
 
@@ -38627,7 +38637,7 @@ void V1LayerParameter::Clear() {
       if (window_data_param_ != NULL) window_data_param_->::caffe::WindowDataParameter::Clear();
     }
   }
-  if (_has_bits_[40 / 32] & 1792u) {
+  if (_has_bits_[40 / 32] & 3840u) {
     if (has_transform_param()) {
       if (transform_param_ != NULL) transform_param_->::caffe::TransformationParameter::Clear();
     }
@@ -38636,6 +38646,9 @@ void V1LayerParameter::Clear() {
     }
     if (has_layer()) {
       if (layer_ != NULL) layer_->::caffe::V0LayerParameter::Clear();
+    }
+    if (has_multi_stage_meanfield_param()) {
+      if (multi_stage_meanfield_param_ != NULL) multi_stage_meanfield_param_->::caffe::MultiStageMeanfieldParameter::Clear();
     }
   }
   bottom_.Clear();
@@ -39244,6 +39257,19 @@ bool V1LayerParameter::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(346)) goto parse_multi_stage_meanfield_param;
+        break;
+      }
+
+      // optional .caffe.MultiStageMeanfieldParameter multi_stage_meanfield_param = 43;
+      case 43: {
+        if (tag == 346) {
+         parse_multi_stage_meanfield_param:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_multi_stage_meanfield_param()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectTag(8010)) goto parse_param;
         break;
       }
@@ -39578,6 +39604,12 @@ void V1LayerParameter::SerializeWithCachedSizes(
       42, *this->loss_param_, output);
   }
 
+  // optional .caffe.MultiStageMeanfieldParameter multi_stage_meanfield_param = 43;
+  if (has_multi_stage_meanfield_param()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      43, *this->multi_stage_meanfield_param_, output);
+  }
+
   // repeated string param = 1001;
   for (int i = 0; i < this->param_size(); i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -39897,6 +39929,13 @@ void V1LayerParameter::SerializeWithCachedSizes(
         42, *this->loss_param_, target);
   }
 
+  // optional .caffe.MultiStageMeanfieldParameter multi_stage_meanfield_param = 43;
+  if (has_multi_stage_meanfield_param()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        43, *this->multi_stage_meanfield_param_, target);
+  }
+
   // repeated string param = 1001;
   for (int i = 0; i < this->param_size(); i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -40143,7 +40182,7 @@ int V1LayerParameter::ByteSize() const {
     }
 
   }
-  if (_has_bits_[40 / 32] & 1792u) {
+  if (_has_bits_[40 / 32] & 3840u) {
     // optional .caffe.TransformationParameter transform_param = 36;
     if (has_transform_param()) {
       total_size += 2 +
@@ -40163,6 +40202,13 @@ int V1LayerParameter::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->layer_);
+    }
+
+    // optional .caffe.MultiStageMeanfieldParameter multi_stage_meanfield_param = 43;
+    if (has_multi_stage_meanfield_param()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *this->multi_stage_meanfield_param_);
     }
 
   }
@@ -40388,6 +40434,9 @@ void V1LayerParameter::MergeFrom(const V1LayerParameter& from) {
     if (from.has_layer()) {
       mutable_layer()->::caffe::V0LayerParameter::MergeFrom(from.layer());
     }
+    if (from.has_multi_stage_meanfield_param()) {
+      mutable_multi_stage_meanfield_param()->::caffe::MultiStageMeanfieldParameter::MergeFrom(from.multi_stage_meanfield_param());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -40408,6 +40457,9 @@ void V1LayerParameter::CopyFrom(const V1LayerParameter& from) {
 
 bool V1LayerParameter::IsInitialized() const {
 
+  if (has_multi_stage_meanfield_param()) {
+    if (!this->multi_stage_meanfield_param_->IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -40459,6 +40511,7 @@ void V1LayerParameter::InternalSwap(V1LayerParameter* other) {
   std::swap(transform_param_, other->transform_param_);
   std::swap(loss_param_, other->loss_param_);
   std::swap(layer_, other->layer_);
+  std::swap(multi_stage_meanfield_param_, other->multi_stage_meanfield_param_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   std::swap(_has_bits_[1], other->_has_bits_[1]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -42259,6 +42312,49 @@ void V1LayerParameter::set_allocated_layer(::caffe::V0LayerParameter* layer) {
     clear_has_layer();
   }
   // @@protoc_insertion_point(field_set_allocated:caffe.V1LayerParameter.layer)
+}
+
+// optional .caffe.MultiStageMeanfieldParameter multi_stage_meanfield_param = 43;
+bool V1LayerParameter::has_multi_stage_meanfield_param() const {
+  return (_has_bits_[1] & 0x00000800u) != 0;
+}
+void V1LayerParameter::set_has_multi_stage_meanfield_param() {
+  _has_bits_[1] |= 0x00000800u;
+}
+void V1LayerParameter::clear_has_multi_stage_meanfield_param() {
+  _has_bits_[1] &= ~0x00000800u;
+}
+void V1LayerParameter::clear_multi_stage_meanfield_param() {
+  if (multi_stage_meanfield_param_ != NULL) multi_stage_meanfield_param_->::caffe::MultiStageMeanfieldParameter::Clear();
+  clear_has_multi_stage_meanfield_param();
+}
+const ::caffe::MultiStageMeanfieldParameter& V1LayerParameter::multi_stage_meanfield_param() const {
+  // @@protoc_insertion_point(field_get:caffe.V1LayerParameter.multi_stage_meanfield_param)
+  return multi_stage_meanfield_param_ != NULL ? *multi_stage_meanfield_param_ : *default_instance_->multi_stage_meanfield_param_;
+}
+::caffe::MultiStageMeanfieldParameter* V1LayerParameter::mutable_multi_stage_meanfield_param() {
+  set_has_multi_stage_meanfield_param();
+  if (multi_stage_meanfield_param_ == NULL) {
+    multi_stage_meanfield_param_ = new ::caffe::MultiStageMeanfieldParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:caffe.V1LayerParameter.multi_stage_meanfield_param)
+  return multi_stage_meanfield_param_;
+}
+::caffe::MultiStageMeanfieldParameter* V1LayerParameter::release_multi_stage_meanfield_param() {
+  clear_has_multi_stage_meanfield_param();
+  ::caffe::MultiStageMeanfieldParameter* temp = multi_stage_meanfield_param_;
+  multi_stage_meanfield_param_ = NULL;
+  return temp;
+}
+void V1LayerParameter::set_allocated_multi_stage_meanfield_param(::caffe::MultiStageMeanfieldParameter* multi_stage_meanfield_param) {
+  delete multi_stage_meanfield_param_;
+  multi_stage_meanfield_param_ = multi_stage_meanfield_param;
+  if (multi_stage_meanfield_param) {
+    set_has_multi_stage_meanfield_param();
+  } else {
+    clear_has_multi_stage_meanfield_param();
+  }
+  // @@protoc_insertion_point(field_set_allocated:caffe.V1LayerParameter.multi_stage_meanfield_param)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

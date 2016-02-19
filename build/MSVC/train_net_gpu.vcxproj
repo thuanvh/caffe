@@ -148,8 +148,8 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2013|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2015|x64'" Label="Configuration">
@@ -275,25 +275,25 @@
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)/bin\</OutDir>
+    <OutDir>$(SolutionDir)/bin\$(Platform)\$(PlatformToolset)</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2013|x64'">
-    <OutDir>$(SolutionDir)/bin\</OutDir>
+    <OutDir>$(SolutionDir)/bin\$(Platform)\$(PlatformToolset)</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2015|x64'">
-    <OutDir>$(SolutionDir)/bin\</OutDir>
+    <OutDir>$(SolutionDir)/bin\$(Platform)\$(PlatformToolset)</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2010|x64'">
-    <OutDir>$(SolutionDir)/bin\</OutDir>
+    <OutDir>$(SolutionDir)/bin\$(Platform)\$(PlatformToolset)</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)D</TargetName>
@@ -319,12 +319,12 @@
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)/bin\</OutDir>
+    <OutDir>$(SolutionDir)/bin\$(Platform)\$(PlatformToolset)</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013|x64'">
-    <OutDir>$(SolutionDir)/bin\</OutDir>
+    <OutDir>$(SolutionDir)/bin\$(Platform)\$(PlatformToolset)</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
@@ -334,7 +334,7 @@
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2010|x64'">
-    <OutDir>$(SolutionDir)/bin\</OutDir>
+    <OutDir>$(SolutionDir)/bin\$(Platform)\$(PlatformToolset)</OutDir>
     <IntDir>$(SolutionDir)/tmp/$(ProjectName)/$(Configuration)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
@@ -480,7 +480,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_VARIADIC_MAX=10;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PROTOBUF_USE_DLLS;EXP_CAFFE;_VARIADIC_MAX=10;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -515,8 +515,8 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_VARIADIC_MAX=10;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>d:\sandbox\vmakeup\repos\src\3rdparty/include;d:\sandbox\vmakeup\repos\src\3rdparty/include/eigen3/Eigen;../../src;../../include;d:\sandbox\vmakeup\repos\src\3rdparty/include/win;../../include/win;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PROTOBUF_USE_DLLS;EXP_CAFFE;_VARIADIC_MAX=10;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -532,8 +532,8 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX64</TargetMachine>
-      <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5\lib\x64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>leveldbd.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libprotobufd.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248d.lib;opencv_highgui248d.lib;opencv_imgproc248d.lib;opencv_legacy248d.lib;opencv_objdetect248d.lib;pthreadVC2.lib;liblmdb.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\x64;$(THIRD_PARTY_LIB_DIR)/hdf5;D:\sandbox\utility\cnn\caffe-windows\dev2\caffe\build\MSVC\Bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>leveldb.lib;libopenblas.lib;libglog.lib;hdf5.lib;hdf5_hl.lib;liblmdb.lib;libprotobufd.lib;libboost_thread-vc120-mt-gd-1_59.lib;gflags.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -554,7 +554,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_VARIADIC_MAX=10;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PROTOBUF_USE_DLLS;EXP_CAFFE;_VARIADIC_MAX=10;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -592,7 +592,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_VARIADIC_MAX=10;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PROTOBUF_USE_DLLS;EXP_CAFFE;_VARIADIC_MAX=10;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -770,7 +770,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_VARIADIC_MAX=10;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PROTOBUF_USE_DLLS;EXP_CAFFE;_VARIADIC_MAX=10;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
@@ -827,7 +827,7 @@
       </DataExecutionPrevention>
       <TargetMachine>MachineX64</TargetMachine>
       <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\x64;$(THIRD_PARTY_LIB_DIR)/hdf5;D:\sandbox\utility\cnn\caffe-windows\dev2\caffe\build\MSVC\Bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>leveldb.lib;libopenblas.lib;libglog.lib;hdf5.lib;hdf5_hl.lib;liblmdb.lib;libprotobuf.lib;libboost_thread-vc120-mt-1_59.lib;gflags.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;caffe_shared_gpu.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>leveldb.lib;libopenblas.lib;libglog.lib;hdf5.lib;hdf5_hl.lib;liblmdb.lib;libprotobuf.lib;libboost_thread-vc120-mt-1_59.lib;gflags.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -852,7 +852,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_VARIADIC_MAX=10;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PROTOBUF_USE_DLLS;EXP_CAFFE;_VARIADIC_MAX=10;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader>
       </PrecompiledHeader>
@@ -894,7 +894,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <AdditionalIncludeDirectories>../../3rdparty/include;../../3rdparty/include/eigen3/Eigen;../../src;../../include;../../3rdparty/include/hdf5;../../3rdparty/include/pthread;../../3rdparty/include/lmdb;../../3rdparty/include/openblas;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_VARIADIC_MAX=10;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PROTOBUF_USE_DLLS;EXP_CAFFE;_VARIADIC_MAX=10;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader>
       </PrecompiledHeader>
