@@ -342,6 +342,7 @@
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_hl.lib;pthreadVC2.lib;liblmdb.lib;libprotobufD.lib;gflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DelayLoadDLLs>leveldb.dll;hdf5.dll;hdf5_hl.dll;liblmdb.dll;</DelayLoadDLLs>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -375,6 +376,7 @@
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_hl.lib;pthreadVC2.lib;liblmdb.lib;libprotobufD.lib;gflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DelayLoadDLLs>leveldb.dll;hdf5.dll;hdf5_hl.dll;liblmdb.dll;</DelayLoadDLLs>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -407,6 +409,7 @@
       <TargetMachine>MachineX86</TargetMachine>
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248d.lib;opencv_highgui248d.lib;opencv_imgproc248d.lib;opencv_legacy248d.lib;opencv_objdetect248d.lib;pthreadVC2.lib;liblmdb.lib;libprotobufD.lib;gflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\win32</AdditionalLibraryDirectories>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -440,6 +443,7 @@
       <TargetMachine>MachineX64</TargetMachine>
       <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>leveldbd.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libprotobufd.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248d.lib;opencv_highgui248d.lib;opencv_imgproc248d.lib;opencv_legacy248d.lib;opencv_objdetect248d.lib;pthreadVC2.lib;liblmdb.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -478,6 +482,7 @@
       <TargetMachine>MachineX64</TargetMachine>
       <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>leveldbd.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libprotobufd.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248d.lib;opencv_highgui248d.lib;opencv_imgproc248d.lib;opencv_legacy248d.lib;opencv_objdetect248d.lib;pthreadVC2.lib;liblmdb.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -516,6 +521,7 @@
       <TargetMachine>MachineX64</TargetMachine>
       <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>leveldbd.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libprotobufd.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248d.lib;opencv_highgui248d.lib;opencv_imgproc248d.lib;opencv_legacy248d.lib;opencv_objdetect248d.lib;pthreadVC2.lib;liblmdb.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -550,6 +556,7 @@
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_hl.lib;pthreadVC2.lib;liblmdb.lib;libprotobuf.lib;gflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DelayLoadDLLs>leveldb.dll;hdf5.dll;hdf5_hl.dll;liblmdb.dll;</DelayLoadDLLs>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -583,6 +590,7 @@
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_hl.lib;pthreadVC2.lib;liblmdb.lib;libprotobuf.lib;gflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DelayLoadDLLs>leveldb.dll;hdf5.dll;hdf5_hl.dll;liblmdb.dll;</DelayLoadDLLs>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -616,6 +624,7 @@
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_hl.lib;pthreadVC2.lib;liblmdb.lib;libprotobuf.lib;gflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DelayLoadDLLs>leveldb.dll;hdf5.dll;hdf5_hl.dll;liblmdb.dll;</DelayLoadDLLs>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -649,6 +658,7 @@
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_hl.lib;pthreadVC2.lib;liblmdb.lib;libprotobuf.lib;gflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DelayLoadDLLs>leveldb.dll;hdf5.dll;hdf5_hl.dll;liblmdb.dll;</DelayLoadDLLs>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -681,6 +691,7 @@
       <TargetMachine>MachineX86</TargetMachine>
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248.lib;opencv_highgui248.lib;opencv_imgproc248.lib;opencv_legacy248.lib;opencv_objdetect248.lib;pthreadVC2.lib;liblmdb.lib;libprotobuf.lib;gflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../3rdparty/lib/win32/hdf5/;../../3rdparty/lib/win32;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\Win32</AdditionalLibraryDirectories>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -714,6 +725,7 @@
       <TargetMachine>MachineX64</TargetMachine>
       <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libprotobuf.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248.lib;opencv_highgui248.lib;opencv_imgproc248.lib;opencv_legacy248.lib;opencv_objdetect248.lib;pthreadVC2.lib;liblmdb.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -756,6 +768,7 @@
       <TargetMachine>MachineX64</TargetMachine>
       <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libprotobuf.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248.lib;opencv_highgui248.lib;opencv_imgproc248.lib;opencv_legacy248.lib;opencv_objdetect248.lib;pthreadVC2.lib;liblmdb.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -798,6 +811,7 @@
       <TargetMachine>MachineX64</TargetMachine>
       <AdditionalLibraryDirectories>d:\sandbox\vmakeup\repos\src\3rdparty\lib\x64\hdf5\;d:\sandbox\vmakeup\repos\src\3rdparty\lib\x64\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;leveldb.lib;libopenblas.lib;libglog.lib;hdf5.lib;hdf5_hl.lib;liblmdb.lib;libprotobuf.lib;libboost_thread-vc140-mt-1_59.lib;gflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -840,6 +854,7 @@
       <TargetMachine>MachineX64</TargetMachine>
       <AdditionalLibraryDirectories>d:\sandbox\vmakeup\repos\src\3rdparty\lib\x64\hdf5\;d:\sandbox\vmakeup\repos\src\3rdparty\lib\x64\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;leveldb.lib;libopenblas.lib;libglog.lib;hdf5.lib;hdf5_hl.lib;liblmdb.lib;libprotobuf.lib;libboost_thread-vc140-mt-1_59.lib;gflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -882,6 +897,7 @@
       <TargetMachine>MachineX64</TargetMachine>
       <AdditionalLibraryDirectories>../../3rdparty/lib/x64/hdf5/;../../3rdparty/lib/x64/;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>leveldb.lib;libopenblas.lib;cublas.lib;cublas_device.lib;curand.lib;cudart.lib;cuda.lib;libprotobuf.lib;libglog.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;hdf5.lib;hdf5_cpp.lib;hdf5_tools.lib;hdf5_hl.lib;hdf5_hl_cpp.lib;opencv_core248.lib;opencv_highgui248.lib;opencv_imgproc248.lib;opencv_legacy248.lib;opencv_objdetect248.lib;pthreadVC2.lib;liblmdb.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Version>1.2.1</Version>
     </Link>
     <PostBuildEvent>
       <Command>
