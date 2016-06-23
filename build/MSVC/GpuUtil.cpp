@@ -87,7 +87,7 @@ void GpuUtil::RunSolver(caffe::Solver<float>* solver_ptr, vector<int>& gpus)
   shared_ptr<caffe::Solver<float> >
     solver(solver_ptr);
   caffe::P2PSync<float> sync(solver, NULL, solver->param());
-  sync.run(gpus);
+  sync.Run(gpus);
 }
 
 GpuUtil::GpuUtil()

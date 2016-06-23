@@ -47,6 +47,7 @@ class BlobShape;
 class ConcatParameter;
 class ContrastiveLossParameter;
 class ConvolutionParameter;
+class CropParameter;
 class DataParameter;
 class Datum;
 class DropoutParameter;
@@ -63,6 +64,7 @@ class HingeLossParameter;
 class ImageDataParameter;
 class InfogainLossParameter;
 class InnerProductParameter;
+class InputParameter;
 class LRNParameter;
 class LayerParameter;
 class LogParameter;
@@ -74,10 +76,12 @@ class NetState;
 class NetStateRule;
 class PReLUParameter;
 class ParamSpec;
+class ParameterParameter;
 class PoolingParameter;
 class PowerParameter;
 class PythonParameter;
 class ReLUParameter;
+class RecurrentParameter;
 class ReductionParameter;
 class ReshapeParameter;
 class SPPParameter;
@@ -2971,6 +2975,15 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   ::caffe::ConvolutionParameter* release_convolution_param();
   void set_allocated_convolution_param(::caffe::ConvolutionParameter* convolution_param);
 
+  // optional .caffe.CropParameter crop_param = 144;
+  bool has_crop_param() const;
+  void clear_crop_param();
+  static const int kCropParamFieldNumber = 144;
+  const ::caffe::CropParameter& crop_param() const;
+  ::caffe::CropParameter* mutable_crop_param();
+  ::caffe::CropParameter* release_crop_param();
+  void set_allocated_crop_param(::caffe::CropParameter* crop_param);
+
   // optional .caffe.DataParameter data_param = 107;
   bool has_data_param() const;
   void clear_data_param();
@@ -3097,6 +3110,15 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   ::caffe::InnerProductParameter* release_inner_product_param();
   void set_allocated_inner_product_param(::caffe::InnerProductParameter* inner_product_param);
 
+  // optional .caffe.InputParameter input_param = 143;
+  bool has_input_param() const;
+  void clear_input_param();
+  static const int kInputParamFieldNumber = 143;
+  const ::caffe::InputParameter& input_param() const;
+  ::caffe::InputParameter* mutable_input_param();
+  ::caffe::InputParameter* release_input_param();
+  void set_allocated_input_param(::caffe::InputParameter* input_param);
+
   // optional .caffe.LogParameter log_param = 134;
   bool has_log_param() const;
   void clear_log_param();
@@ -3133,6 +3155,15 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   ::caffe::MVNParameter* release_mvn_param();
   void set_allocated_mvn_param(::caffe::MVNParameter* mvn_param);
 
+  // optional .caffe.ParameterParameter parameter_param = 145;
+  bool has_parameter_param() const;
+  void clear_parameter_param();
+  static const int kParameterParamFieldNumber = 145;
+  const ::caffe::ParameterParameter& parameter_param() const;
+  ::caffe::ParameterParameter* mutable_parameter_param();
+  ::caffe::ParameterParameter* release_parameter_param();
+  void set_allocated_parameter_param(::caffe::ParameterParameter* parameter_param);
+
   // optional .caffe.PoolingParameter pooling_param = 121;
   bool has_pooling_param() const;
   void clear_pooling_param();
@@ -3168,6 +3199,15 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   ::caffe::PythonParameter* mutable_python_param();
   ::caffe::PythonParameter* release_python_param();
   void set_allocated_python_param(::caffe::PythonParameter* python_param);
+
+  // optional .caffe.RecurrentParameter recurrent_param = 146;
+  bool has_recurrent_param() const;
+  void clear_recurrent_param();
+  static const int kRecurrentParamFieldNumber = 146;
+  const ::caffe::RecurrentParameter& recurrent_param() const;
+  ::caffe::RecurrentParameter* mutable_recurrent_param();
+  ::caffe::RecurrentParameter* release_recurrent_param();
+  void set_allocated_recurrent_param(::caffe::RecurrentParameter* recurrent_param);
 
   // optional .caffe.ReductionParameter reduction_param = 136;
   bool has_reduction_param() const;
@@ -3303,6 +3343,8 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   inline void clear_has_contrastive_loss_param();
   inline void set_has_convolution_param();
   inline void clear_has_convolution_param();
+  inline void set_has_crop_param();
+  inline void clear_has_crop_param();
   inline void set_has_data_param();
   inline void clear_has_data_param();
   inline void set_has_dropout_param();
@@ -3331,6 +3373,8 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   inline void clear_has_infogain_loss_param();
   inline void set_has_inner_product_param();
   inline void clear_has_inner_product_param();
+  inline void set_has_input_param();
+  inline void clear_has_input_param();
   inline void set_has_log_param();
   inline void clear_has_log_param();
   inline void set_has_lrn_param();
@@ -3339,6 +3383,8 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   inline void clear_has_memory_data_param();
   inline void set_has_mvn_param();
   inline void clear_has_mvn_param();
+  inline void set_has_parameter_param();
+  inline void clear_has_parameter_param();
   inline void set_has_pooling_param();
   inline void clear_has_pooling_param();
   inline void set_has_power_param();
@@ -3347,6 +3393,8 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   inline void clear_has_prelu_param();
   inline void set_has_python_param();
   inline void clear_has_python_param();
+  inline void set_has_recurrent_param();
+  inline void clear_has_recurrent_param();
   inline void set_has_reduction_param();
   inline void clear_has_reduction_param();
   inline void set_has_relu_param();
@@ -3393,6 +3441,7 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   ::caffe::ConcatParameter* concat_param_;
   ::caffe::ContrastiveLossParameter* contrastive_loss_param_;
   ::caffe::ConvolutionParameter* convolution_param_;
+  ::caffe::CropParameter* crop_param_;
   ::caffe::DataParameter* data_param_;
   ::caffe::DropoutParameter* dropout_param_;
   ::caffe::DummyDataParameter* dummy_data_param_;
@@ -3407,14 +3456,17 @@ class CAFFE_DLL_EXPORT LayerParameter : public ::google::protobuf::Message {
   ::caffe::ImageDataParameter* image_data_param_;
   ::caffe::InfogainLossParameter* infogain_loss_param_;
   ::caffe::InnerProductParameter* inner_product_param_;
+  ::caffe::InputParameter* input_param_;
   ::caffe::LogParameter* log_param_;
   ::caffe::LRNParameter* lrn_param_;
   ::caffe::MemoryDataParameter* memory_data_param_;
   ::caffe::MVNParameter* mvn_param_;
+  ::caffe::ParameterParameter* parameter_param_;
   ::caffe::PoolingParameter* pooling_param_;
   ::caffe::PowerParameter* power_param_;
   ::caffe::PReLUParameter* prelu_param_;
   ::caffe::PythonParameter* python_param_;
+  ::caffe::RecurrentParameter* recurrent_param_;
   ::caffe::ReductionParameter* reduction_param_;
   ::caffe::ReLUParameter* relu_param_;
   ::caffe::ReshapeParameter* reshape_param_;
@@ -4663,6 +4715,108 @@ class CAFFE_DLL_EXPORT ConvolutionParameter : public ::google::protobuf::Message
 
   void InitAsDefaultInstance();
   static ConvolutionParameter* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CAFFE_DLL_EXPORT CropParameter : public ::google::protobuf::Message {
+ public:
+  CropParameter();
+  virtual ~CropParameter();
+
+  CropParameter(const CropParameter& from);
+
+  inline CropParameter& operator=(const CropParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CropParameter& default_instance();
+
+  void Swap(CropParameter* other);
+
+  // implements Message ----------------------------------------------
+
+  inline CropParameter* New() const { return New(NULL); }
+
+  CropParameter* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CropParameter& from);
+  void MergeFrom(const CropParameter& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(CropParameter* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 axis = 1 [default = 2];
+  bool has_axis() const;
+  void clear_axis();
+  static const int kAxisFieldNumber = 1;
+  ::google::protobuf::int32 axis() const;
+  void set_axis(::google::protobuf::int32 value);
+
+  // repeated uint32 offset = 2;
+  int offset_size() const;
+  void clear_offset();
+  static const int kOffsetFieldNumber = 2;
+  ::google::protobuf::uint32 offset(int index) const;
+  void set_offset(int index, ::google::protobuf::uint32 value);
+  void add_offset(::google::protobuf::uint32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      offset() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_offset();
+
+  // @@protoc_insertion_point(class_scope:caffe.CropParameter)
+ private:
+  inline void set_has_axis();
+  inline void clear_has_axis();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > offset_;
+  ::google::protobuf::int32 axis_;
+  friend void CAFFE_DLL_EXPORT protobuf_AddDesc_caffe_2eproto();
+  friend void protobuf_AssignDesc_caffe_2eproto();
+  friend void protobuf_ShutdownFile_caffe_2eproto();
+
+  void InitAsDefaultInstance();
+  static CropParameter* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -6424,6 +6578,13 @@ class CAFFE_DLL_EXPORT InnerProductParameter : public ::google::protobuf::Messag
   ::google::protobuf::int32 axis() const;
   void set_axis(::google::protobuf::int32 value);
 
+  // optional bool transpose = 6 [default = false];
+  bool has_transpose() const;
+  void clear_transpose();
+  static const int kTransposeFieldNumber = 6;
+  bool transpose() const;
+  void set_transpose(bool value);
+
   // @@protoc_insertion_point(class_scope:caffe.InnerProductParameter)
  private:
   inline void set_has_num_output();
@@ -6436,13 +6597,16 @@ class CAFFE_DLL_EXPORT InnerProductParameter : public ::google::protobuf::Messag
   inline void clear_has_bias_filler();
   inline void set_has_axis();
   inline void clear_has_axis();
+  inline void set_has_transpose();
+  inline void clear_has_transpose();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
+  ::caffe::FillerParameter* weight_filler_;
   ::google::protobuf::uint32 num_output_;
   bool bias_term_;
-  ::caffe::FillerParameter* weight_filler_;
+  bool transpose_;
   ::caffe::FillerParameter* bias_filler_;
   ::google::protobuf::int32 axis_;
   friend void CAFFE_DLL_EXPORT protobuf_AddDesc_caffe_2eproto();
@@ -6451,6 +6615,98 @@ class CAFFE_DLL_EXPORT InnerProductParameter : public ::google::protobuf::Messag
 
   void InitAsDefaultInstance();
   static InnerProductParameter* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CAFFE_DLL_EXPORT InputParameter : public ::google::protobuf::Message {
+ public:
+  InputParameter();
+  virtual ~InputParameter();
+
+  InputParameter(const InputParameter& from);
+
+  inline InputParameter& operator=(const InputParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const InputParameter& default_instance();
+
+  void Swap(InputParameter* other);
+
+  // implements Message ----------------------------------------------
+
+  inline InputParameter* New() const { return New(NULL); }
+
+  InputParameter* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const InputParameter& from);
+  void MergeFrom(const InputParameter& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(InputParameter* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .caffe.BlobShape shape = 1;
+  int shape_size() const;
+  void clear_shape();
+  static const int kShapeFieldNumber = 1;
+  const ::caffe::BlobShape& shape(int index) const;
+  ::caffe::BlobShape* mutable_shape(int index);
+  ::caffe::BlobShape* add_shape();
+  ::google::protobuf::RepeatedPtrField< ::caffe::BlobShape >*
+      mutable_shape();
+  const ::google::protobuf::RepeatedPtrField< ::caffe::BlobShape >&
+      shape() const;
+
+  // @@protoc_insertion_point(class_scope:caffe.InputParameter)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::caffe::BlobShape > shape_;
+  friend void CAFFE_DLL_EXPORT protobuf_AddDesc_caffe_2eproto();
+  friend void protobuf_AssignDesc_caffe_2eproto();
+  friend void protobuf_ShutdownFile_caffe_2eproto();
+
+  void InitAsDefaultInstance();
+  static InputParameter* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -6979,6 +7235,97 @@ class CAFFE_DLL_EXPORT MVNParameter : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class CAFFE_DLL_EXPORT ParameterParameter : public ::google::protobuf::Message {
+ public:
+  ParameterParameter();
+  virtual ~ParameterParameter();
+
+  ParameterParameter(const ParameterParameter& from);
+
+  inline ParameterParameter& operator=(const ParameterParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ParameterParameter& default_instance();
+
+  void Swap(ParameterParameter* other);
+
+  // implements Message ----------------------------------------------
+
+  inline ParameterParameter* New() const { return New(NULL); }
+
+  ParameterParameter* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ParameterParameter& from);
+  void MergeFrom(const ParameterParameter& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(ParameterParameter* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .caffe.BlobShape shape = 1;
+  bool has_shape() const;
+  void clear_shape();
+  static const int kShapeFieldNumber = 1;
+  const ::caffe::BlobShape& shape() const;
+  ::caffe::BlobShape* mutable_shape();
+  ::caffe::BlobShape* release_shape();
+  void set_allocated_shape(::caffe::BlobShape* shape);
+
+  // @@protoc_insertion_point(class_scope:caffe.ParameterParameter)
+ private:
+  inline void set_has_shape();
+  inline void clear_has_shape();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::caffe::BlobShape* shape_;
+  friend void CAFFE_DLL_EXPORT protobuf_AddDesc_caffe_2eproto();
+  friend void protobuf_AssignDesc_caffe_2eproto();
+  friend void protobuf_ShutdownFile_caffe_2eproto();
+
+  void InitAsDefaultInstance();
+  static ParameterParameter* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class CAFFE_DLL_EXPORT PoolingParameter : public ::google::protobuf::Message {
  public:
   PoolingParameter();
@@ -7468,6 +7815,139 @@ class CAFFE_DLL_EXPORT PythonParameter : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static PythonParameter* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CAFFE_DLL_EXPORT RecurrentParameter : public ::google::protobuf::Message {
+ public:
+  RecurrentParameter();
+  virtual ~RecurrentParameter();
+
+  RecurrentParameter(const RecurrentParameter& from);
+
+  inline RecurrentParameter& operator=(const RecurrentParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RecurrentParameter& default_instance();
+
+  void Swap(RecurrentParameter* other);
+
+  // implements Message ----------------------------------------------
+
+  inline RecurrentParameter* New() const { return New(NULL); }
+
+  RecurrentParameter* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RecurrentParameter& from);
+  void MergeFrom(const RecurrentParameter& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(RecurrentParameter* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 num_output = 1 [default = 0];
+  bool has_num_output() const;
+  void clear_num_output();
+  static const int kNumOutputFieldNumber = 1;
+  ::google::protobuf::uint32 num_output() const;
+  void set_num_output(::google::protobuf::uint32 value);
+
+  // optional .caffe.FillerParameter weight_filler = 2;
+  bool has_weight_filler() const;
+  void clear_weight_filler();
+  static const int kWeightFillerFieldNumber = 2;
+  const ::caffe::FillerParameter& weight_filler() const;
+  ::caffe::FillerParameter* mutable_weight_filler();
+  ::caffe::FillerParameter* release_weight_filler();
+  void set_allocated_weight_filler(::caffe::FillerParameter* weight_filler);
+
+  // optional .caffe.FillerParameter bias_filler = 3;
+  bool has_bias_filler() const;
+  void clear_bias_filler();
+  static const int kBiasFillerFieldNumber = 3;
+  const ::caffe::FillerParameter& bias_filler() const;
+  ::caffe::FillerParameter* mutable_bias_filler();
+  ::caffe::FillerParameter* release_bias_filler();
+  void set_allocated_bias_filler(::caffe::FillerParameter* bias_filler);
+
+  // optional bool debug_info = 4 [default = false];
+  bool has_debug_info() const;
+  void clear_debug_info();
+  static const int kDebugInfoFieldNumber = 4;
+  bool debug_info() const;
+  void set_debug_info(bool value);
+
+  // optional bool expose_hidden = 5 [default = false];
+  bool has_expose_hidden() const;
+  void clear_expose_hidden();
+  static const int kExposeHiddenFieldNumber = 5;
+  bool expose_hidden() const;
+  void set_expose_hidden(bool value);
+
+  // @@protoc_insertion_point(class_scope:caffe.RecurrentParameter)
+ private:
+  inline void set_has_num_output();
+  inline void clear_has_num_output();
+  inline void set_has_weight_filler();
+  inline void clear_has_weight_filler();
+  inline void set_has_bias_filler();
+  inline void clear_has_bias_filler();
+  inline void set_has_debug_info();
+  inline void clear_has_debug_info();
+  inline void set_has_expose_hidden();
+  inline void clear_has_expose_hidden();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::caffe::FillerParameter* weight_filler_;
+  ::caffe::FillerParameter* bias_filler_;
+  ::google::protobuf::uint32 num_output_;
+  bool debug_info_;
+  bool expose_hidden_;
+  friend void CAFFE_DLL_EXPORT protobuf_AddDesc_caffe_2eproto();
+  friend void protobuf_AssignDesc_caffe_2eproto();
+  friend void protobuf_ShutdownFile_caffe_2eproto();
+
+  void InitAsDefaultInstance();
+  static RecurrentParameter* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -14050,15 +14530,58 @@ inline void LayerParameter::set_allocated_convolution_param(::caffe::Convolution
   // @@protoc_insertion_point(field_set_allocated:caffe.LayerParameter.convolution_param)
 }
 
-// optional .caffe.DataParameter data_param = 107;
-inline bool LayerParameter::has_data_param() const {
+// optional .caffe.CropParameter crop_param = 144;
+inline bool LayerParameter::has_crop_param() const {
   return (_has_bits_[0] & 0x00100000u) != 0;
 }
-inline void LayerParameter::set_has_data_param() {
+inline void LayerParameter::set_has_crop_param() {
   _has_bits_[0] |= 0x00100000u;
 }
-inline void LayerParameter::clear_has_data_param() {
+inline void LayerParameter::clear_has_crop_param() {
   _has_bits_[0] &= ~0x00100000u;
+}
+inline void LayerParameter::clear_crop_param() {
+  if (crop_param_ != NULL) crop_param_->::caffe::CropParameter::Clear();
+  clear_has_crop_param();
+}
+inline const ::caffe::CropParameter& LayerParameter::crop_param() const {
+  // @@protoc_insertion_point(field_get:caffe.LayerParameter.crop_param)
+  return crop_param_ != NULL ? *crop_param_ : *default_instance_->crop_param_;
+}
+inline ::caffe::CropParameter* LayerParameter::mutable_crop_param() {
+  set_has_crop_param();
+  if (crop_param_ == NULL) {
+    crop_param_ = new ::caffe::CropParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:caffe.LayerParameter.crop_param)
+  return crop_param_;
+}
+inline ::caffe::CropParameter* LayerParameter::release_crop_param() {
+  clear_has_crop_param();
+  ::caffe::CropParameter* temp = crop_param_;
+  crop_param_ = NULL;
+  return temp;
+}
+inline void LayerParameter::set_allocated_crop_param(::caffe::CropParameter* crop_param) {
+  delete crop_param_;
+  crop_param_ = crop_param;
+  if (crop_param) {
+    set_has_crop_param();
+  } else {
+    clear_has_crop_param();
+  }
+  // @@protoc_insertion_point(field_set_allocated:caffe.LayerParameter.crop_param)
+}
+
+// optional .caffe.DataParameter data_param = 107;
+inline bool LayerParameter::has_data_param() const {
+  return (_has_bits_[0] & 0x00200000u) != 0;
+}
+inline void LayerParameter::set_has_data_param() {
+  _has_bits_[0] |= 0x00200000u;
+}
+inline void LayerParameter::clear_has_data_param() {
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline void LayerParameter::clear_data_param() {
   if (data_param_ != NULL) data_param_->::caffe::DataParameter::Clear();
@@ -14095,13 +14618,13 @@ inline void LayerParameter::set_allocated_data_param(::caffe::DataParameter* dat
 
 // optional .caffe.DropoutParameter dropout_param = 108;
 inline bool LayerParameter::has_dropout_param() const {
-  return (_has_bits_[0] & 0x00200000u) != 0;
+  return (_has_bits_[0] & 0x00400000u) != 0;
 }
 inline void LayerParameter::set_has_dropout_param() {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00400000u;
 }
 inline void LayerParameter::clear_has_dropout_param() {
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline void LayerParameter::clear_dropout_param() {
   if (dropout_param_ != NULL) dropout_param_->::caffe::DropoutParameter::Clear();
@@ -14138,13 +14661,13 @@ inline void LayerParameter::set_allocated_dropout_param(::caffe::DropoutParamete
 
 // optional .caffe.DummyDataParameter dummy_data_param = 109;
 inline bool LayerParameter::has_dummy_data_param() const {
-  return (_has_bits_[0] & 0x00400000u) != 0;
+  return (_has_bits_[0] & 0x00800000u) != 0;
 }
 inline void LayerParameter::set_has_dummy_data_param() {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00800000u;
 }
 inline void LayerParameter::clear_has_dummy_data_param() {
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline void LayerParameter::clear_dummy_data_param() {
   if (dummy_data_param_ != NULL) dummy_data_param_->::caffe::DummyDataParameter::Clear();
@@ -14181,13 +14704,13 @@ inline void LayerParameter::set_allocated_dummy_data_param(::caffe::DummyDataPar
 
 // optional .caffe.EltwiseParameter eltwise_param = 110;
 inline bool LayerParameter::has_eltwise_param() const {
-  return (_has_bits_[0] & 0x00800000u) != 0;
+  return (_has_bits_[0] & 0x01000000u) != 0;
 }
 inline void LayerParameter::set_has_eltwise_param() {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x01000000u;
 }
 inline void LayerParameter::clear_has_eltwise_param() {
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline void LayerParameter::clear_eltwise_param() {
   if (eltwise_param_ != NULL) eltwise_param_->::caffe::EltwiseParameter::Clear();
@@ -14224,13 +14747,13 @@ inline void LayerParameter::set_allocated_eltwise_param(::caffe::EltwiseParamete
 
 // optional .caffe.ELUParameter elu_param = 140;
 inline bool LayerParameter::has_elu_param() const {
-  return (_has_bits_[0] & 0x01000000u) != 0;
+  return (_has_bits_[0] & 0x02000000u) != 0;
 }
 inline void LayerParameter::set_has_elu_param() {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x02000000u;
 }
 inline void LayerParameter::clear_has_elu_param() {
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline void LayerParameter::clear_elu_param() {
   if (elu_param_ != NULL) elu_param_->::caffe::ELUParameter::Clear();
@@ -14267,13 +14790,13 @@ inline void LayerParameter::set_allocated_elu_param(::caffe::ELUParameter* elu_p
 
 // optional .caffe.EmbedParameter embed_param = 137;
 inline bool LayerParameter::has_embed_param() const {
-  return (_has_bits_[0] & 0x02000000u) != 0;
+  return (_has_bits_[0] & 0x04000000u) != 0;
 }
 inline void LayerParameter::set_has_embed_param() {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x04000000u;
 }
 inline void LayerParameter::clear_has_embed_param() {
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline void LayerParameter::clear_embed_param() {
   if (embed_param_ != NULL) embed_param_->::caffe::EmbedParameter::Clear();
@@ -14310,13 +14833,13 @@ inline void LayerParameter::set_allocated_embed_param(::caffe::EmbedParameter* e
 
 // optional .caffe.ExpParameter exp_param = 111;
 inline bool LayerParameter::has_exp_param() const {
-  return (_has_bits_[0] & 0x04000000u) != 0;
+  return (_has_bits_[0] & 0x08000000u) != 0;
 }
 inline void LayerParameter::set_has_exp_param() {
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x08000000u;
 }
 inline void LayerParameter::clear_has_exp_param() {
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline void LayerParameter::clear_exp_param() {
   if (exp_param_ != NULL) exp_param_->::caffe::ExpParameter::Clear();
@@ -14353,13 +14876,13 @@ inline void LayerParameter::set_allocated_exp_param(::caffe::ExpParameter* exp_p
 
 // optional .caffe.FlattenParameter flatten_param = 135;
 inline bool LayerParameter::has_flatten_param() const {
-  return (_has_bits_[0] & 0x08000000u) != 0;
+  return (_has_bits_[0] & 0x10000000u) != 0;
 }
 inline void LayerParameter::set_has_flatten_param() {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x10000000u;
 }
 inline void LayerParameter::clear_has_flatten_param() {
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline void LayerParameter::clear_flatten_param() {
   if (flatten_param_ != NULL) flatten_param_->::caffe::FlattenParameter::Clear();
@@ -14396,13 +14919,13 @@ inline void LayerParameter::set_allocated_flatten_param(::caffe::FlattenParamete
 
 // optional .caffe.HDF5DataParameter hdf5_data_param = 112;
 inline bool LayerParameter::has_hdf5_data_param() const {
-  return (_has_bits_[0] & 0x10000000u) != 0;
+  return (_has_bits_[0] & 0x20000000u) != 0;
 }
 inline void LayerParameter::set_has_hdf5_data_param() {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x20000000u;
 }
 inline void LayerParameter::clear_has_hdf5_data_param() {
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline void LayerParameter::clear_hdf5_data_param() {
   if (hdf5_data_param_ != NULL) hdf5_data_param_->::caffe::HDF5DataParameter::Clear();
@@ -14439,13 +14962,13 @@ inline void LayerParameter::set_allocated_hdf5_data_param(::caffe::HDF5DataParam
 
 // optional .caffe.HDF5OutputParameter hdf5_output_param = 113;
 inline bool LayerParameter::has_hdf5_output_param() const {
-  return (_has_bits_[0] & 0x20000000u) != 0;
+  return (_has_bits_[0] & 0x40000000u) != 0;
 }
 inline void LayerParameter::set_has_hdf5_output_param() {
-  _has_bits_[0] |= 0x20000000u;
+  _has_bits_[0] |= 0x40000000u;
 }
 inline void LayerParameter::clear_has_hdf5_output_param() {
-  _has_bits_[0] &= ~0x20000000u;
+  _has_bits_[0] &= ~0x40000000u;
 }
 inline void LayerParameter::clear_hdf5_output_param() {
   if (hdf5_output_param_ != NULL) hdf5_output_param_->::caffe::HDF5OutputParameter::Clear();
@@ -14482,13 +15005,13 @@ inline void LayerParameter::set_allocated_hdf5_output_param(::caffe::HDF5OutputP
 
 // optional .caffe.HingeLossParameter hinge_loss_param = 114;
 inline bool LayerParameter::has_hinge_loss_param() const {
-  return (_has_bits_[0] & 0x40000000u) != 0;
+  return (_has_bits_[0] & 0x80000000u) != 0;
 }
 inline void LayerParameter::set_has_hinge_loss_param() {
-  _has_bits_[0] |= 0x40000000u;
+  _has_bits_[0] |= 0x80000000u;
 }
 inline void LayerParameter::clear_has_hinge_loss_param() {
-  _has_bits_[0] &= ~0x40000000u;
+  _has_bits_[0] &= ~0x80000000u;
 }
 inline void LayerParameter::clear_hinge_loss_param() {
   if (hinge_loss_param_ != NULL) hinge_loss_param_->::caffe::HingeLossParameter::Clear();
@@ -14525,13 +15048,13 @@ inline void LayerParameter::set_allocated_hinge_loss_param(::caffe::HingeLossPar
 
 // optional .caffe.ImageDataParameter image_data_param = 115;
 inline bool LayerParameter::has_image_data_param() const {
-  return (_has_bits_[0] & 0x80000000u) != 0;
+  return (_has_bits_[1] & 0x00000001u) != 0;
 }
 inline void LayerParameter::set_has_image_data_param() {
-  _has_bits_[0] |= 0x80000000u;
+  _has_bits_[1] |= 0x00000001u;
 }
 inline void LayerParameter::clear_has_image_data_param() {
-  _has_bits_[0] &= ~0x80000000u;
+  _has_bits_[1] &= ~0x00000001u;
 }
 inline void LayerParameter::clear_image_data_param() {
   if (image_data_param_ != NULL) image_data_param_->::caffe::ImageDataParameter::Clear();
@@ -14568,13 +15091,13 @@ inline void LayerParameter::set_allocated_image_data_param(::caffe::ImageDataPar
 
 // optional .caffe.InfogainLossParameter infogain_loss_param = 116;
 inline bool LayerParameter::has_infogain_loss_param() const {
-  return (_has_bits_[1] & 0x00000001u) != 0;
+  return (_has_bits_[1] & 0x00000002u) != 0;
 }
 inline void LayerParameter::set_has_infogain_loss_param() {
-  _has_bits_[1] |= 0x00000001u;
+  _has_bits_[1] |= 0x00000002u;
 }
 inline void LayerParameter::clear_has_infogain_loss_param() {
-  _has_bits_[1] &= ~0x00000001u;
+  _has_bits_[1] &= ~0x00000002u;
 }
 inline void LayerParameter::clear_infogain_loss_param() {
   if (infogain_loss_param_ != NULL) infogain_loss_param_->::caffe::InfogainLossParameter::Clear();
@@ -14611,13 +15134,13 @@ inline void LayerParameter::set_allocated_infogain_loss_param(::caffe::InfogainL
 
 // optional .caffe.InnerProductParameter inner_product_param = 117;
 inline bool LayerParameter::has_inner_product_param() const {
-  return (_has_bits_[1] & 0x00000002u) != 0;
+  return (_has_bits_[1] & 0x00000004u) != 0;
 }
 inline void LayerParameter::set_has_inner_product_param() {
-  _has_bits_[1] |= 0x00000002u;
+  _has_bits_[1] |= 0x00000004u;
 }
 inline void LayerParameter::clear_has_inner_product_param() {
-  _has_bits_[1] &= ~0x00000002u;
+  _has_bits_[1] &= ~0x00000004u;
 }
 inline void LayerParameter::clear_inner_product_param() {
   if (inner_product_param_ != NULL) inner_product_param_->::caffe::InnerProductParameter::Clear();
@@ -14652,15 +15175,58 @@ inline void LayerParameter::set_allocated_inner_product_param(::caffe::InnerProd
   // @@protoc_insertion_point(field_set_allocated:caffe.LayerParameter.inner_product_param)
 }
 
+// optional .caffe.InputParameter input_param = 143;
+inline bool LayerParameter::has_input_param() const {
+  return (_has_bits_[1] & 0x00000008u) != 0;
+}
+inline void LayerParameter::set_has_input_param() {
+  _has_bits_[1] |= 0x00000008u;
+}
+inline void LayerParameter::clear_has_input_param() {
+  _has_bits_[1] &= ~0x00000008u;
+}
+inline void LayerParameter::clear_input_param() {
+  if (input_param_ != NULL) input_param_->::caffe::InputParameter::Clear();
+  clear_has_input_param();
+}
+inline const ::caffe::InputParameter& LayerParameter::input_param() const {
+  // @@protoc_insertion_point(field_get:caffe.LayerParameter.input_param)
+  return input_param_ != NULL ? *input_param_ : *default_instance_->input_param_;
+}
+inline ::caffe::InputParameter* LayerParameter::mutable_input_param() {
+  set_has_input_param();
+  if (input_param_ == NULL) {
+    input_param_ = new ::caffe::InputParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:caffe.LayerParameter.input_param)
+  return input_param_;
+}
+inline ::caffe::InputParameter* LayerParameter::release_input_param() {
+  clear_has_input_param();
+  ::caffe::InputParameter* temp = input_param_;
+  input_param_ = NULL;
+  return temp;
+}
+inline void LayerParameter::set_allocated_input_param(::caffe::InputParameter* input_param) {
+  delete input_param_;
+  input_param_ = input_param;
+  if (input_param) {
+    set_has_input_param();
+  } else {
+    clear_has_input_param();
+  }
+  // @@protoc_insertion_point(field_set_allocated:caffe.LayerParameter.input_param)
+}
+
 // optional .caffe.LogParameter log_param = 134;
 inline bool LayerParameter::has_log_param() const {
-  return (_has_bits_[1] & 0x00000004u) != 0;
+  return (_has_bits_[1] & 0x00000010u) != 0;
 }
 inline void LayerParameter::set_has_log_param() {
-  _has_bits_[1] |= 0x00000004u;
+  _has_bits_[1] |= 0x00000010u;
 }
 inline void LayerParameter::clear_has_log_param() {
-  _has_bits_[1] &= ~0x00000004u;
+  _has_bits_[1] &= ~0x00000010u;
 }
 inline void LayerParameter::clear_log_param() {
   if (log_param_ != NULL) log_param_->::caffe::LogParameter::Clear();
@@ -14697,13 +15263,13 @@ inline void LayerParameter::set_allocated_log_param(::caffe::LogParameter* log_p
 
 // optional .caffe.LRNParameter lrn_param = 118;
 inline bool LayerParameter::has_lrn_param() const {
-  return (_has_bits_[1] & 0x00000008u) != 0;
+  return (_has_bits_[1] & 0x00000020u) != 0;
 }
 inline void LayerParameter::set_has_lrn_param() {
-  _has_bits_[1] |= 0x00000008u;
+  _has_bits_[1] |= 0x00000020u;
 }
 inline void LayerParameter::clear_has_lrn_param() {
-  _has_bits_[1] &= ~0x00000008u;
+  _has_bits_[1] &= ~0x00000020u;
 }
 inline void LayerParameter::clear_lrn_param() {
   if (lrn_param_ != NULL) lrn_param_->::caffe::LRNParameter::Clear();
@@ -14740,13 +15306,13 @@ inline void LayerParameter::set_allocated_lrn_param(::caffe::LRNParameter* lrn_p
 
 // optional .caffe.MemoryDataParameter memory_data_param = 119;
 inline bool LayerParameter::has_memory_data_param() const {
-  return (_has_bits_[1] & 0x00000010u) != 0;
+  return (_has_bits_[1] & 0x00000040u) != 0;
 }
 inline void LayerParameter::set_has_memory_data_param() {
-  _has_bits_[1] |= 0x00000010u;
+  _has_bits_[1] |= 0x00000040u;
 }
 inline void LayerParameter::clear_has_memory_data_param() {
-  _has_bits_[1] &= ~0x00000010u;
+  _has_bits_[1] &= ~0x00000040u;
 }
 inline void LayerParameter::clear_memory_data_param() {
   if (memory_data_param_ != NULL) memory_data_param_->::caffe::MemoryDataParameter::Clear();
@@ -14783,13 +15349,13 @@ inline void LayerParameter::set_allocated_memory_data_param(::caffe::MemoryDataP
 
 // optional .caffe.MVNParameter mvn_param = 120;
 inline bool LayerParameter::has_mvn_param() const {
-  return (_has_bits_[1] & 0x00000020u) != 0;
+  return (_has_bits_[1] & 0x00000080u) != 0;
 }
 inline void LayerParameter::set_has_mvn_param() {
-  _has_bits_[1] |= 0x00000020u;
+  _has_bits_[1] |= 0x00000080u;
 }
 inline void LayerParameter::clear_has_mvn_param() {
-  _has_bits_[1] &= ~0x00000020u;
+  _has_bits_[1] &= ~0x00000080u;
 }
 inline void LayerParameter::clear_mvn_param() {
   if (mvn_param_ != NULL) mvn_param_->::caffe::MVNParameter::Clear();
@@ -14824,15 +15390,58 @@ inline void LayerParameter::set_allocated_mvn_param(::caffe::MVNParameter* mvn_p
   // @@protoc_insertion_point(field_set_allocated:caffe.LayerParameter.mvn_param)
 }
 
+// optional .caffe.ParameterParameter parameter_param = 145;
+inline bool LayerParameter::has_parameter_param() const {
+  return (_has_bits_[1] & 0x00000100u) != 0;
+}
+inline void LayerParameter::set_has_parameter_param() {
+  _has_bits_[1] |= 0x00000100u;
+}
+inline void LayerParameter::clear_has_parameter_param() {
+  _has_bits_[1] &= ~0x00000100u;
+}
+inline void LayerParameter::clear_parameter_param() {
+  if (parameter_param_ != NULL) parameter_param_->::caffe::ParameterParameter::Clear();
+  clear_has_parameter_param();
+}
+inline const ::caffe::ParameterParameter& LayerParameter::parameter_param() const {
+  // @@protoc_insertion_point(field_get:caffe.LayerParameter.parameter_param)
+  return parameter_param_ != NULL ? *parameter_param_ : *default_instance_->parameter_param_;
+}
+inline ::caffe::ParameterParameter* LayerParameter::mutable_parameter_param() {
+  set_has_parameter_param();
+  if (parameter_param_ == NULL) {
+    parameter_param_ = new ::caffe::ParameterParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:caffe.LayerParameter.parameter_param)
+  return parameter_param_;
+}
+inline ::caffe::ParameterParameter* LayerParameter::release_parameter_param() {
+  clear_has_parameter_param();
+  ::caffe::ParameterParameter* temp = parameter_param_;
+  parameter_param_ = NULL;
+  return temp;
+}
+inline void LayerParameter::set_allocated_parameter_param(::caffe::ParameterParameter* parameter_param) {
+  delete parameter_param_;
+  parameter_param_ = parameter_param;
+  if (parameter_param) {
+    set_has_parameter_param();
+  } else {
+    clear_has_parameter_param();
+  }
+  // @@protoc_insertion_point(field_set_allocated:caffe.LayerParameter.parameter_param)
+}
+
 // optional .caffe.PoolingParameter pooling_param = 121;
 inline bool LayerParameter::has_pooling_param() const {
-  return (_has_bits_[1] & 0x00000040u) != 0;
+  return (_has_bits_[1] & 0x00000200u) != 0;
 }
 inline void LayerParameter::set_has_pooling_param() {
-  _has_bits_[1] |= 0x00000040u;
+  _has_bits_[1] |= 0x00000200u;
 }
 inline void LayerParameter::clear_has_pooling_param() {
-  _has_bits_[1] &= ~0x00000040u;
+  _has_bits_[1] &= ~0x00000200u;
 }
 inline void LayerParameter::clear_pooling_param() {
   if (pooling_param_ != NULL) pooling_param_->::caffe::PoolingParameter::Clear();
@@ -14869,13 +15478,13 @@ inline void LayerParameter::set_allocated_pooling_param(::caffe::PoolingParamete
 
 // optional .caffe.PowerParameter power_param = 122;
 inline bool LayerParameter::has_power_param() const {
-  return (_has_bits_[1] & 0x00000080u) != 0;
+  return (_has_bits_[1] & 0x00000400u) != 0;
 }
 inline void LayerParameter::set_has_power_param() {
-  _has_bits_[1] |= 0x00000080u;
+  _has_bits_[1] |= 0x00000400u;
 }
 inline void LayerParameter::clear_has_power_param() {
-  _has_bits_[1] &= ~0x00000080u;
+  _has_bits_[1] &= ~0x00000400u;
 }
 inline void LayerParameter::clear_power_param() {
   if (power_param_ != NULL) power_param_->::caffe::PowerParameter::Clear();
@@ -14912,13 +15521,13 @@ inline void LayerParameter::set_allocated_power_param(::caffe::PowerParameter* p
 
 // optional .caffe.PReLUParameter prelu_param = 131;
 inline bool LayerParameter::has_prelu_param() const {
-  return (_has_bits_[1] & 0x00000100u) != 0;
+  return (_has_bits_[1] & 0x00000800u) != 0;
 }
 inline void LayerParameter::set_has_prelu_param() {
-  _has_bits_[1] |= 0x00000100u;
+  _has_bits_[1] |= 0x00000800u;
 }
 inline void LayerParameter::clear_has_prelu_param() {
-  _has_bits_[1] &= ~0x00000100u;
+  _has_bits_[1] &= ~0x00000800u;
 }
 inline void LayerParameter::clear_prelu_param() {
   if (prelu_param_ != NULL) prelu_param_->::caffe::PReLUParameter::Clear();
@@ -14955,13 +15564,13 @@ inline void LayerParameter::set_allocated_prelu_param(::caffe::PReLUParameter* p
 
 // optional .caffe.PythonParameter python_param = 130;
 inline bool LayerParameter::has_python_param() const {
-  return (_has_bits_[1] & 0x00000200u) != 0;
+  return (_has_bits_[1] & 0x00001000u) != 0;
 }
 inline void LayerParameter::set_has_python_param() {
-  _has_bits_[1] |= 0x00000200u;
+  _has_bits_[1] |= 0x00001000u;
 }
 inline void LayerParameter::clear_has_python_param() {
-  _has_bits_[1] &= ~0x00000200u;
+  _has_bits_[1] &= ~0x00001000u;
 }
 inline void LayerParameter::clear_python_param() {
   if (python_param_ != NULL) python_param_->::caffe::PythonParameter::Clear();
@@ -14996,15 +15605,58 @@ inline void LayerParameter::set_allocated_python_param(::caffe::PythonParameter*
   // @@protoc_insertion_point(field_set_allocated:caffe.LayerParameter.python_param)
 }
 
+// optional .caffe.RecurrentParameter recurrent_param = 146;
+inline bool LayerParameter::has_recurrent_param() const {
+  return (_has_bits_[1] & 0x00002000u) != 0;
+}
+inline void LayerParameter::set_has_recurrent_param() {
+  _has_bits_[1] |= 0x00002000u;
+}
+inline void LayerParameter::clear_has_recurrent_param() {
+  _has_bits_[1] &= ~0x00002000u;
+}
+inline void LayerParameter::clear_recurrent_param() {
+  if (recurrent_param_ != NULL) recurrent_param_->::caffe::RecurrentParameter::Clear();
+  clear_has_recurrent_param();
+}
+inline const ::caffe::RecurrentParameter& LayerParameter::recurrent_param() const {
+  // @@protoc_insertion_point(field_get:caffe.LayerParameter.recurrent_param)
+  return recurrent_param_ != NULL ? *recurrent_param_ : *default_instance_->recurrent_param_;
+}
+inline ::caffe::RecurrentParameter* LayerParameter::mutable_recurrent_param() {
+  set_has_recurrent_param();
+  if (recurrent_param_ == NULL) {
+    recurrent_param_ = new ::caffe::RecurrentParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:caffe.LayerParameter.recurrent_param)
+  return recurrent_param_;
+}
+inline ::caffe::RecurrentParameter* LayerParameter::release_recurrent_param() {
+  clear_has_recurrent_param();
+  ::caffe::RecurrentParameter* temp = recurrent_param_;
+  recurrent_param_ = NULL;
+  return temp;
+}
+inline void LayerParameter::set_allocated_recurrent_param(::caffe::RecurrentParameter* recurrent_param) {
+  delete recurrent_param_;
+  recurrent_param_ = recurrent_param;
+  if (recurrent_param) {
+    set_has_recurrent_param();
+  } else {
+    clear_has_recurrent_param();
+  }
+  // @@protoc_insertion_point(field_set_allocated:caffe.LayerParameter.recurrent_param)
+}
+
 // optional .caffe.ReductionParameter reduction_param = 136;
 inline bool LayerParameter::has_reduction_param() const {
-  return (_has_bits_[1] & 0x00000400u) != 0;
+  return (_has_bits_[1] & 0x00004000u) != 0;
 }
 inline void LayerParameter::set_has_reduction_param() {
-  _has_bits_[1] |= 0x00000400u;
+  _has_bits_[1] |= 0x00004000u;
 }
 inline void LayerParameter::clear_has_reduction_param() {
-  _has_bits_[1] &= ~0x00000400u;
+  _has_bits_[1] &= ~0x00004000u;
 }
 inline void LayerParameter::clear_reduction_param() {
   if (reduction_param_ != NULL) reduction_param_->::caffe::ReductionParameter::Clear();
@@ -15041,13 +15693,13 @@ inline void LayerParameter::set_allocated_reduction_param(::caffe::ReductionPara
 
 // optional .caffe.ReLUParameter relu_param = 123;
 inline bool LayerParameter::has_relu_param() const {
-  return (_has_bits_[1] & 0x00000800u) != 0;
+  return (_has_bits_[1] & 0x00008000u) != 0;
 }
 inline void LayerParameter::set_has_relu_param() {
-  _has_bits_[1] |= 0x00000800u;
+  _has_bits_[1] |= 0x00008000u;
 }
 inline void LayerParameter::clear_has_relu_param() {
-  _has_bits_[1] &= ~0x00000800u;
+  _has_bits_[1] &= ~0x00008000u;
 }
 inline void LayerParameter::clear_relu_param() {
   if (relu_param_ != NULL) relu_param_->::caffe::ReLUParameter::Clear();
@@ -15084,13 +15736,13 @@ inline void LayerParameter::set_allocated_relu_param(::caffe::ReLUParameter* rel
 
 // optional .caffe.ReshapeParameter reshape_param = 133;
 inline bool LayerParameter::has_reshape_param() const {
-  return (_has_bits_[1] & 0x00001000u) != 0;
+  return (_has_bits_[1] & 0x00010000u) != 0;
 }
 inline void LayerParameter::set_has_reshape_param() {
-  _has_bits_[1] |= 0x00001000u;
+  _has_bits_[1] |= 0x00010000u;
 }
 inline void LayerParameter::clear_has_reshape_param() {
-  _has_bits_[1] &= ~0x00001000u;
+  _has_bits_[1] &= ~0x00010000u;
 }
 inline void LayerParameter::clear_reshape_param() {
   if (reshape_param_ != NULL) reshape_param_->::caffe::ReshapeParameter::Clear();
@@ -15127,13 +15779,13 @@ inline void LayerParameter::set_allocated_reshape_param(::caffe::ReshapeParamete
 
 // optional .caffe.ScaleParameter scale_param = 142;
 inline bool LayerParameter::has_scale_param() const {
-  return (_has_bits_[1] & 0x00002000u) != 0;
+  return (_has_bits_[1] & 0x00020000u) != 0;
 }
 inline void LayerParameter::set_has_scale_param() {
-  _has_bits_[1] |= 0x00002000u;
+  _has_bits_[1] |= 0x00020000u;
 }
 inline void LayerParameter::clear_has_scale_param() {
-  _has_bits_[1] &= ~0x00002000u;
+  _has_bits_[1] &= ~0x00020000u;
 }
 inline void LayerParameter::clear_scale_param() {
   if (scale_param_ != NULL) scale_param_->::caffe::ScaleParameter::Clear();
@@ -15170,13 +15822,13 @@ inline void LayerParameter::set_allocated_scale_param(::caffe::ScaleParameter* s
 
 // optional .caffe.SigmoidParameter sigmoid_param = 124;
 inline bool LayerParameter::has_sigmoid_param() const {
-  return (_has_bits_[1] & 0x00004000u) != 0;
+  return (_has_bits_[1] & 0x00040000u) != 0;
 }
 inline void LayerParameter::set_has_sigmoid_param() {
-  _has_bits_[1] |= 0x00004000u;
+  _has_bits_[1] |= 0x00040000u;
 }
 inline void LayerParameter::clear_has_sigmoid_param() {
-  _has_bits_[1] &= ~0x00004000u;
+  _has_bits_[1] &= ~0x00040000u;
 }
 inline void LayerParameter::clear_sigmoid_param() {
   if (sigmoid_param_ != NULL) sigmoid_param_->::caffe::SigmoidParameter::Clear();
@@ -15213,13 +15865,13 @@ inline void LayerParameter::set_allocated_sigmoid_param(::caffe::SigmoidParamete
 
 // optional .caffe.SoftmaxParameter softmax_param = 125;
 inline bool LayerParameter::has_softmax_param() const {
-  return (_has_bits_[1] & 0x00008000u) != 0;
+  return (_has_bits_[1] & 0x00080000u) != 0;
 }
 inline void LayerParameter::set_has_softmax_param() {
-  _has_bits_[1] |= 0x00008000u;
+  _has_bits_[1] |= 0x00080000u;
 }
 inline void LayerParameter::clear_has_softmax_param() {
-  _has_bits_[1] &= ~0x00008000u;
+  _has_bits_[1] &= ~0x00080000u;
 }
 inline void LayerParameter::clear_softmax_param() {
   if (softmax_param_ != NULL) softmax_param_->::caffe::SoftmaxParameter::Clear();
@@ -15256,13 +15908,13 @@ inline void LayerParameter::set_allocated_softmax_param(::caffe::SoftmaxParamete
 
 // optional .caffe.SPPParameter spp_param = 132;
 inline bool LayerParameter::has_spp_param() const {
-  return (_has_bits_[1] & 0x00010000u) != 0;
+  return (_has_bits_[1] & 0x00100000u) != 0;
 }
 inline void LayerParameter::set_has_spp_param() {
-  _has_bits_[1] |= 0x00010000u;
+  _has_bits_[1] |= 0x00100000u;
 }
 inline void LayerParameter::clear_has_spp_param() {
-  _has_bits_[1] &= ~0x00010000u;
+  _has_bits_[1] &= ~0x00100000u;
 }
 inline void LayerParameter::clear_spp_param() {
   if (spp_param_ != NULL) spp_param_->::caffe::SPPParameter::Clear();
@@ -15299,13 +15951,13 @@ inline void LayerParameter::set_allocated_spp_param(::caffe::SPPParameter* spp_p
 
 // optional .caffe.SliceParameter slice_param = 126;
 inline bool LayerParameter::has_slice_param() const {
-  return (_has_bits_[1] & 0x00020000u) != 0;
+  return (_has_bits_[1] & 0x00200000u) != 0;
 }
 inline void LayerParameter::set_has_slice_param() {
-  _has_bits_[1] |= 0x00020000u;
+  _has_bits_[1] |= 0x00200000u;
 }
 inline void LayerParameter::clear_has_slice_param() {
-  _has_bits_[1] &= ~0x00020000u;
+  _has_bits_[1] &= ~0x00200000u;
 }
 inline void LayerParameter::clear_slice_param() {
   if (slice_param_ != NULL) slice_param_->::caffe::SliceParameter::Clear();
@@ -15342,13 +15994,13 @@ inline void LayerParameter::set_allocated_slice_param(::caffe::SliceParameter* s
 
 // optional .caffe.TanHParameter tanh_param = 127;
 inline bool LayerParameter::has_tanh_param() const {
-  return (_has_bits_[1] & 0x00040000u) != 0;
+  return (_has_bits_[1] & 0x00400000u) != 0;
 }
 inline void LayerParameter::set_has_tanh_param() {
-  _has_bits_[1] |= 0x00040000u;
+  _has_bits_[1] |= 0x00400000u;
 }
 inline void LayerParameter::clear_has_tanh_param() {
-  _has_bits_[1] &= ~0x00040000u;
+  _has_bits_[1] &= ~0x00400000u;
 }
 inline void LayerParameter::clear_tanh_param() {
   if (tanh_param_ != NULL) tanh_param_->::caffe::TanHParameter::Clear();
@@ -15385,13 +16037,13 @@ inline void LayerParameter::set_allocated_tanh_param(::caffe::TanHParameter* tan
 
 // optional .caffe.ThresholdParameter threshold_param = 128;
 inline bool LayerParameter::has_threshold_param() const {
-  return (_has_bits_[1] & 0x00080000u) != 0;
+  return (_has_bits_[1] & 0x00800000u) != 0;
 }
 inline void LayerParameter::set_has_threshold_param() {
-  _has_bits_[1] |= 0x00080000u;
+  _has_bits_[1] |= 0x00800000u;
 }
 inline void LayerParameter::clear_has_threshold_param() {
-  _has_bits_[1] &= ~0x00080000u;
+  _has_bits_[1] &= ~0x00800000u;
 }
 inline void LayerParameter::clear_threshold_param() {
   if (threshold_param_ != NULL) threshold_param_->::caffe::ThresholdParameter::Clear();
@@ -15428,13 +16080,13 @@ inline void LayerParameter::set_allocated_threshold_param(::caffe::ThresholdPara
 
 // optional .caffe.TileParameter tile_param = 138;
 inline bool LayerParameter::has_tile_param() const {
-  return (_has_bits_[1] & 0x00100000u) != 0;
+  return (_has_bits_[1] & 0x01000000u) != 0;
 }
 inline void LayerParameter::set_has_tile_param() {
-  _has_bits_[1] |= 0x00100000u;
+  _has_bits_[1] |= 0x01000000u;
 }
 inline void LayerParameter::clear_has_tile_param() {
-  _has_bits_[1] &= ~0x00100000u;
+  _has_bits_[1] &= ~0x01000000u;
 }
 inline void LayerParameter::clear_tile_param() {
   if (tile_param_ != NULL) tile_param_->::caffe::TileParameter::Clear();
@@ -15471,13 +16123,13 @@ inline void LayerParameter::set_allocated_tile_param(::caffe::TileParameter* til
 
 // optional .caffe.WindowDataParameter window_data_param = 129;
 inline bool LayerParameter::has_window_data_param() const {
-  return (_has_bits_[1] & 0x00200000u) != 0;
+  return (_has_bits_[1] & 0x02000000u) != 0;
 }
 inline void LayerParameter::set_has_window_data_param() {
-  _has_bits_[1] |= 0x00200000u;
+  _has_bits_[1] |= 0x02000000u;
 }
 inline void LayerParameter::clear_has_window_data_param() {
-  _has_bits_[1] &= ~0x00200000u;
+  _has_bits_[1] &= ~0x02000000u;
 }
 inline void LayerParameter::clear_window_data_param() {
   if (window_data_param_ != NULL) window_data_param_->::caffe::WindowDataParameter::Clear();
@@ -16720,6 +17372,64 @@ inline void ConvolutionParameter::set_force_nd_im2col(bool value) {
   set_has_force_nd_im2col();
   force_nd_im2col_ = value;
   // @@protoc_insertion_point(field_set:caffe.ConvolutionParameter.force_nd_im2col)
+}
+
+// -------------------------------------------------------------------
+
+// CropParameter
+
+// optional int32 axis = 1 [default = 2];
+inline bool CropParameter::has_axis() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CropParameter::set_has_axis() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CropParameter::clear_has_axis() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CropParameter::clear_axis() {
+  axis_ = 2;
+  clear_has_axis();
+}
+inline ::google::protobuf::int32 CropParameter::axis() const {
+  // @@protoc_insertion_point(field_get:caffe.CropParameter.axis)
+  return axis_;
+}
+inline void CropParameter::set_axis(::google::protobuf::int32 value) {
+  set_has_axis();
+  axis_ = value;
+  // @@protoc_insertion_point(field_set:caffe.CropParameter.axis)
+}
+
+// repeated uint32 offset = 2;
+inline int CropParameter::offset_size() const {
+  return offset_.size();
+}
+inline void CropParameter::clear_offset() {
+  offset_.Clear();
+}
+inline ::google::protobuf::uint32 CropParameter::offset(int index) const {
+  // @@protoc_insertion_point(field_get:caffe.CropParameter.offset)
+  return offset_.Get(index);
+}
+inline void CropParameter::set_offset(int index, ::google::protobuf::uint32 value) {
+  offset_.Set(index, value);
+  // @@protoc_insertion_point(field_set:caffe.CropParameter.offset)
+}
+inline void CropParameter::add_offset(::google::protobuf::uint32 value) {
+  offset_.Add(value);
+  // @@protoc_insertion_point(field_add:caffe.CropParameter.offset)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+CropParameter::offset() const {
+  // @@protoc_insertion_point(field_list:caffe.CropParameter.offset)
+  return offset_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+CropParameter::mutable_offset() {
+  // @@protoc_insertion_point(field_mutable_list:caffe.CropParameter.offset)
+  return &offset_;
 }
 
 // -------------------------------------------------------------------
@@ -18427,6 +19137,64 @@ inline void InnerProductParameter::set_axis(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:caffe.InnerProductParameter.axis)
 }
 
+// optional bool transpose = 6 [default = false];
+inline bool InnerProductParameter::has_transpose() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void InnerProductParameter::set_has_transpose() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void InnerProductParameter::clear_has_transpose() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void InnerProductParameter::clear_transpose() {
+  transpose_ = false;
+  clear_has_transpose();
+}
+inline bool InnerProductParameter::transpose() const {
+  // @@protoc_insertion_point(field_get:caffe.InnerProductParameter.transpose)
+  return transpose_;
+}
+inline void InnerProductParameter::set_transpose(bool value) {
+  set_has_transpose();
+  transpose_ = value;
+  // @@protoc_insertion_point(field_set:caffe.InnerProductParameter.transpose)
+}
+
+// -------------------------------------------------------------------
+
+// InputParameter
+
+// repeated .caffe.BlobShape shape = 1;
+inline int InputParameter::shape_size() const {
+  return shape_.size();
+}
+inline void InputParameter::clear_shape() {
+  shape_.Clear();
+}
+inline const ::caffe::BlobShape& InputParameter::shape(int index) const {
+  // @@protoc_insertion_point(field_get:caffe.InputParameter.shape)
+  return shape_.Get(index);
+}
+inline ::caffe::BlobShape* InputParameter::mutable_shape(int index) {
+  // @@protoc_insertion_point(field_mutable:caffe.InputParameter.shape)
+  return shape_.Mutable(index);
+}
+inline ::caffe::BlobShape* InputParameter::add_shape() {
+  // @@protoc_insertion_point(field_add:caffe.InputParameter.shape)
+  return shape_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::caffe::BlobShape >*
+InputParameter::mutable_shape() {
+  // @@protoc_insertion_point(field_mutable_list:caffe.InputParameter.shape)
+  return &shape_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::caffe::BlobShape >&
+InputParameter::shape() const {
+  // @@protoc_insertion_point(field_list:caffe.InputParameter.shape)
+  return shape_;
+}
+
 // -------------------------------------------------------------------
 
 // LogParameter
@@ -18827,6 +19595,53 @@ inline void MVNParameter::set_eps(float value) {
   set_has_eps();
   eps_ = value;
   // @@protoc_insertion_point(field_set:caffe.MVNParameter.eps)
+}
+
+// -------------------------------------------------------------------
+
+// ParameterParameter
+
+// optional .caffe.BlobShape shape = 1;
+inline bool ParameterParameter::has_shape() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ParameterParameter::set_has_shape() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ParameterParameter::clear_has_shape() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ParameterParameter::clear_shape() {
+  if (shape_ != NULL) shape_->::caffe::BlobShape::Clear();
+  clear_has_shape();
+}
+inline const ::caffe::BlobShape& ParameterParameter::shape() const {
+  // @@protoc_insertion_point(field_get:caffe.ParameterParameter.shape)
+  return shape_ != NULL ? *shape_ : *default_instance_->shape_;
+}
+inline ::caffe::BlobShape* ParameterParameter::mutable_shape() {
+  set_has_shape();
+  if (shape_ == NULL) {
+    shape_ = new ::caffe::BlobShape;
+  }
+  // @@protoc_insertion_point(field_mutable:caffe.ParameterParameter.shape)
+  return shape_;
+}
+inline ::caffe::BlobShape* ParameterParameter::release_shape() {
+  clear_has_shape();
+  ::caffe::BlobShape* temp = shape_;
+  shape_ = NULL;
+  return temp;
+}
+inline void ParameterParameter::set_allocated_shape(::caffe::BlobShape* shape) {
+  delete shape_;
+  shape_ = shape;
+  if (shape) {
+    set_has_shape();
+  } else {
+    clear_has_shape();
+  }
+  // @@protoc_insertion_point(field_set_allocated:caffe.ParameterParameter.shape)
 }
 
 // -------------------------------------------------------------------
@@ -19384,6 +20199,168 @@ inline void PythonParameter::set_share_in_parallel(bool value) {
   set_has_share_in_parallel();
   share_in_parallel_ = value;
   // @@protoc_insertion_point(field_set:caffe.PythonParameter.share_in_parallel)
+}
+
+// -------------------------------------------------------------------
+
+// RecurrentParameter
+
+// optional uint32 num_output = 1 [default = 0];
+inline bool RecurrentParameter::has_num_output() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RecurrentParameter::set_has_num_output() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RecurrentParameter::clear_has_num_output() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RecurrentParameter::clear_num_output() {
+  num_output_ = 0u;
+  clear_has_num_output();
+}
+inline ::google::protobuf::uint32 RecurrentParameter::num_output() const {
+  // @@protoc_insertion_point(field_get:caffe.RecurrentParameter.num_output)
+  return num_output_;
+}
+inline void RecurrentParameter::set_num_output(::google::protobuf::uint32 value) {
+  set_has_num_output();
+  num_output_ = value;
+  // @@protoc_insertion_point(field_set:caffe.RecurrentParameter.num_output)
+}
+
+// optional .caffe.FillerParameter weight_filler = 2;
+inline bool RecurrentParameter::has_weight_filler() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void RecurrentParameter::set_has_weight_filler() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void RecurrentParameter::clear_has_weight_filler() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void RecurrentParameter::clear_weight_filler() {
+  if (weight_filler_ != NULL) weight_filler_->::caffe::FillerParameter::Clear();
+  clear_has_weight_filler();
+}
+inline const ::caffe::FillerParameter& RecurrentParameter::weight_filler() const {
+  // @@protoc_insertion_point(field_get:caffe.RecurrentParameter.weight_filler)
+  return weight_filler_ != NULL ? *weight_filler_ : *default_instance_->weight_filler_;
+}
+inline ::caffe::FillerParameter* RecurrentParameter::mutable_weight_filler() {
+  set_has_weight_filler();
+  if (weight_filler_ == NULL) {
+    weight_filler_ = new ::caffe::FillerParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:caffe.RecurrentParameter.weight_filler)
+  return weight_filler_;
+}
+inline ::caffe::FillerParameter* RecurrentParameter::release_weight_filler() {
+  clear_has_weight_filler();
+  ::caffe::FillerParameter* temp = weight_filler_;
+  weight_filler_ = NULL;
+  return temp;
+}
+inline void RecurrentParameter::set_allocated_weight_filler(::caffe::FillerParameter* weight_filler) {
+  delete weight_filler_;
+  weight_filler_ = weight_filler;
+  if (weight_filler) {
+    set_has_weight_filler();
+  } else {
+    clear_has_weight_filler();
+  }
+  // @@protoc_insertion_point(field_set_allocated:caffe.RecurrentParameter.weight_filler)
+}
+
+// optional .caffe.FillerParameter bias_filler = 3;
+inline bool RecurrentParameter::has_bias_filler() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void RecurrentParameter::set_has_bias_filler() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void RecurrentParameter::clear_has_bias_filler() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void RecurrentParameter::clear_bias_filler() {
+  if (bias_filler_ != NULL) bias_filler_->::caffe::FillerParameter::Clear();
+  clear_has_bias_filler();
+}
+inline const ::caffe::FillerParameter& RecurrentParameter::bias_filler() const {
+  // @@protoc_insertion_point(field_get:caffe.RecurrentParameter.bias_filler)
+  return bias_filler_ != NULL ? *bias_filler_ : *default_instance_->bias_filler_;
+}
+inline ::caffe::FillerParameter* RecurrentParameter::mutable_bias_filler() {
+  set_has_bias_filler();
+  if (bias_filler_ == NULL) {
+    bias_filler_ = new ::caffe::FillerParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:caffe.RecurrentParameter.bias_filler)
+  return bias_filler_;
+}
+inline ::caffe::FillerParameter* RecurrentParameter::release_bias_filler() {
+  clear_has_bias_filler();
+  ::caffe::FillerParameter* temp = bias_filler_;
+  bias_filler_ = NULL;
+  return temp;
+}
+inline void RecurrentParameter::set_allocated_bias_filler(::caffe::FillerParameter* bias_filler) {
+  delete bias_filler_;
+  bias_filler_ = bias_filler;
+  if (bias_filler) {
+    set_has_bias_filler();
+  } else {
+    clear_has_bias_filler();
+  }
+  // @@protoc_insertion_point(field_set_allocated:caffe.RecurrentParameter.bias_filler)
+}
+
+// optional bool debug_info = 4 [default = false];
+inline bool RecurrentParameter::has_debug_info() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void RecurrentParameter::set_has_debug_info() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void RecurrentParameter::clear_has_debug_info() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void RecurrentParameter::clear_debug_info() {
+  debug_info_ = false;
+  clear_has_debug_info();
+}
+inline bool RecurrentParameter::debug_info() const {
+  // @@protoc_insertion_point(field_get:caffe.RecurrentParameter.debug_info)
+  return debug_info_;
+}
+inline void RecurrentParameter::set_debug_info(bool value) {
+  set_has_debug_info();
+  debug_info_ = value;
+  // @@protoc_insertion_point(field_set:caffe.RecurrentParameter.debug_info)
+}
+
+// optional bool expose_hidden = 5 [default = false];
+inline bool RecurrentParameter::has_expose_hidden() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void RecurrentParameter::set_has_expose_hidden() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void RecurrentParameter::clear_has_expose_hidden() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void RecurrentParameter::clear_expose_hidden() {
+  expose_hidden_ = false;
+  clear_has_expose_hidden();
+}
+inline bool RecurrentParameter::expose_hidden() const {
+  // @@protoc_insertion_point(field_get:caffe.RecurrentParameter.expose_hidden)
+  return expose_hidden_;
+}
+inline void RecurrentParameter::set_expose_hidden(bool value) {
+  set_has_expose_hidden();
+  expose_hidden_ = value;
+  // @@protoc_insertion_point(field_set:caffe.RecurrentParameter.expose_hidden)
 }
 
 // -------------------------------------------------------------------
@@ -23554,6 +24531,14 @@ inline void PReLUParameter::set_channel_shared(bool value) {
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

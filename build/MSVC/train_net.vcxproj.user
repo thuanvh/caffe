@@ -34,4 +34,10 @@
     <LocalDebuggerEnvironment />
     <LocalDebuggerWorkingDirectory>D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour</LocalDebuggerWorkingDirectory>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2015_xp|Win32'">
+    <LocalDebuggerCommandArguments>D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour\lenet_solver.prototxt</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerEnvironment />
+    <LocalDebuggerWorkingDirectory>D:\sandbox\utility\cnn\caffe_example\caffe\examples\fpcontour</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
 </Project>
