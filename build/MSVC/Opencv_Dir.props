@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <OPENCV_DIR>$(SolutionDir)\..\..\..\..\..\3rdparty\opencv\</OPENCV_DIR>
+    <OPENCV_DIR>$(SolutionDir)\..\..\..\..\..\..\3rdparty\opencv\</OPENCV_DIR>
 	<OPENCV_INCLUDE_DIR>$(OPENCV_DIR)/include</OPENCV_INCLUDE_DIR>
 	<OPENCV_LIB_DIR>$(OPENCV_DIR)\$(PlatformShortName)\$(PlatformToolset)\lib\</OPENCV_LIB_DIR>
 	<!--IsDebug: search for 'Debug' in Configuration-->
