@@ -86,8 +86,24 @@ void GpuUtil::RunSolver(caffe::Solver<float>* solver_ptr, vector<int>& gpus)
 {
   shared_ptr<caffe::Solver<float> >
     solver(solver_ptr);
-  caffe::P2PSync<float> sync(solver, NULL, solver->param());
-  sync.Run(gpus);
+  Caffe::SetDevice(gpus[0]);
+  Caffe::set_mode(Caffe::GPU);
+  Caffe::set_solver_count(gpus.size());
+  //caffe::P2PSync<float> sync(solver, NULL, solver->param());
+  //sync.Run(gpus);
+  LOG(INFO) << "Starting Optimization";
+  if (gpus.size() > 1) {
+#ifdef USE_NCCL
+    caffe::NCCL<float> nccl(solver);
+    nccl.Run(gpus, FLAGS_snapshot.size() > 0 ? FLAGS_snapshot.c_str() : NULL);
+#else
+    LOG(FATAL) << "Multi-GPU execution not available - rebuild with USE_NCCL";
+#endif
+  }
+  else {
+    solver->Solve();
+  }
+  LOG(INFO) << "Optimization Done.";
 }
 
 GpuUtil::GpuUtil()

@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <THIRD_PARTY_DIR>$(SolutionDir)\..\..\..\..\..\..\3rdparty\</THIRD_PARTY_DIR>
+    <THIRD_PARTY_DIR>$(SolutionDir)\..\..\..\..\..\..\..\External\</THIRD_PARTY_DIR>
 	<THIRD_PARTY_INCLUDE_DIR>$(THIRD_PARTY_DIR)/include</THIRD_PARTY_INCLUDE_DIR>
 	<!--<THIRD_PARTY_LIB_DIR>$(THIRD_PARTY_DIR)/$(Platform)/vc11/staticlib/</THIRD_PARTY_LIB_DIR>-->
 	<THIRD_PARTY_LIB_DIR>$(THIRD_PARTY_DIR)/lib/$(Platform)</THIRD_PARTY_LIB_DIR>
