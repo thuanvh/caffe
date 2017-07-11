@@ -42,13 +42,13 @@
     <Link>
       <AdditionalLibraryDirectories>
 	  $(THIRD_PARTY_LIB_DIR);
-	  $(THIRD_PARTY_DIR)/protobuf/lib/$(Platform);
-	  $(THIRD_PARTY_DIR)/boost/lib/$(Platform);	  
-	  $(THIRD_PARTY_DIR)/leveldb/lib/$(Platform);
-	  $(THIRD_PARTY_DIR)/lmdb/lib/$(Platform);
-	  $(THIRD_PARTY_DIR)/openblas/lib/$(Platform);
+	  $(THIRD_PARTY_DIR)/protobuf/lib/$(Platform)/$(PlatformToolset);
+	  $(THIRD_PARTY_DIR)/boost/lib/$(Platform)/$(PlatformToolset);	  
+	  $(THIRD_PARTY_DIR)/leveldb/lib/$(Platform)/$(PlatformToolset);
+	  $(THIRD_PARTY_DIR)/lmdb/lib/$(Platform)/$(PlatformToolset);
+	  $(THIRD_PARTY_DIR)/openblas/lib/$(Platform)/;
 	  $(THIRD_PARTY_DIR)/glog/lib/;
-	  $(THIRD_PARTY_DIR)/gflags/lib/$(Platform);
+	  $(THIRD_PARTY_DIR)/gflags/lib/$(Platform)/$(PlatformToolset);
 	  $(THIRD_PARTY_DIR)/hdf5/lib/;
 	  $(THIRD_PARTY_DIR)/pthread/lib/x86;
 	  %(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
